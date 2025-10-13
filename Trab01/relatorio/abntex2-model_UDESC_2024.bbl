@@ -1,0 +1,18 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v<VERSION> }
+
+\bibitem[Barbieri 2022]{EMA_Barbieri}
+\abntrefinfo{Barbieri}{Barbieri}{2022}
+{BARBIERI, Renato. \textbf{Elementos de Máquinas}: Projeto de sistemas mecânicos. 2. ed. São Paulo: Blucher, 2022. Descrição física.}
+
+\bibitem[Sild 2022]{correia_carro}
+\abntrefinfo{Sild}{Sild}{2022}
+{SILD, Siim. \textbf{Belt Drives \& Types of Belts}. 2022.
+Acesso em: 25 de Setembro de 2025.
+Dispon{\'\i}vel em: \url{https://fractory.com/belt-drives/}.}
+
+\end{thebibliography}
