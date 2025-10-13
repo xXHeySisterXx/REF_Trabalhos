@@ -2,12 +2,10 @@
 
 ## Afazeres:
 
-- [x] Definir alimento a armazenar
-    
-    Alimento: Peixe
-    
-    Temperatura (Longo prazo) = -25°C
+- [x] Definir alimento a armazenar\
+>   Temperatura (Longo prazo) = -25°C\
+>    Alimento: Peixe \
 
-- [ ] Elaborar calculos no relatório diretamente
+- [ ] Elaborar diagrama com cálculos
 
 ## 
