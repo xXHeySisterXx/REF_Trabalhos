@@ -1,6 +1,13 @@
 # Anotações Simulação Refrigerador:
 **Data entrega: 30/10**
 
+## Observações:
+
+O tempo de pulldown é que determina T_evaporador e T_condensador
+
+Q_L é o requerimento do projeto, Q_total sobre o tempo
+
+
 ## Requerimentos:
 
 1. O sistema deve funcionar em um ambiente a 35 °C
@@ -21,6 +28,7 @@ de operação desejada em no máximo 8 horas (tempo de pulldown)
 
 - [x] A escolha justificada do fluido refrigerante;
 >R-404A: É um HFC (hidrofluorcarboneto) que por muito tempo foi padrão em sistemas de refrigeração de baixa e média temperatura, especialmente em balcões comerciais e câmaras frias. No entanto, devido ao seu alto potencial de aquecimento global (GWP), está sendo gradualmente substituído.
+>R134a para forçar T2=T3 e P2=P3, que o Coolprop não consegue com fluidos misturados.
 
 
 - [ ] A configuração do ciclo padrão de refrigeração (temperaturas, pressões e COP);
