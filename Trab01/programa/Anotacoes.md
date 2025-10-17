@@ -10,13 +10,14 @@ de operação desejada em no máximo 8 horas (tempo de pulldown)
 
 ### Deve Possuir:
 
-- [ ] A contextualização e temperatura do item a ser refrigerado;
+- [x] A contextualização e temperatura do item a ser refrigerado;
 >   Temperatura (Longo prazo) = -25°C\
 >   Alimento: Peixe \
->   Calor específico [HeatCraft]: 0,8
->   Calor Latente: 56
+>   Calor específico resfriado [HeatCraft]: 0,82 kcal/(kg C)
+>   Calor específico congelado [HeatCraft]: 0,41 kcal/(kg C)
+>   Calor Latente: 58.25 kcal/(kg C)
 >   Densidade: 972 kg/m^3
->   Massa armazenada [200L]: 
+>   Massa armazenada [200L]: 136 kg (70% do volume)
 
 - [x] A escolha justificada do fluido refrigerante;
 >R-404A: É um HFC (hidrofluorcarboneto) que por muito tempo foi padrão em sistemas de refrigeração de baixa e média temperatura, especialmente em balcões comerciais e câmaras frias. No entanto, devido ao seu alto potencial de aquecimento global (GWP), está sendo gradualmente substituído.
@@ -38,7 +39,8 @@ de operação desejada em no máximo 8 horas (tempo de pulldown)
 
 ### Preparatório:
 - [ ] Elaborar diagrama com cálculos
-- [ ] Estimar carga de refrigeração
+- [x] Estimar carga de refrigeração
+> Q_total = 51726.24 KJ
 - [ ] Pacote para encontrar variáveis de curvas (ajusta curvas)
 
 ### Programa:
