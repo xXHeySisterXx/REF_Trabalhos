@@ -13,26 +13,26 @@ de operação desejada em no máximo 8 horas (tempo de pulldown)
 - [ ] A contextualização e temperatura do item a ser refrigerado;
 >   Temperatura (Longo prazo) = -25°C\
 >   Alimento: Peixe \
-> 
-- [ ] A escolha justificada do fluido refrigerante;
+>   Calor específico [HeatCraft]: 0,8
+>   Calor Latente: 56
+>   Densidade: 972 kg/m^3
+>   Massa armazenada [200L]: 
+
+- [x] A escolha justificada do fluido refrigerante;
+>R-404A: É um HFC (hidrofluorcarboneto) que por muito tempo foi padrão em sistemas de refrigeração de baixa e média temperatura, especialmente em balcões comerciais e câmaras frias. No entanto, devido ao seu alto potencial de aquecimento global (GWP), está sendo gradualmente substituído.
+
 
 - [ ] A configuração do ciclo padrão de refrigeração (temperaturas, pressões e COP);
 
-- [ ] A escolha de um compressor comercialmente disponível que funcione no ciclo
+- [ ] A escolha de um compressor comercialmente disponível que funcione no ciclo apresentado e que fornece no mínimo a carga térmica descrita acima, citando a fonte do datasheet utilizado e como será feito o controle de capacidade;
 
-apresentado e que fornece no mínimo a carga térmica descrita acima, citando a fonte
-do datasheet utilizado e como será feito o controle de capacidade;
+- [ ] Os valores de potência de compressão e COP (usando dados experimentais do compressor e um modelo do ciclo de refrigeração padrão);
 
-- [ ] Os valores de potência de compressão e COP (usando dados experimentais do
-compressor e um modelo do ciclo de refrigeração padrão);
-
-- [ ] Adicionar um condensador e um evaporador operando com 5 °C de diferença para o
-ambiente;
+- [ ] Adicionar um condensador e um evaporador operando com 5 °C de diferença para o ambiente;
 
 - [ ] Calcular a geração de entropia e a potência perdida associadas a cada componente;
 
-- [ ] Comparar COP de Carnot, Ciclo Padrão, Ciclo com compressor real e ciclo com
-trocadores reais
+- [ ] Comparar COP de Carnot, Ciclo Padrão, Ciclo com compressor real e ciclo com trocadores reais
 
 ## Afazeres:
 
