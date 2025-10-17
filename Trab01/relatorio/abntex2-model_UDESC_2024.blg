@@ -2,9 +2,8 @@ This is BibTeX, Version 0.99d (TeX Live 2025)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: abntex2-model_UDESC_2024.aux
 A level-1 auxiliary file: PreTextuais/Capa.aux
-A level-1 auxiliary file: Textuais/01-Introducao.aux
-A level-1 auxiliary file: Textuais/02-Desenvolvimento.aux
-A level-1 auxiliary file: Textuais/03-Desenvolvimento2.aux
+A level-1 auxiliary file: Textuais/Introducao.aux
+A level-1 auxiliary file: Textuais/Desenvolvimento.aux
 The style file: abntex2-alf_revNBR2023.bst.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -17,8 +16,6 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: abntex2-ref_UDESC_2020.bib
-Warning--entry type for "correia_carro" isn't style-file defined
---line 31 of file abntex2-ref_UDESC_2020.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
@@ -28,45 +25,44 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 5 entries,
+You've used 3 entries,
             6714 wiz_defined-function locations,
-            1218 strings with 9797 characters,
-and the built_in function-call counts, 3309 in all, are:
-= -- 430
-> -- 31
-< -- 35
-+ -- 95
-- -- 10
-* -- 170
-:= -- 473
-add.period$ -- 10
-call.type$ -- 5
-change.case$ -- 23
-chr.to.int$ -- 6
-cite$ -- 2
-duplicate$ -- 183
-empty$ -- 241
-format.name$ -- 46
-if$ -- 761
+            1203 strings with 9509 characters,
+and the built_in function-call counts, 1366 in all, are:
+= -- 227
+> -- 0
+< -- 0
++ -- 51
+- -- 0
+* -- 57
+:= -- 223
+add.period$ -- 0
+call.type$ -- 3
+change.case$ -- 9
+chr.to.int$ -- 1
+cite$ -- 0
+duplicate$ -- 9
+empty$ -- 118
+format.name$ -- 0
+if$ -- 345
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 68
-newline$ -- 18
-num.names$ -- 10
-pop$ -- 82
+missing$ -- 30
+newline$ -- 8
+num.names$ -- 0
+pop$ -- 36
 preamble$ -- 1
-purify$ -- 15
+purify$ -- 9
 quote$ -- 0
-skip$ -- 334
+skip$ -- 164
 stack$ -- 1
-substring$ -- 136
-swap$ -- 66
-text.length$ -- 1
+substring$ -- 62
+swap$ -- 0
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 15
+while$ -- 2
 width$ -- 0
-write$ -- 39
-(There was 1 warning)
+write$ -- 8
