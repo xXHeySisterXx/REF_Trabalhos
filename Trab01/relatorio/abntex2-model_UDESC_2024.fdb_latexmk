@@ -1,33 +1,33 @@
 # Fdb version 4
-["bibtex abntex2-model_UDESC_2024"] 1760724449.68057 "abntex2-model_UDESC_2024.aux" "abntex2-model_UDESC_2024.bbl" "abntex2-model_UDESC_2024" 1760724454.27475 0
+["bibtex abntex2-model_UDESC_2024"] 1760728290.41402 "abntex2-model_UDESC_2024.aux" "abntex2-model_UDESC_2024.bbl" "abntex2-model_UDESC_2024" 1760728295.54031 0
   "./abntex2-alf_revNBR2023.bst" 1760721698 62244 1c999a6bd28f2c83247b075aaf0482a6 ""
   "./abntex2-ref_UDESC_2020.bib" 1760721698 667 c7ece0a4d1edd3572970d1c9cfe40a2b ""
-  "PreTextuais/Capa.aux" 1760724452 1971 739be44a412e79d0a8d11f77329e0bbb "pdflatex"
-  "Textuais/Desenvolvimento.aux" 1760724452 2761 29bd03a3c1ddfa0b255f25e41e33acf4 "pdflatex"
-  "Textuais/Introducao.aux" 1760724452 1974 ddd1ccb66178ece48ef879cf92478aef "pdflatex"
-  "abntex2-model_UDESC_2024.aux" 1760724452 1829 42c64ab047ab140debc1a884bfd63738 "pdflatex"
+  "PreTextuais/Capa.aux" 1760728293 1971 739be44a412e79d0a8d11f77329e0bbb "pdflatex"
+  "Textuais/Desenvolvimento.aux" 1760728293 3095 c035b92ae11fefd5fb961bf5c03b5b99 "pdflatex"
+  "Textuais/Introducao.aux" 1760728293 1974 ddd1ccb66178ece48ef879cf92478aef "pdflatex"
+  "abntex2-model_UDESC_2024.aux" 1760728293 2367 02b73e9fa5ac023d3a3865f393dcb305 "pdflatex"
   "c:/texlive/2025/texmf-dist/bibtex/bib/abntex2/abntex2-options.bib" 1758621038 5396 4eb260dac60f150ae608d45252853090 ""
   (generated)
   "abntex2-model_UDESC_2024.bbl"
   "abntex2-model_UDESC_2024.blg"
   (rewritten before read)
-["makeindex abntex2-model_UDESC_2024.idx"] 1758843119.96241 "abntex2-model_UDESC_2024.idx" "abntex2-model_UDESC_2024.ind" "abntex2-model_UDESC_2024" 1760724454.27416 0
-  "abntex2-model_UDESC_2024.idx" 1760724452 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex abntex2-model_UDESC_2024.idx"] 1758843119.96241 "abntex2-model_UDESC_2024.idx" "abntex2-model_UDESC_2024.ind" "abntex2-model_UDESC_2024" 1760728295.53951 0
+  "abntex2-model_UDESC_2024.idx" 1760728293 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "abntex2-model_UDESC_2024.ilg"
   "abntex2-model_UDESC_2024.ind"
   (rewritten before read)
-["pdflatex"] 1760724450.17356 "c:/Users/andre/Pictures/Doc_Legit_Note/Trabalho_REF/REF_Trabalhos/Trab01/relatorio/abntex2-model_UDESC_2024.tex" "abntex2-model_UDESC_2024.pdf" "abntex2-model_UDESC_2024" 1760724454.27647 0
+["pdflatex"] 1760728290.95102 "c:/Users/andre/Pictures/Doc_Legit_Note/Trabalho_REF/REF_Trabalhos/Trab01/relatorio/abntex2-model_UDESC_2024.tex" "abntex2-model_UDESC_2024.pdf" "abntex2-model_UDESC_2024" 1760728295.54278 0
   "PacotesBasicos.tex" 1760721698 15158 eca88280a5e57a472b2fd921938fdafe ""
-  "PreTextuais/Capa.aux" 1760724452 1971 739be44a412e79d0a8d11f77329e0bbb "pdflatex"
+  "PreTextuais/Capa.aux" 1760728293 1971 739be44a412e79d0a8d11f77329e0bbb "pdflatex"
   "PreTextuais/Capa.tex" 1760721698 912 93305c576a6d1b79c48653bdda066806 ""
-  "Textuais/Desenvolvimento.aux" 1760724452 2761 29bd03a3c1ddfa0b255f25e41e33acf4 "pdflatex"
-  "Textuais/Desenvolvimento.tex" 1760724444 540 fefb42ad25d08ffef199d94be64d5691 ""
-  "Textuais/Introducao.aux" 1760724452 1974 ddd1ccb66178ece48ef879cf92478aef "pdflatex"
+  "Textuais/Desenvolvimento.aux" 1760728293 3095 c035b92ae11fefd5fb961bf5c03b5b99 "pdflatex"
+  "Textuais/Desenvolvimento.tex" 1760728284 794 f417aca1ab6f79cb2633707a60321979 ""
+  "Textuais/Introducao.aux" 1760728293 1974 ddd1ccb66178ece48ef879cf92478aef "pdflatex"
   "Textuais/Introducao.tex" 0 -1 0 ""
-  "abntex2-model_UDESC_2024.aux" 1760724452 1829 42c64ab047ab140debc1a884bfd63738 "pdflatex"
-  "abntex2-model_UDESC_2024.bbl" 1760724450 230 b18dccbc2f147f675f2f5a3b2d41d0e8 "bibtex abntex2-model_UDESC_2024"
-  "abntex2-model_UDESC_2024.brf" 1760724452 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "abntex2-model_UDESC_2024.aux" 1760728293 2367 02b73e9fa5ac023d3a3865f393dcb305 "pdflatex"
+  "abntex2-model_UDESC_2024.bbl" 1760728290 230 b18dccbc2f147f675f2f5a3b2d41d0e8 "bibtex abntex2-model_UDESC_2024"
+  "abntex2-model_UDESC_2024.brf" 1760728293 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   "abntex2-model_UDESC_2024.ind" 1760721698 0 d41d8cd98f00b204e9800998ecf8427e "makeindex abntex2-model_UDESC_2024.idx"
   "abntex2-model_UDESC_2024.tex" 1760722884 7879 cb28066e28e1f86d6f704723f3bcb179 ""
   "c:/Users/andre/Pictures/Doc_Legit_Note/Trabalho_REF/REF_Trabalhos/Trab01/relatorio/abntex2-model_UDESC_2024.tex" 1760722884 7879 cb28066e28e1f86d6f704723f3bcb179 ""

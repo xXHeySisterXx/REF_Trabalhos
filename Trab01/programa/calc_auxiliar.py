@@ -1,6 +1,6 @@
 
-#? ================================= Calc Massa e Calor Peixe
 
+#? ================================= Calc Massa e Calor Peixe
 dens_peixe = 972 # kg/m³
 volume = 0.7*200 / (10**3) # cm³ para m³ Considerando 70% do volume total
 m = dens_peixe*volume
