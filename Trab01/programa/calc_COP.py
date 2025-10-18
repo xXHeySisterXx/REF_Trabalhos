@@ -1,7 +1,7 @@
 
-def calc_COP_temps(T_amb, T_int):
-    COP = (T_int) / (T_amb - T_int)
+def calc_COP_temps(T_H, T_L):
+    COP = (T_L) / (T_H - T_L)
     return COP
 
-def calc_COP_qs():
+def calc_COP_Qs():
     return
