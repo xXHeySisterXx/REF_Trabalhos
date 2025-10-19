@@ -27,4 +27,5 @@ QL = Q_total / (8*60*60) # W
 
 
 # ?=================== Ciclo padrão
-ciclo_padrao(T_amb = 35 + 273, T_int = -25 + 273, QL=QL)
+df_ciclo_padrao = ciclo_padrao(T_amb = 35 + 273, T_int = -25 + 273, QL=QL, liq_refrigerante='R134a')
+plot_ciclo(df_ciclo_padrao, 'R134a')
