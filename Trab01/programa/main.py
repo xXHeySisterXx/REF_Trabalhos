@@ -18,12 +18,11 @@ dens_peixe = 972 # kg/m³
 volume = 0.7*200 / (10**3) # cm³ para m³ Considerando 70% do volume total
 m = dens_peixe*volume
 
-Q_resfriando = (calc_Q(m, 0.82 * 4.184, 30))*1000
-Q_muda_fase = (calc_Q(m, 56 * 4.184))*1000
-Q_congelado = (calc_Q(m, 0.41 * 4.184, 25))*1000
 
-Q_total = Q_resfriando + Q_muda_fase + Q_congelado
-QL = Q_total / (8*60*60) # W
+Q_congelado = (calc_Q(m, 0.41 * 4.184, 10))*1000 # Todo verificar temperatura de transporte peixe
+
+QL = Q_congelado / (8*60*60) # W
+
 
 
 # ?=================== Ciclo padrão

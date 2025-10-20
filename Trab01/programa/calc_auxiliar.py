@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import CoolProp.CoolProp as CP
 import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
 
 
 
@@ -17,7 +18,7 @@ def domo_refrigerante(liq_refrigerante):
     T_min = CP.PropsSI('Tmin', liq_refrigerante)
     T_max = CP.PropsSI('Tcrit', liq_refrigerante)
 
-    valores_T = np.linspace(T_min+1, T_max-1, 2000) # Liquido Saturado
+    valores_T = np.linspace(T_min, T_max, 2000) # Liquido Saturado
     valores_H = []
     valores_P = []
     valores_S = []
@@ -50,7 +51,7 @@ def plot_ciclo (df_cliclo, liq_refrigerante):
     df_domo = domo_refrigerante(liq_refrigerante)
 
     
-    fig, (TS, PH) = plt.subplots(1, 2, figsize = (18, 6))
+    fig, (TS, PH) = plt.subplots(1, 2, figsize = (12, 3))
 
     TS.plot(df_domo['S'], df_domo['T'])
     PH.plot(df_domo['H'], df_domo['P'])
@@ -69,3 +70,37 @@ def plot_ciclo (df_cliclo, liq_refrigerante):
     plt.show()
 
     return
+
+
+def ajuste_curva(funcao_desejada, T1, T2, P1, P2):
+    """
+    T1 = Ts (sucção)
+
+    """
+    df_compressores = pd.DataFrame({
+        'T_condensador':[1],
+        'T_evaporador': [1],
+        'capacidade': [1],
+        'eficiencia': [1],
+        'fluxo_massa': [1]
+        })
+    
+    N = 60
+    if (funcao_desejada=='massa'):
+         m = P2*N/T2*(b0 - b1 ( (P2/P1)** b2 - 1 ))
+    elif (funcao_desejada=='potencia'):
+         w = m*( a0*T2*((P2/P1)**a1 -1) + a2)
+
+    
+   
+
+
+                   
+                   
+
+        
+        
+    x = np.linspace(0, 10, 100)
+    y_alvo = funcao_compressor
+
+    params, _ = curve_fit(funcao_compressor, a0, a1, a2, y_alvo, )

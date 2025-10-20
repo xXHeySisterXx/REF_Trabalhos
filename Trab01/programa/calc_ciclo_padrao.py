@@ -26,6 +26,7 @@ def ciclo_padrao (T_amb, T_int, QL, liq_refrigerante):
     """
 
     print(ciclo_padrao.__doc__)
+    
     COP = calc_COP_temps(T_amb, T_int)
     W_compressor = QL/COP # W
     
