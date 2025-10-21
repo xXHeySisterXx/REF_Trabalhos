@@ -72,12 +72,12 @@ def plot_ciclo (df_cliclo, liq_refrigerante):
     return
 
 
-def ajuste_curva(funcao_desejada, T1, T2, P1, P2):
+def ajuste_curva(funcao_desejada, T1, T2, P1, P2, compressor):
     """
     T1 = Ts (sucção)
 
     """
-    df_compressores = pd.DataFrame({
+    df_compressor = pd.DataFrame({
         'T_condensador':[1],
         'T_evaporador': [1],
         'capacidade': [1],
@@ -87,20 +87,24 @@ def ajuste_curva(funcao_desejada, T1, T2, P1, P2):
     
     N = 60
     if (funcao_desejada=='massa'):
-         m = P2*N/T2*(b0 - b1 ( (P2/P1)** b2 - 1 ))
+
+        def funcao_massa(T1, b0, b1, b2):
+            m = P2*N/T1*(b0 - b1 * ( (P2/P1)** b2 - 1 ))
+            return m
+        
+        params_massa, _ = curve_fit(funcao_massa, df_compressor['T_evaporador'], df_compressor['fluxo_massa'])
+        b0, b1, b2 = params_massa
+        m = funcao_massa(T1, b0, b1, b2)
+
     elif (funcao_desejada=='potencia'):
-         w = m*( a0*T2*((P2/P1)**a1 -1) + a2)
 
+        def funcao_potencia(m, T1, a0, a1, a2):
+            w = m*( a0*T1*((P2/P1)**a1 -1) + a2)
+            return w
     
-   
+        params_potencia, _ = curve_fit(funcao_potencia, df_compressor['T_evaporador'], df_compressor['capacidade'])
+        a0, a1, a2 = params_massa
+        w = funcao_potencia(T1, a0, a1, a2)
 
 
-                   
-                   
-
-        
-        
-    x = np.linspace(0, 10, 100)
-    y_alvo = funcao_compressor
-
-    params, _ = curve_fit(funcao_compressor, a0, a1, a2, y_alvo, )
+    return m, w
