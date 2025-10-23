@@ -72,39 +72,61 @@ def plot_ciclo (df_cliclo, liq_refrigerante):
     return
 
 
-def ajuste_curva(funcao_desejada, T1, T2, P1, P2, compressor):
+def dataframe_compressor(compressor):
+    df_compressor = pd.read_csv(f'Trab01\programa\dados_compressores\{compressor}.csv', header=0, sep=';')
+
+    return df_compressor
+
+def ajuste_curva_massa(T1, T2, P1, P2, df_compressor_entrada):
     """
     T1 = Ts (sucção)
 
     """
-    df_compressor = pd.DataFrame({
-        'T_condensador':[1],
-        'T_evaporador': [1],
-        'capacidade': [1],
-        'eficiencia': [1],
-        'fluxo_massa': [1]
-        })
+
+    df_compressor = df_compressor_entrada[df_compressor_entrada['T_condensador']==T2].copy()
+
     
-    N = 60
-    if (funcao_desejada=='massa'):
+    N = 60 # Hz
 
-        def funcao_massa(T1, b0, b1, b2):
-            m = P2*N/T1*(b0 - b1 * ( (P2/P1)** b2 - 1 ))
-            return m
-        
-        params_massa, _ = curve_fit(funcao_massa, df_compressor['T_evaporador'], df_compressor['fluxo_massa'])
-        b0, b1, b2 = params_massa
-        m = funcao_massa(T1, b0, b1, b2)
-
-    elif (funcao_desejada=='potencia'):
-
-        def funcao_potencia(m, T1, a0, a1, a2):
-            w = m*( a0*T1*((P2/P1)**a1 -1) + a2)
-            return w
+    def funcao_massa(T1, b0, b1, b2):
+        m = P2*N/T1*(b0 - b1 * ( (P2/P1)** b2 - 1 ))
+        return m
     
-        params_potencia, _ = curve_fit(funcao_potencia, df_compressor['T_evaporador'], df_compressor['capacidade'])
-        a0, a1, a2 = params_massa
-        w = funcao_potencia(T1, a0, a1, a2)
+    params_massa, _ = curve_fit(funcao_massa, df_compressor['T_evaporador'], df_compressor['fluxo_massa'])
+    b0, b1, b2 = params_massa
+    m = funcao_massa(T1, b0, b1, b2)
+
+    # fig, (ax) = plt.subplots(figsize = (4,8))
+
+    # ax.plot(df_compressor['T_evaporador'], df_compressor['fluxo_massa'], color = 'r', marker = '.')
+    # ax.plot(df_compressor['T_evaporador'], funcao_massa(df_compressor['T_evaporador'], *params_massa), '-b')
+
+    # plt.legend()
+    # plt.tight_layout()
+    # plt.show()
+
+    return m,
 
 
-    return m, w
+
+def ajuste_curva_potencia(m, T1, T2, P1, P2, df_compressor_entrada):
+    """
+    T1 = Ts (sucção)
+
+    """
+    df_compressor = df_compressor_entrada[df_compressor_entrada['T_condensador']==T2].copy()
+
+  
+    def funcao_potencia(m, T1, a0, a1, a2):
+
+        w = m*( a0*(T1)*((P2/P1)**a1 -1) + a2)
+        return w
+
+    params_potencia, _ = curve_fit(funcao_potencia, df_compressor['T_evaporador'], df_compressor['capacidade'])
+    a0, a1, a2 = params_potencia
+    w = funcao_potencia(m, T1, a0, a1, a2)
+
+    H1 = CP.PropsSI('H', 'T', T1, 'Q', 1, "R134a") # [J/kgK]
+    H2 = H1 + w/m - a2
+
+    return w, H2
