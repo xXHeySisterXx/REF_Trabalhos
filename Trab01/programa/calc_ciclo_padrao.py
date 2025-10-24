@@ -54,7 +54,7 @@ def ciclo_padrao (T_amb, T_int, QL, liq_refrigerante):
     df_ciclo_padrao = pd.DataFrame({
         'Entrada': ['Compressor', 'Condensador', 'Capilar', 'Evaporador', 'Retorno'],
         'T': [T1, T2, T3, T4, T1],
-        "P": [P1, P2, P3, P4, P1],
+        'P': [P1, P2, P3, P4, P1],
         'H': [H1, H2, H3, H4, H1],
         'S': [S1, S2, S3, S4, S1],
         'COP': [COP, np.nan, np.nan, np.nan, np.nan],

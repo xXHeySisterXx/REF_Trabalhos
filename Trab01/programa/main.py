@@ -6,6 +6,7 @@ from scipy.optimize import brentq
 from calc_auxiliar import*
 from calc_COP import*
 from calc_ciclo_padrao import*
+from ciclo_padrao_real import*
 
 
 
@@ -26,5 +27,9 @@ QL = Q_congelado / (8*60*60) # W
 
 
 # ?=================== Ciclo padrão
-df_ciclo_padrao = ciclo_padrao(T_amb = 35 + 273, T_int = -25 + 273, QL=QL, liq_refrigerante='R134a')
-plot_ciclo(df_ciclo_padrao, 'R134a')
+# df_ciclo_padrao = ciclo_padrao(T_amb = 35 + 273, T_int = -25 + 273, QL=QL, liq_refrigerante='R134a')
+# plot_ciclo(df_ciclo_padrao, 'R134a')
+
+serie_ciclo_real = funcao_padrao_real(QL, -25 + 273, "EMI40HNR")
+df_ciclo_real = pontos_ciclo(serie_ciclo_real, "R134a")
+plot_ciclo(df_ciclo_real, 'R134a')

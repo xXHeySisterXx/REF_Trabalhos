@@ -55,8 +55,28 @@ def plot_ciclo (df_cliclo, liq_refrigerante):
 
     TS.plot(df_domo['S'], df_domo['T'])
     PH.plot(df_domo['H'], df_domo['P'])
-    TS.plot(df_cliclo['S']/1000, df_cliclo['T'])
+    TS.plot(df_cliclo['S']/1000, df_cliclo['T'], label = df_cliclo['Entrada'])
     PH.plot(df_cliclo['H']/1000, df_cliclo['P']/1000)
+
+    for idx, row in df_cliclo.iloc[:-1].iterrows():
+        PH.text(
+            row['H']/1000, 
+            row['P']/1000, 
+            row['Entrada'],
+            fontsize=9,
+            ha='right',  # alinhamento horizontal: 'left', 'right', 'center'
+            va='bottom'  # alinhamento vertical: 'top', 'bottom', 'center'
+        )
+        TS.text(
+            row['S']/1000, 
+            row['T'], 
+            row['Entrada'],
+            fontsize=9,
+            ha='right',  # alinhamento horizontal: 'left', 'right', 'center'
+            va='bottom'  # alinhamento vertical: 'top', 'bottom', 'center'
+        )
+
+
 
     plt.title(f'Ciclo com {liq_refrigerante}', fontsize=13, fontweight='bold')
 
@@ -66,6 +86,7 @@ def plot_ciclo (df_cliclo, liq_refrigerante):
     PH.set_xlabel("Entalpia [kJ/kg]")
     PH.set_ylabel("Pressão [kPa]")
 
+    plt.legend()
     plt.tight_layout()
     plt.show()
 
@@ -73,26 +94,25 @@ def plot_ciclo (df_cliclo, liq_refrigerante):
 
 
 def dataframe_compressor(compressor):
-    df_compressor = pd.read_csv(f'Trab01\programa\dados_compressores\{compressor}.csv', header=0, sep=';')
+    df_compressor = pd.read_csv(f'Trab01\programa\dados_compressores\{compressor}.csv', header=0, sep=',')
 
     return df_compressor
 
-def ajuste_curva_massa(T1, T2, P1, P2, df_compressor_entrada):
+def ajuste_curva_massa(T1, T2, P1, P2, df_compressor):
     """
     T1 = Ts (sucção)
 
     """
 
-    df_compressor = df_compressor_entrada[df_compressor_entrada['T_condensador']==T2].copy()
 
     
     N = 60 # Hz
 
     def funcao_massa(T1, b0, b1, b2):
-        m = P2*N/T1*(b0 - b1 * ( (P2/P1)** b2 - 1 ))
+        m = (P1*N)/T1 * (b0 - b1 * (( (P2/P1)**b2) - 1 ))
         return m
     
-    params_massa, _ = curve_fit(funcao_massa, df_compressor['T_evaporador'], df_compressor['fluxo_massa'])
+    params_massa, _ = curve_fit(funcao_massa, df_compressor['T_evaporador'], df_compressor['fluxo_massa']/(60*60))
     b0, b1, b2 = params_massa
     m = funcao_massa(T1, b0, b1, b2)
 
@@ -105,28 +125,35 @@ def ajuste_curva_massa(T1, T2, P1, P2, df_compressor_entrada):
     # plt.tight_layout()
     # plt.show()
 
-    return m,
+    return m
 
 
 
-def ajuste_curva_potencia(m, T1, T2, P1, P2, df_compressor_entrada):
+def ajuste_curva_potencia(m, T1, T2, P1, P2, df_compressor):
     """
     T1 = Ts (sucção)
 
     """
-    df_compressor = df_compressor_entrada[df_compressor_entrada['T_condensador']==T2].copy()
 
-  
-    def funcao_potencia(m, T1, a0, a1, a2):
-
-        w = m*( a0*(T1)*((P2/P1)**a1 -1) + a2)
+    def funcao_potencia(T1, a0, a1, a2):
+        w = m* ( a0*T1* ((P2/P1)**a1 - 1) + a2) #? a2 dando um número gigante
         return w
 
     params_potencia, _ = curve_fit(funcao_potencia, df_compressor['T_evaporador'], df_compressor['capacidade'])
     a0, a1, a2 = params_potencia
-    w = funcao_potencia(m, T1, a0, a1, a2)
+    w = funcao_potencia(T1, a0, a1, a2)
 
     H1 = CP.PropsSI('H', 'T', T1, 'Q', 1, "R134a") # [J/kgK]
-    H2 = H1 + w/m - a2
+    H2 = H1 + (w/m - a2)
+
+    # fig, (ax) = plt.subplots(figsize = (4,8))
+
+    # ax.plot(df_compressor['T_evaporador'], df_compressor['capacidade'], color = 'r', marker = '.')
+    # ax.plot(df_compressor['T_evaporador'], funcao_potencia(df_compressor['T_evaporador'], *params_potencia), '-b')
+
+    # plt.legend()
+    # plt.tight_layout()
+    # plt.show()
+
 
     return w, H2
