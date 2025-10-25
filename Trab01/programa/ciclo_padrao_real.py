@@ -15,7 +15,10 @@ def funcao_convergencia(df_compressor_entrada, T1, T2):
     m = ajuste_curva_massa(T1, T2, P1, P2, df_compressor_entrada)
     w, H2 = ajuste_curva_potencia(m, T1, T2, P1, P2, df_compressor_entrada)
 
-    H3 = CP.PropsSI('H', 'T', T2, 'Q', 0, "R134a") # [J/kgK]
+    P3 = P2
+    T3 = CP.PropsSI('T', 'P', P3, 'Q', 0, "R134a")
+    H3 = CP.PropsSI('H', 'T', T3, 'Q', 0, "R134a") # [J/kgK]
+
     QH = m*(H2-H3)
     QL = QH - w
 
@@ -138,9 +141,9 @@ def pontos_ciclo(serie_ciclo_real, liq_refrigerante):
 
 
 # Todo:
-    # Plots e prints de diagnostoco do estado atual
-    # Revisar slides sobre compressores, será que não posso mais usar S1=S2?
-    # Revisar dados compressores
+    # Plots e prints de diagnostico do estado atual
+    # Revisar slides sobre compressores, será que não posso mais usar S1=S2? #! OK
+    # Revisar dados compressores #! OK
     # pesquisar interpolação superfície e convergência de duas variáveis
 
 
