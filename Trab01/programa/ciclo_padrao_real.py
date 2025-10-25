@@ -7,7 +7,7 @@ import numpy as np
 
 
 def funcao_convergencia(df_compressor_entrada, T1, T2):
-
+    
     S1 = CP.PropsSI('S', 'T', T1, 'Q', 1, "R134a") # [J/kgK]
     P1 = CP.PropsSI('P', 'T', T1, 'Q', 1, "R134a") # [J/kgK]
     P2 = CP.PropsSI('P', 'T', T2, 'S', S1, "R134a")  # [Pa]
@@ -15,15 +15,11 @@ def funcao_convergencia(df_compressor_entrada, T1, T2):
     m = ajuste_curva_massa(T1, T2, P1, P2, df_compressor_entrada)
     w, H2 = ajuste_curva_potencia(m, T1, T2, P1, P2, df_compressor_entrada)
 
-    P3 = P2
-    T3 = CP.PropsSI('T', 'P', P3, 'Q', 0, "R134a")
-    H3 = CP.PropsSI('H', 'T', T3, 'Q', 0, "R134a") # [J/kgK]
-
+    H3 = CP.PropsSI('H', 'T', T2, 'Q', 0, "R134a") # [J/kgK]
     QH = m*(H2-H3)
     QL = QH - w
 
     return QL, m, w, H2, H3, S1, P1, P2
-
 
 
 
