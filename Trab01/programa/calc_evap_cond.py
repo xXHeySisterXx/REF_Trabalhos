@@ -28,8 +28,10 @@ Se = m*(S1 - S4) + Ql/(-30+273)
 Sc = m*(S2 - S3) + Qh/(40+273)
 
 
-We = Se*Te
-Wc = Sc*Tc
+We = Se*Te*m
+Wc = Sc*Tc*m
+
+COP = (Te) / (Tc - Te)
 
 print("S evaporador", Se)
 print("S condensador", Sc)
@@ -37,6 +39,5 @@ print("S condensador", Sc)
 print("S We", We)
 print("S Wc", Wc)
 
-Wcomp = 83
+print("COP", COP)
 
-COP = () / ()

@@ -142,6 +142,7 @@ def pontos_ciclo(serie_ciclo_real, liq_refrigerante):
     H4 = H3
     P4 = P1
 
+    QL = serie_ciclo_real['QL']
     COP = serie_ciclo_real['COP']
 
     df_ciclo_real = pd.DataFrame({
@@ -153,6 +154,7 @@ def pontos_ciclo(serie_ciclo_real, liq_refrigerante):
         'COP': [COP, np.nan, np.nan, np.nan, np.nan],
         'W': [serie_ciclo_real['w'], np.nan, np.nan, np.nan, np.nan],
         'm': [serie_ciclo_real['m'], np.nan, np.nan, np.nan, np.nan],
+        'QL': [serie_ciclo_real['QL'], np.nan, np.nan, np.nan, np.nan],
         }, index=[1, 2, 3, 4, 5] )
     
     print("\ndf_ciclo_real:")
@@ -161,7 +163,7 @@ def pontos_ciclo(serie_ciclo_real, liq_refrigerante):
     return df_ciclo_real
 
 # Uso:
-serie_otima = otimizar_ciclo(QL_desejado=183, compressor='EMU45HSC')
+serie_otima = otimizar_ciclo(QL_desejado=320.26428, compressor='EMU45HSC')
 
 df_ciclo_otimo = pontos_ciclo(serie_otima, "R134a")
 plot_ciclo(df_ciclo_otimo, 'R134a')
