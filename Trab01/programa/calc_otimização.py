@@ -112,5 +112,51 @@ def calcular_ciclo_completo(T1, T3, df_compressor):
     
     return serie
 
+
+def pontos_ciclo(serie_ciclo_real, liq_refrigerante):
+
+    T1 = serie_ciclo_real['T1']
+    P1 = serie_ciclo_real['P1']
+    S1 = serie_ciclo_real['S1']
+    H1 = CP.PropsSI('H', 'T', T1, 'S', S1, liq_refrigerante)
+
+    T2 = serie_ciclo_real['T2']
+    P2 = serie_ciclo_real['P2']
+    S2 = S1
+    H2 = serie_ciclo_real['H2']
+
+    H3 = serie_ciclo_real['H3']
+    T3 = serie_ciclo_real['T3']
+    S3 = CP.PropsSI('S', 'T', T3, 'Q', 0, liq_refrigerante)
+    P3 = CP.PropsSI('P', 'T', T3, 'Q', 0, liq_refrigerante)
+
+    T4 = T1
+    S4 = S3
+    H4 = H3
+    P4 = P1
+
+    # COP = serie_ciclo_real['COP']
+
+    df_ciclo_real = pd.DataFrame({
+        'Entrada': ['Compressor', 'Condensador', 'Capilar', 'Evaporador', 'Retorno'],
+        'T': [T1, T2, T3, T4, T1],
+        'P': [P1, P2, P3, P4, P1],
+        'H': [H1, H2, H3, H4, H1],
+        'S': [S1, S2, S3, S4, S1],
+        #'COP': [COP, np.nan, np.nan, np.nan, np.nan],
+        'W': [serie_ciclo_real['w'], np.nan, np.nan, np.nan, np.nan],
+        'm': [serie_ciclo_real['m'], np.nan, np.nan, np.nan, np.nan],
+        }, index=[1, 2, 3, 4, 5] )
+    
+    print("\ndf_ciclo_real:")
+    print(df_ciclo_real.head(6))
+
+    return df_ciclo_real
+
 # Uso:
-serie_otima = otimizar_ciclo(QL_desejado=5000, compressor='EMI40HNR')
+serie_otima = otimizar_ciclo(QL_desejado=5000, compressor='EMI45HER')
+
+df_ciclo_otimo = pontos_ciclo(serie_otima, "R134a")
+plot_ciclo(df_ciclo_otimo, 'R134a')
+
+# convergiu: EMU45HER e EMI45HER

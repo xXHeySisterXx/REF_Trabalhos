@@ -139,10 +139,6 @@ def pontos_ciclo(serie_ciclo_real, liq_refrigerante):
 
     COP = serie_ciclo_real['COP']
 
-
-    
-
-
     df_ciclo_real = pd.DataFrame({
         'Entrada': ['Compressor', 'Condensador', 'Capilar', 'Evaporador', 'Retorno'],
         'T': [T1, T2, T3, T4, T1],
