@@ -36,7 +36,7 @@ volume = 0.7*200 / (10**3) # cm³ para m³ Considerando 70% do volume total
 m = dens_peixe*volume
 
 
-Q_congelado = (calc_Q(m, 0.41 * 4.184, 10))*1000 # Todo verificar temperatura de transporte peixe
+Q_congelado = (calc_Q(m, 0.41 * 4.184, 23))*1000 # Todo verificar temperatura de transporte peixe
 
 QL = Q_congelado / (8*60*60) # W
 
