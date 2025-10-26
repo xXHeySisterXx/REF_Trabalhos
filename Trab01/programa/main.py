@@ -30,6 +30,6 @@ QL = Q_congelado / (8*60*60) # W
 # df_ciclo_padrao = ciclo_padrao(T_amb = 35 + 273, T_int = -25 + 273, QL=QL, liq_refrigerante='R134a')
 # plot_ciclo(df_ciclo_padrao, 'R134a')
 
-serie_ciclo_real = funcao_padrao_real(QL, -25 + 273, "EMI40HNR")
+serie_ciclo_real = funcao_padrao_real(QL, -25 + 273, "EMU45HSC")
 df_ciclo_real = pontos_ciclo(serie_ciclo_real, "R134a")
 plot_ciclo(df_ciclo_real, 'R134a')
