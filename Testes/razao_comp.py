@@ -11,10 +11,13 @@ T_cond  = 53.4 + 273
 
 fluid = "R134a"
 
+
+S1 = p1 = CP.PropsSI('S', 'T', T_evap, 'Q', 1, fluid)
+
 #? Em 2
 
 # s2 = CP.PropsSI('S', 'T', T_cond, 'Q', 1, fluid)
-p2 = CP.PropsSI('P', 'T', T_cond, 'Q', 1, fluid)
+p2 = CP.PropsSI('P', 'T', T_cond, 'S', S1, fluid)
 
 
 #? Em 1

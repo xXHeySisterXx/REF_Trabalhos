@@ -98,7 +98,7 @@ def dataframe_compressor(compressor):
 
     return df_compressor
 
-def ajuste_curva_massa(T1, T2, P1, P2, df_compressor):
+def ajuste_curva_massa(T1, P1, P2, df_compressor):
     """
     T1 = Ts (sucção)
 
@@ -129,7 +129,7 @@ def ajuste_curva_massa(T1, T2, P1, P2, df_compressor):
 
 
 
-def ajuste_curva_potencia(m, T1, T2, P1, P2, df_compressor):
+def ajuste_curva_potencia(m, T1, P1, P2, df_compressor):
     """
     T1 = Ts (sucção)
 
@@ -144,7 +144,7 @@ def ajuste_curva_potencia(m, T1, T2, P1, P2, df_compressor):
     w = funcao_potencia(T1, a0, a1, a2)
 
     H1 = CP.PropsSI('H', 'T', T1, 'Q', 1, "R134a") # [J/kgK]
-    H2 = H1 + (w/m - a2)
+    H2 = H1 + w/m + a2*10**-3
 
     # fig, (ax) = plt.subplots(figsize = (4,8))
 
