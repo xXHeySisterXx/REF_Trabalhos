@@ -18,12 +18,16 @@ def funcao_objetivo(T_vars, QL_desejado, df_compressor):
     if T1 >= T3:  # Evaporador deve ser mais frio que condensador
         return 1e10
     
+
     try:
         # Calcular QL para este par (T1, T3)
         P1 = CP.PropsSI('P', 'T', T1, 'Q', 1, "R134a")
+        S1 = CP.PropsSI('S', 'T', T1, 'Q', 1, "R134a")
         P3 = CP.PropsSI('P', 'T', T3, 'Q', 0, "R134a")
         P2 = P3
         
+        # T2 = CP.PropsSI('T', 'P', P3, 'S', S1, "R134a")
+
         m = ajuste_curva_massa(T1, P1, P2, df_compressor)
         w, H2 = ajuste_curva_potencia(m, T1, P1, P2, df_compressor)
         
@@ -40,7 +44,7 @@ def funcao_objetivo(T_vars, QL_desejado, df_compressor):
         return 1e10  # Penalidade alta para pontos inválidos
 
 
-def otimizar_ciclo(QL_desejado, compressor, T1_inicial=253, T3_inicial=313):
+def otimizar_ciclo(QL_desejado, compressor, T1_inicial= - 25 + 273 , T3_inicial= 35 + 273):
     """
     Encontra T1 e T3 ótimos que resultam no QL desejado
     """
@@ -52,8 +56,8 @@ def otimizar_ciclo(QL_desejado, compressor, T1_inicial=253, T3_inicial=313):
     
     # Limites (em Kelvin)
     bounds = [
-        (233, 283),  # T1: -40°C a 10°C
-        (293, 333)   # T3: 20°C a 60°C
+        (-50 + 273, -26 + 273),  # T1: -40°C a 10°C
+        (36+273, 60+273)   # T3: 20°C a 60°C
     ]
     
     # Otimização
@@ -61,9 +65,9 @@ def otimizar_ciclo(QL_desejado, compressor, T1_inicial=253, T3_inicial=313):
         funcao_objetivo,
         x0,
         args=(QL_desejado, df_compressor),
-        method='L-BFGS-B',  # ou 'SLSQP', 'Nelder-Mead'
+        method='SLSQP',  # ou '', 'Nelder-Mead' L-BFGS-B
         bounds=bounds,
-        options={'maxiter': 100}
+        options={'maxiter': 1000}
     )
     
     if resultado.success:
@@ -98,7 +102,7 @@ def calcular_ciclo_completo(T1, T3, df_compressor):
     COP = QL/w
     
     try:
-        T2 = CP.PropsSI('T', 'H', H2, 'S', S1, "R134a")
+        T2 = CP.PropsSI('T', 'H', H2, 'P', P2, "R134a")
     except:
         print("T2 deu erro")
         T2 = np.nan
@@ -157,7 +161,7 @@ def pontos_ciclo(serie_ciclo_real, liq_refrigerante):
     return df_ciclo_real
 
 # Uso:
-serie_otima = otimizar_ciclo(QL_desejado=81, compressor='EMI45HER')
+serie_otima = otimizar_ciclo(QL_desejado=183, compressor='EMU45HSC')
 
 df_ciclo_otimo = pontos_ciclo(serie_otima, "R134a")
 plot_ciclo(df_ciclo_otimo, 'R134a')
