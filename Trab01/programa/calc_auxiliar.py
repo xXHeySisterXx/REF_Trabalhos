@@ -51,7 +51,7 @@ def plot_ciclo (df_cliclo, liq_refrigerante):
     df_domo = domo_refrigerante(liq_refrigerante)
 
     
-    fig, (TS, PH) = plt.subplots(1, 2, figsize = (12, 3))
+    fig, (TS, PH) = plt.subplots(1, 2, figsize = (12, 4))
 
     TS.plot(df_domo['S'], df_domo['T'])
     PH.plot(df_domo['H'], df_domo['P'])
@@ -85,6 +85,14 @@ def plot_ciclo (df_cliclo, liq_refrigerante):
 
     PH.set_xlabel("Entalpia [kJ/kg]")
     PH.set_ylabel("Pressão [kPa]")
+
+    PH.minorticks_on()
+    PH.grid(True, which='major', linestyle = '-', linewidth = 1.0)
+    PH.grid(True, which='minor', linestyle = ':', linewidth = 0.5, alpha = 0.7)
+
+    TS.minorticks_on()
+    TS.grid(True, which='major', linestyle = '-', linewidth = 1.0)
+    TS.grid(True, which='minor', linestyle = ':', linewidth = 0.5, alpha = 0.7)
 
     plt.legend()
     plt.tight_layout()
