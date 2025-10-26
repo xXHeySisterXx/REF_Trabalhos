@@ -20,7 +20,6 @@ def funcao_objetivo(T_vars, QL_desejado, df_compressor):
     
     try:
         # Calcular QL para este par (T1, T3)
-        S1 = CP.PropsSI('S', 'T', T1, 'Q', 1, "R134a")
         P1 = CP.PropsSI('P', 'T', T1, 'Q', 1, "R134a")
         P3 = CP.PropsSI('P', 'T', T3, 'Q', 0, "R134a")
         P2 = P3
@@ -95,10 +94,13 @@ def calcular_ciclo_completo(T1, T3, df_compressor):
     
     QH = m * (H2 - H3)
     QL = QH - w
+
+    COP = QL/w
     
     try:
         T2 = CP.PropsSI('T', 'H', H2, 'S', S1, "R134a")
     except:
+        print("T2 deu erro")
         T2 = np.nan
     
     serie = pd.Series({
@@ -107,7 +109,8 @@ def calcular_ciclo_completo(T1, T3, df_compressor):
         'H2': H2, 'H3': H3,
         'S1': S1,
         'm': m, 'w': w,
-        'QL': QL, 'QH': QH
+        'QL': QL, 'QH': QH,
+        'COP': COP
     })
     
     return serie
@@ -135,7 +138,7 @@ def pontos_ciclo(serie_ciclo_real, liq_refrigerante):
     H4 = H3
     P4 = P1
 
-    # COP = serie_ciclo_real['COP']
+    COP = serie_ciclo_real['COP']
 
     df_ciclo_real = pd.DataFrame({
         'Entrada': ['Compressor', 'Condensador', 'Capilar', 'Evaporador', 'Retorno'],
@@ -143,7 +146,7 @@ def pontos_ciclo(serie_ciclo_real, liq_refrigerante):
         'P': [P1, P2, P3, P4, P1],
         'H': [H1, H2, H3, H4, H1],
         'S': [S1, S2, S3, S4, S1],
-        #'COP': [COP, np.nan, np.nan, np.nan, np.nan],
+        'COP': [COP, np.nan, np.nan, np.nan, np.nan],
         'W': [serie_ciclo_real['w'], np.nan, np.nan, np.nan, np.nan],
         'm': [serie_ciclo_real['m'], np.nan, np.nan, np.nan, np.nan],
         }, index=[1, 2, 3, 4, 5] )
@@ -154,7 +157,7 @@ def pontos_ciclo(serie_ciclo_real, liq_refrigerante):
     return df_ciclo_real
 
 # Uso:
-serie_otima = otimizar_ciclo(QL_desejado=5000, compressor='EMI45HER')
+serie_otima = otimizar_ciclo(QL_desejado=81, compressor='EMI45HER')
 
 df_ciclo_otimo = pontos_ciclo(serie_otima, "R134a")
 plot_ciclo(df_ciclo_otimo, 'R134a')

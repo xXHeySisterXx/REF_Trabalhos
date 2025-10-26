@@ -94,7 +94,6 @@ def plot_ciclo (df_cliclo, liq_refrigerante):
     TS.grid(True, which='major', linestyle = '-', linewidth = 1.0)
     TS.grid(True, which='minor', linestyle = ':', linewidth = 0.5, alpha = 0.7)
 
-    plt.legend()
     plt.tight_layout()
     plt.show()
 
