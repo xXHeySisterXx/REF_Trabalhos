@@ -9,6 +9,22 @@ from calc_ciclo_padrao import*
 from ciclo_padrao_real import*
 
 
+# Mostrar todas as colunas
+pd.set_option('display.max_columns', None)
+
+# Mostrar todas as linhas
+pd.set_option('display.max_rows', None)
+
+# Largura máxima para cada coluna
+pd.set_option('display.max_colwidth', None)
+
+# Largura total do display
+pd.set_option('display.width', 0)  # Deixa o pandas calcular automaticamente
+
+# Evita o uso de quebra de linha para colunas grandes
+pd.set_option('display.expand_frame_repr', False)
+
+
 
 # class componente:
 #     def __init__(self, temp, pres, ):
@@ -30,6 +46,8 @@ QL = Q_congelado / (8*60*60) # W
 # df_ciclo_padrao = ciclo_padrao(T_amb = 35 + 273, T_int = -25 + 273, QL=QL, liq_refrigerante='R134a')
 # plot_ciclo(df_ciclo_padrao, 'R134a')
 
-serie_ciclo_real = funcao_padrao_real(QL, -25 + 273, "EMU45HSC")
+serie_ciclo_real = funcao_padrao_real(QL, -25 + 273, "EMIE40HER")
 df_ciclo_real = pontos_ciclo(serie_ciclo_real, "R134a")
 plot_ciclo(df_ciclo_real, 'R134a')
+
+#! EMIE40HER tem T3>T2, estranho
