@@ -1,5 +1,11 @@
 from scipy.optimize import minimize
 import numpy as np
+import CoolProp.CoolProp as CP
+from scipy.optimize import brentq
+from calc_auxiliar import*
+from calc_COP import*
+import pandas as pd
+import numpy as np
 
 def funcao_objetivo(T_vars, QL_desejado, df_compressor):
     """
@@ -39,7 +45,8 @@ def otimizar_ciclo(QL_desejado, compressor, T1_inicial=253, T3_inicial=313):
     """
     Encontra T1 e T3 ótimos que resultam no QL desejado
     """
-    df_compressor = dataframe_compressor(compressor)
+    df_compressor = pd.read_csv(f'Trab01\programa\dados_compressores\{compressor}.csv', header=0, sep=',')
+
     
     # Chute inicial [T1, T3]
     x0 = [T1_inicial, T3_inicial]  # Ex: -20°C, 40°C
@@ -106,4 +113,4 @@ def calcular_ciclo_completo(T1, T3, df_compressor):
     return serie
 
 # Uso:
-serie_otima = otimizar_ciclo(QL_desejado=5000, compressor='seu_compressor')
+serie_otima = otimizar_ciclo(QL_desejado=5000, compressor='EMI40HNR')
