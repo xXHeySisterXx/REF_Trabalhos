@@ -2,6 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2025)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: abntex2-model_UDESC_2024.aux
 A level-1 auxiliary file: PreTextuais/Capa.aux
+A level-1 auxiliary file: PreTextuais/Sumario.aux
 A level-1 auxiliary file: Textuais/Introducao.aux
 A level-1 auxiliary file: Textuais/Desenvolvimento.aux
 The style file: abntex2-alf_revNBR2023.bst.bst
@@ -27,7 +28,7 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 +---------------------------------------------------------+
 You've used 3 entries,
             6714 wiz_defined-function locations,
-            1203 strings with 9509 characters,
+            1204 strings with 9532 characters,
 and the built_in function-call counts, 1366 in all, are:
 = -- 227
 > -- 0
