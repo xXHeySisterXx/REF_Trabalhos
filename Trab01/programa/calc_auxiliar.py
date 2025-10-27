@@ -47,38 +47,60 @@ def domo_refrigerante(liq_refrigerante):
 
     return df_domo
 
-def plot_ciclo (df_cliclo, liq_refrigerante):
+def plot_ciclo (df_ciclo_ideal, df_ciclo_real, df_ciclo_otimo,  liq_refrigerante, compressor):
     df_domo = domo_refrigerante(liq_refrigerante)
 
     
     fig, (TS, PH) = plt.subplots(1, 2, figsize = (12, 4))
 
-    TS.plot(df_domo['S'], df_domo['T'])
-    PH.plot(df_domo['H'], df_domo['P'])
-    TS.plot(df_cliclo['S']/1000, df_cliclo['T'], label = df_cliclo['Entrada'])
-    PH.plot(df_cliclo['H']/1000, df_cliclo['P']/1000)
+    TS.plot(df_domo['S'], df_domo['T'],)
+    PH.plot(df_domo['H'], df_domo['P'],)
 
-    for idx, row in df_cliclo.iloc[:-1].iterrows():
-        PH.text(
-            row['H']/1000, 
-            row['P']/1000, 
-            row['Entrada'],
-            fontsize=9,
-            ha='right',  # alinhamento horizontal: 'left', 'right', 'center'
-            va='bottom'  # alinhamento vertical: 'top', 'bottom', 'center'
-        )
-        TS.text(
-            row['S']/1000, 
-            row['T'], 
-            row['Entrada'],
-            fontsize=9,
-            ha='right',  # alinhamento horizontal: 'left', 'right', 'center'
-            va='bottom'  # alinhamento vertical: 'top', 'bottom', 'center'
-        )
+    TS.plot(df_ciclo_ideal['S']/1000, df_ciclo_ideal['T'], label = "Ideal")
+    PH.plot(df_ciclo_ideal['H']/1000, df_ciclo_ideal['P']/1000, label = "Ideal")
 
+    TS.plot(df_ciclo_real['S']/1000, df_ciclo_real['T'], label = "Real")
+    PH.plot(df_ciclo_real['H']/1000, df_ciclo_real['P']/1000, label = "Real")
 
+    TS.plot(df_ciclo_otimo['S']/1000, df_ciclo_otimo['T'], label = "Ótimo")
+    PH.plot(df_ciclo_otimo['H']/1000, df_ciclo_otimo['P']/1000, label = "Ótimo")
 
-    plt.title(f'Ciclo com {liq_refrigerante}', fontsize=13, fontweight='bold')
+    # for idx, row in df_ciclo_ideal.iloc[:-1].iterrows():
+    #     PH.text(
+    #         row['H']/1000, 
+    #         row['P']/1000, 
+    #         row['Entrada'],
+    #         fontsize=9,
+    #         ha='right',  # alinhamento horizontal: 'left', 'right', 'center'
+    #         va='bottom'  # alinhamento vertical: 'top', 'bottom', 'center'
+    #     )
+    #     TS.text(
+    #         row['S']/1000, 
+    #         row['T'], 
+    #         row['Entrada'],
+    #         fontsize=9,
+    #         ha='right',  # alinhamento horizontal: 'left', 'right', 'center'
+    #         va='bottom'  # alinhamento vertical: 'top', 'bottom', 'center'
+    #     )
+
+    # for idx, row in df_ciclo_real.iloc[:-1].iterrows():
+    #     PH.text(
+    #         row['H']/1000, 
+    #         row['P']/1000, 
+    #         row['Entrada'],
+    #         fontsize=9,
+    #         ha='right',  # alinhamento horizontal: 'left', 'right', 'center'
+    #         va='bottom'  # alinhamento vertical: 'top', 'bottom', 'center'
+    #     )
+    #     TS.text(
+    #         row['S']/1000, 
+    #         row['T'], 
+    #         row['Entrada'],
+    #         fontsize=9,
+    #         ha='right',  # alinhamento horizontal: 'left', 'right', 'center'
+    #         va='bottom'  # alinhamento vertical: 'top', 'bottom', 'center'
+    #     )
+
 
     TS.set_xlabel("Entropia [kJ/kgK]")
     TS.set_ylabel("Temperatura [K]")
@@ -94,14 +116,23 @@ def plot_ciclo (df_cliclo, liq_refrigerante):
     TS.grid(True, which='major', linestyle = '-', linewidth = 1.0)
     TS.grid(True, which='minor', linestyle = ':', linewidth = 0.5, alpha = 0.7)
 
-    plt.tight_layout()
-    plt.show()
+    PH.legend()
+    TS.legend()
 
+    plt.tight_layout()
+    # plt.show()
+    PH.figure.savefig(
+        f'Trab01\\programa\\Graficos\\{compressor}',
+        dpi=300,
+        bbox_inches='tight',
+        transparent=True,
+        facecolor='white',
+)
     return
 
 
 def dataframe_compressor(compressor):
-    df_compressor = pd.read_csv(f'Trab01\programa\dados_compressores\{compressor}.csv', header=0, sep=',')
+    df_compressor = pd.read_csv(f'Trab01\programa\dados_compressores\{compressor}.csv', header=0, sep=';')
 
     return df_compressor
 

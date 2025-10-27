@@ -7,6 +7,7 @@ from calc_auxiliar import*
 from calc_COP import*
 from calc_ciclo_padrao import*
 from ciclo_padrao_real import*
+from calc_otimização import*
 
 
 # Mostrar todas as colunas
@@ -36,18 +37,30 @@ volume = 0.7*200 / (10**3) # cm³ para m³ Considerando 70% do volume total
 m = dens_peixe*volume
 
 
-Q_congelado = (calc_Q(m, 0.81 * 4.184, 20))*1000 # Todo verificar temperatura de transporte peixe
+Q_congelado = (calc_Q(m, 0.41 * 4.184, 25))*1000
 
 QL = Q_congelado / (8*60*60) # W
 
+# QL = 202.6 para levar de 0 a -25
+
+# ?=================== Ciclos
 
 
-# ?=================== Ciclo padrão
-# df_ciclo_padrao = ciclo_padrao(T_amb = 35 + 273, T_int = -25 + 273, QL=QL, liq_refrigerante='R134a')
-# plot_ciclo(df_ciclo_padrao, 'R134a')
+compressor = "EGZS70HLC_202"
+liq_refrigerante = "R134a"
 
-serie_ciclo_real = funcao_padrao_real(QL, -25 + 273, "EMU45HSC")
-df_ciclo_real = pontos_ciclo(serie_ciclo_real, "R134a")
-plot_ciclo(df_ciclo_real, 'R134a')
+
+df_ciclo_padrao = ciclo_padrao(T_amb = 35 + 273, T_int = -25 + 273, QL=QL, liq_refrigerante=liq_refrigerante)
+
+serie_ciclo_real = funcao_padrao_real(QL, -25 + 273, compressor)
+df_ciclo_real = pontos_ciclo(serie_ciclo_real, liq_refrigerante)
+
+serie_otima = otimizar_ciclo(QL_desejado=QL, compressor= compressor)
+df_ciclo_otimo = pontos_ciclo_otimo(serie_otima, liq_refrigerante)
+
+
+plot_ciclo(df_ciclo_padrao, df_ciclo_real, df_ciclo_otimo, liq_refrigerante, compressor)
+
+
 
 #! EMIE40HER tem T3>T2, estranho

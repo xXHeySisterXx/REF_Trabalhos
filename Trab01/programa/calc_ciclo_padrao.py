@@ -45,9 +45,9 @@ def ciclo_padrao (T_amb, T_int, QL, liq_refrigerante):
     H3 = CP.PropsSI('H', 'T', T3, 'Q', 0, liq_refrigerante)  # [J/kg]
     P3 = CP.PropsSI('P', 'T', T3, 'Q', 0, liq_refrigerante)  # [Pa]
 
-    S4= CP.PropsSI('S', 'H', H3, 'T', T1, liq_refrigerante) # [J/kgK]
+    S4= S3
     H4 = H3 # [J/kg]
-    P4 = CP.PropsSI('P', 'T', T4, 'S', S4, liq_refrigerante) # [P]
+    P4 = P1
 
     fluxo_m = W_compressor/ (H2 - H1) # [kg/s]
 

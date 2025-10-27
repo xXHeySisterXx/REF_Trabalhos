@@ -48,7 +48,7 @@ def otimizar_ciclo(QL_desejado, compressor, T1_inicial= - 25 + 273 , T3_inicial=
     """
     Encontra T1 e T3 ótimos que resultam no QL desejado
     """
-    df_compressor = pd.read_csv(f'Trab01\programa\dados_compressores\{compressor}.csv', header=0, sep=',')
+    df_compressor = pd.read_csv(f'Trab01\programa\dados_compressores\{compressor}.csv', header=0, sep=';')
 
     
     # Chute inicial [T1, T3]
@@ -120,7 +120,7 @@ def calcular_ciclo_completo(T1, T3, df_compressor):
     return serie
 
 
-def pontos_ciclo(serie_ciclo_real, liq_refrigerante):
+def pontos_ciclo_otimo(serie_ciclo_real, liq_refrigerante):
 
     T1 = serie_ciclo_real['T1']
     P1 = serie_ciclo_real['P1']
@@ -161,11 +161,3 @@ def pontos_ciclo(serie_ciclo_real, liq_refrigerante):
     print(df_ciclo_real.head(6))
 
     return df_ciclo_real
-
-# Uso:
-serie_otima = otimizar_ciclo(QL_desejado=320.26428, compressor='EMU45HSC')
-
-df_ciclo_otimo = pontos_ciclo(serie_otima, "R134a")
-plot_ciclo(df_ciclo_otimo, 'R134a')
-
-# convergiu: EMU45HER e EMI45HER
