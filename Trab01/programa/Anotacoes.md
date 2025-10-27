@@ -37,9 +37,9 @@ de operação desejada em no máximo 8 horas (tempo de pulldown)
 
 - [ ] Os valores de potência de compressão e COP (usando dados experimentais do compressor e um modelo do ciclo de refrigeração padrão);
 
-- [ ] Adicionar um condensador e um evaporador operando com 5 °C de diferença para o ambiente;
+- [x] Adicionar um condensador e um evaporador operando com 5 °C de diferença para o ambiente;
 
-- [ ] Calcular a geração de entropia e a potência perdida associadas a cada componente;
+- [x] Calcular a geração de entropia e a potência perdida associadas a cada componente;
 
 - [ ] Comparar COP de Carnot, Ciclo Padrão, Ciclo com compressor real e ciclo com trocadores reais
 
