@@ -11,4 +11,4 @@
 \contentsline {section}{\numberline {2.3}Ciclo de Refrigeração Padrão:}{4}{section.2.3}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{5}{section*.6}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{6}{section*.7}%

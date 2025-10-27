@@ -37,12 +37,21 @@ Com a carga térmica definida, é necessário selecionar um compressor adequado 
     \label{fig:seletor de produtos}
 \end{figure}
 
-
 \newpage
+
+Os dados de operação foram obtidos a partir da ficha técnica do fabricante. Este documento contém as temperaturas de condensação e evaporação empregadas nos testes de desempenho, além de parâmetros como capacidade de refrigeração, consumo de energia, corrente elétrica, entre outros.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Imagens/Desenvolvimento/Curva_desempenho55°C.png}
+    \caption{Dados de performance para para 55°C}
+    \label{fig: scurva desempenho}
+\end{figure}
+
 
 \section{Ciclo de Refrigeração Padrão:}
 
-Com os dados preliminares obtidos, foi desenvolvida uma rotina em Python para calcular as seguintes propriedades do sistema. O programa utiliza um método iterativo para determinar a temperatura operacional mínima possível, com o objetivo de reduzir custos ao evitar o dimensionamento excessivo do compressor.
+Com os dados preliminares obtidos, foi desenvolvida uma rotina em Python para calcular as seguintes propriedades do sistema. O programa utiliza um método iterativo para determinar a temperatura operacional mínima possível, com o objetivo de reduzir custos ao evitar o superdimensionamento do compressor.
 
 \begin{equation}
     \dot{Q_L} = \dot{m}(h_1-h_4)
@@ -69,6 +78,6 @@ Com os dados preliminares obtidos, foi desenvolvida uma rotina em Python para ca
     \label{COP carnot}
 \end{equation}
 
-% Imagem do programa e dos calculos
+% Imagem  ou tabela, com o programa e dos calculos
 
 

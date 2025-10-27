@@ -1,40 +1,41 @@
 # Fdb version 4
-["bibtex abntex2-model_UDESC_2024"] 1761525682.308 "abntex2-model_UDESC_2024.aux" "abntex2-model_UDESC_2024.bbl" "abntex2-model_UDESC_2024" 1761529431.13061 0
+["bibtex abntex2-model_UDESC_2024"] 1761570652.71658 "abntex2-model_UDESC_2024.aux" "abntex2-model_UDESC_2024.bbl" "abntex2-model_UDESC_2024" 1761570934.4404 0
   "./abntex2-alf_revNBR2023.bst" 1761055204 62244 1c999a6bd28f2c83247b075aaf0482a6 ""
   "./abntex2-ref_UDESC_2020.bib" 1761055204 667 c7ece0a4d1edd3572970d1c9cfe40a2b ""
-  "PreTextuais/Capa.aux" 1761529428 1971 8c6dd248fadc99a48ebc6c48117decbb "pdflatex"
-  "PreTextuais/Sumario.aux" 1761529428 2082 c1644276ba6034a5861fcaaf84b4bcf1 "pdflatex"
-  "Textuais/Desenvolvimento.aux" 1761529428 3551 642fd03e454a35811f855d6a1668d004 "pdflatex"
-  "Textuais/Introducao.aux" 1761529428 2225 d31093bcc4f001d23d07adf5794b28f0 "pdflatex"
-  "abntex2-model_UDESC_2024.aux" 1761529428 3323 d768ecaa688bee5c4aabd17d97f0e4d4 "pdflatex"
+  "PreTextuais/Capa.aux" 1761570931 1971 b6203f01afdf52cd055b142920fca709 "pdflatex"
+  "PreTextuais/Sumario.aux" 1761570931 2082 472094ed0d8e36a3f08b1cd2ba81c2df "pdflatex"
+  "Textuais/Desenvolvimento.aux" 1761570931 3806 f76b26a095209e22041036deb62eeba5 "pdflatex"
+  "Textuais/Introducao.aux" 1761570931 2225 7d6f7fce082c6e8fbb8d6b278d09428d "pdflatex"
+  "abntex2-model_UDESC_2024.aux" 1761570931 3323 6928a90a57d1ab1afb9069d122327e49 "pdflatex"
   "c:/texlive/2025/texmf-dist/bibtex/bib/abntex2/abntex2-options.bib" 1761004340 5396 4eb260dac60f150ae608d45252853090 ""
   (generated)
   "abntex2-model_UDESC_2024.bbl"
   "abntex2-model_UDESC_2024.blg"
   (rewritten before read)
-["makeindex abntex2-model_UDESC_2024.idx"] 1761523411.42454 "abntex2-model_UDESC_2024.idx" "abntex2-model_UDESC_2024.ind" "abntex2-model_UDESC_2024" 1761529431.12951 0
-  "abntex2-model_UDESC_2024.idx" 1761529427 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex abntex2-model_UDESC_2024.idx"] 1761523411.42454 "abntex2-model_UDESC_2024.idx" "abntex2-model_UDESC_2024.ind" "abntex2-model_UDESC_2024" 1761570934.43937 0
+  "abntex2-model_UDESC_2024.idx" 1761570930 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "abntex2-model_UDESC_2024.ilg"
   "abntex2-model_UDESC_2024.ind"
   (rewritten before read)
-["pdflatex"] 1761529423.53521 "c:/Users/avini/Documents/Estudo/REF/TRABALHO/REF_Trabalhos/Trab01/relatorio/abntex2-model_UDESC_2024.tex" "abntex2-model_UDESC_2024.pdf" "abntex2-model_UDESC_2024" 1761529431.13467 0
+["pdflatex"] 1761570926.87418 "c:/Users/avini/Documents/Estudo/REF/TRABALHO/REF_Trabalhos/Trab01/relatorio/abntex2-model_UDESC_2024.tex" "abntex2-model_UDESC_2024.pdf" "abntex2-model_UDESC_2024" 1761570934.44461 0
+  "Imagens/Desenvolvimento/Curva_desempenho55°C.png" 1761568968 26795 9ca0cb4fb4b530e3c16816b779f463e0 ""
   "Imagens/Desenvolvimento/PSS-embraco.png" 1761524269 99015 5f9c4ab7aea3a38ec3dcfd8466210f02 ""
   "PacotesBasicos.tex" 1761055204 15158 eca88280a5e57a472b2fd921938fdafe ""
-  "PreTextuais/Capa.aux" 1761529428 1971 8c6dd248fadc99a48ebc6c48117decbb "pdflatex"
+  "PreTextuais/Capa.aux" 1761570931 1971 b6203f01afdf52cd055b142920fca709 "pdflatex"
   "PreTextuais/Capa.tex" 1761055204 912 93305c576a6d1b79c48653bdda066806 ""
-  "PreTextuais/Sumario.aux" 1761529428 2082 c1644276ba6034a5861fcaaf84b4bcf1 "pdflatex"
+  "PreTextuais/Sumario.aux" 1761570931 2082 472094ed0d8e36a3f08b1cd2ba81c2df "pdflatex"
   "PreTextuais/Sumario.tex" 1761055204 116 e59dc964370530227a3be392710f0c64 ""
-  "Textuais/Desenvolvimento.aux" 1761529428 3551 642fd03e454a35811f855d6a1668d004 "pdflatex"
-  "Textuais/Desenvolvimento.tex" 1761529422 2818 1540680837f0e205182a3d6619abcd10 ""
-  "Textuais/Introducao.aux" 1761529428 2225 d31093bcc4f001d23d07adf5794b28f0 "pdflatex"
+  "Textuais/Desenvolvimento.aux" 1761570931 3806 f76b26a095209e22041036deb62eeba5 "pdflatex"
+  "Textuais/Desenvolvimento.tex" 1761570925 3361 8db2fb14c37b17a12268e92dda3d0cf0 ""
+  "Textuais/Introducao.aux" 1761570931 2225 7d6f7fce082c6e8fbb8d6b278d09428d "pdflatex"
   "Textuais/Introducao.tex" 1761429175 310 108aa65c4dd15d8e4a7c4b3e71f95765 ""
-  "abntex2-model_UDESC_2024.aux" 1761529428 3323 d768ecaa688bee5c4aabd17d97f0e4d4 "pdflatex"
-  "abntex2-model_UDESC_2024.bbl" 1761525683 230 b18dccbc2f147f675f2f5a3b2d41d0e8 "bibtex abntex2-model_UDESC_2024"
-  "abntex2-model_UDESC_2024.brf" 1761529428 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "abntex2-model_UDESC_2024.aux" 1761570931 3323 6928a90a57d1ab1afb9069d122327e49 "pdflatex"
+  "abntex2-model_UDESC_2024.bbl" 1761570653 230 b18dccbc2f147f675f2f5a3b2d41d0e8 "bibtex abntex2-model_UDESC_2024"
+  "abntex2-model_UDESC_2024.brf" 1761570931 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   "abntex2-model_UDESC_2024.ind" 1761523412 0 d41d8cd98f00b204e9800998ecf8427e "makeindex abntex2-model_UDESC_2024.idx"
   "abntex2-model_UDESC_2024.tex" 1761508826 7930 9b2f573c633f35f628eee5c207453397 ""
-  "abntex2-model_UDESC_2024.toc" 1761529428 1048 f9242a5b558d5c6eda93e58426c9d586 "pdflatex"
+  "abntex2-model_UDESC_2024.toc" 1761570931 1048 14f0bdba7775470a82c2dc302986f5b6 "pdflatex"
   "c:/Users/avini/Documents/Estudo/REF/TRABALHO/REF_Trabalhos/Trab01/relatorio/abntex2-model_UDESC_2024.tex" 1761508826 7930 9b2f573c633f35f628eee5c207453397 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1761006029 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1761007603 3524 cb3e574dea2d1052e39280babc910dc8 ""
