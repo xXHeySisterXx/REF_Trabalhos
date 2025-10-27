@@ -148,6 +148,7 @@ def pontos_ciclo(serie_ciclo_real, liq_refrigerante):
         'COP': [COP, np.nan, np.nan, np.nan, np.nan],
         'W': [serie_ciclo_real['w'], np.nan, np.nan, np.nan, np.nan],
         'm': [serie_ciclo_real['m'], np.nan, np.nan, np.nan, np.nan],
+        'QL': [serie_ciclo_real['QL'], np.nan, np.nan, np.nan, np.nan],
         }, index=[1, 2, 3, 4, 5] )
     
     print("\ndf_ciclo_real:")

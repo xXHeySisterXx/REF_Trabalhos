@@ -56,14 +56,14 @@ def plot_ciclo (df_ciclo_ideal, df_ciclo_real, df_ciclo_otimo,  liq_refrigerante
     TS.plot(df_domo['S'], df_domo['T'],)
     PH.plot(df_domo['H'], df_domo['P'],)
 
-    TS.plot(df_ciclo_ideal['S']/1000, df_ciclo_ideal['T'], label = "Ideal")
-    PH.plot(df_ciclo_ideal['H']/1000, df_ciclo_ideal['P']/1000, label = "Ideal")
+    TS.plot(df_ciclo_ideal['S']/1000, df_ciclo_ideal['T'], label = "Ideal", marker = "x")
+    PH.plot(df_ciclo_ideal['H']/1000, df_ciclo_ideal['P']/1000, label = "Ideal", marker = "x")
 
-    TS.plot(df_ciclo_real['S']/1000, df_ciclo_real['T'], label = "Real")
-    PH.plot(df_ciclo_real['H']/1000, df_ciclo_real['P']/1000, label = "Real")
+    TS.plot(df_ciclo_real['S']/1000, df_ciclo_real['T'], label = "Real", marker = ".")
+    PH.plot(df_ciclo_real['H']/1000, df_ciclo_real['P']/1000, label = "Real", marker = ".")
 
-    TS.plot(df_ciclo_otimo['S']/1000, df_ciclo_otimo['T'], label = "Ótimo")
-    PH.plot(df_ciclo_otimo['H']/1000, df_ciclo_otimo['P']/1000, label = "Ótimo")
+    TS.plot(df_ciclo_otimo['S']/1000, df_ciclo_otimo['T'], label = "Ótimo", marker = "^")
+    PH.plot(df_ciclo_otimo['H']/1000, df_ciclo_otimo['P']/1000, label = "Ótimo", marker = "^")
 
     # for idx, row in df_ciclo_ideal.iloc[:-1].iterrows():
     #     PH.text(
@@ -119,10 +119,11 @@ def plot_ciclo (df_ciclo_ideal, df_ciclo_real, df_ciclo_otimo,  liq_refrigerante
     PH.legend()
     TS.legend()
 
+    fig.suptitle(f'Ciclo para {compressor}', fontsize=16)
     plt.tight_layout()
     # plt.show()
     PH.figure.savefig(
-        f'Trab01\\programa\\Graficos\\{compressor}',
+        f'Trab01\\programa\\Graficos\\ciclo_{compressor}',
         dpi=300,
         bbox_inches='tight',
         transparent=True,
@@ -174,7 +175,7 @@ def ajuste_curva_potencia(m, T1, P1, P2, df_compressor):
     """
 
     def funcao_potencia(T1, a0, a1, a2):
-        w = m* ( a0*T1* ((P2/P1)**a1 - 1) + a2) #? a2 dando um número gigante
+        w = m* ( a0*T1* ((P2/P1)**a1 - 1) + a2)
         return w
 
     params_potencia, _ = curve_fit(funcao_potencia, df_compressor['T_evaporador'], df_compressor['capacidade'])
