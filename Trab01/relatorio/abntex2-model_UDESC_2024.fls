@@ -477,6 +477,9 @@ INPUT ./Imagens/Desenvolvimento/PSS-embraco.png
 INPUT ./Imagens/Desenvolvimento/PSS-embraco.png
 INPUT ./Imagens/Desenvolvimento/PSS-embraco.png
 INPUT c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+INPUT c:/texlive/2025/texmf-dist/tex/latex/base/omscmr.fd
+INPUT c:/texlive/2025/texmf-dist/tex/latex/base/omscmr.fd
+INPUT c:/texlive/2025/texmf-dist/tex/latex/base/omscmr.fd
 INPUT ./Imagens/Desenvolvimento/Diagrama.png
 INPUT ./Imagens/Desenvolvimento/Diagrama.png
 INPUT ./Imagens/Desenvolvimento/Diagrama.png
