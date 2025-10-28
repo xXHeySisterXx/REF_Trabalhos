@@ -1,24 +1,24 @@
 # Fdb version 4
-["bibtex abntex2-model_UDESC_2024"] 1761659834.13503 "abntex2-model_UDESC_2024.aux" "abntex2-model_UDESC_2024.bbl" "abntex2-model_UDESC_2024" 1761661910.41901 0
+["bibtex abntex2-model_UDESC_2024"] 1761659834.13503 "abntex2-model_UDESC_2024.aux" "abntex2-model_UDESC_2024.bbl" "abntex2-model_UDESC_2024" 1761669853.52797 0
   "./abntex2-alf_revNBR2023.bst" 1761055204 62244 1c999a6bd28f2c83247b075aaf0482a6 ""
   "./abntex2-ref_UDESC_2020.bib" 1761055204 667 c7ece0a4d1edd3572970d1c9cfe40a2b ""
-  "PreTextuais/Capa.aux" 1761661904 1972 93c21abaa0d6cab72969fe5f76696f5f "pdflatex"
-  "PreTextuais/Sumario.aux" 1761661904 2083 f0510ad8bbf579c2985b6226b2e3564c "pdflatex"
-  "Textuais/Desenvolvimento.aux" 1761661907 5630 757573af4356c0a9520ec3125da97345 "pdflatex"
-  "Textuais/Introducao.aux" 1761661904 2226 0d0153b478b603555b4985a5ea980d7b "pdflatex"
-  "abntex2-model_UDESC_2024.aux" 1761661907 3328 11993e66b45040c4d775640e60566abf "pdflatex"
+  "PreTextuais/Capa.aux" 1761669847 1972 93c21abaa0d6cab72969fe5f76696f5f "pdflatex"
+  "PreTextuais/Sumario.aux" 1761669847 2083 f0510ad8bbf579c2985b6226b2e3564c "pdflatex"
+  "Textuais/Desenvolvimento.aux" 1761669850 5630 757573af4356c0a9520ec3125da97345 "pdflatex"
+  "Textuais/Introducao.aux" 1761669847 2226 0d0153b478b603555b4985a5ea980d7b "pdflatex"
+  "abntex2-model_UDESC_2024.aux" 1761669850 3328 11993e66b45040c4d775640e60566abf "pdflatex"
   "c:/texlive/2025/texmf-dist/bibtex/bib/abntex2/abntex2-options.bib" 1761004340 5396 4eb260dac60f150ae608d45252853090 ""
   (generated)
   "abntex2-model_UDESC_2024.bbl"
   "abntex2-model_UDESC_2024.blg"
   (rewritten before read)
-["makeindex abntex2-model_UDESC_2024.idx"] 1761616206.56812 "abntex2-model_UDESC_2024.idx" "abntex2-model_UDESC_2024.ind" "abntex2-model_UDESC_2024" 1761661910.4179 0
-  "abntex2-model_UDESC_2024.idx" 1761661903 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex abntex2-model_UDESC_2024.idx"] 1761616206.56812 "abntex2-model_UDESC_2024.idx" "abntex2-model_UDESC_2024.ind" "abntex2-model_UDESC_2024" 1761669853.52694 0
+  "abntex2-model_UDESC_2024.idx" 1761669846 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "abntex2-model_UDESC_2024.ilg"
   "abntex2-model_UDESC_2024.ind"
   (rewritten before read)
-["pdflatex"] 1761661899.27374 "c:/Users/avini/Documents/Estudo/REF/TRABALHO/REF_Trabalhos/Trab01/relatorio/abntex2-model_UDESC_2024.tex" "abntex2-model_UDESC_2024.pdf" "abntex2-model_UDESC_2024" 1761661910.42352 0
+["pdflatex"] 1761669842.46867 "c:/Users/avini/Documents/Estudo/REF/TRABALHO/REF_Trabalhos/Trab01/relatorio/abntex2-model_UDESC_2024.tex" "abntex2-model_UDESC_2024.pdf" "abntex2-model_UDESC_2024" 1761669853.53211 0
   "Imagens/Desenvolvimento/Diagrama.png" 1761613139 14134 0dc89e9ddea24b24e166244e226b452d ""
   "Imagens/Desenvolvimento/PSS-embraco.png" 1761524269 99015 5f9c4ab7aea3a38ec3dcfd8466210f02 ""
   "Imagens/Desenvolvimento/barras_COP.png" 1761656872 112897 f58016c4aada03dbdb25a59e16264440 ""
@@ -28,20 +28,20 @@
   "Imagens/Desenvolvimento/ciclo_EGZS70HLC_202W.png" 1761656872 430195 16af0f463f55a73936acd07acbe6903d ""
   "Imagens/Desenvolvimento/ciclo_FFU70HAK_221W.png" 1761656872 423099 faf6eb8a7232bb215d3da427aa3dd188 ""
   "PacotesBasicos.tex" 1761055204 15158 eca88280a5e57a472b2fd921938fdafe ""
-  "PreTextuais/Capa.aux" 1761661904 1972 93c21abaa0d6cab72969fe5f76696f5f "pdflatex"
+  "PreTextuais/Capa.aux" 1761669847 1972 93c21abaa0d6cab72969fe5f76696f5f "pdflatex"
   "PreTextuais/Capa.tex" 1761055204 912 93305c576a6d1b79c48653bdda066806 ""
-  "PreTextuais/Sumario.aux" 1761661904 2083 f0510ad8bbf579c2985b6226b2e3564c "pdflatex"
+  "PreTextuais/Sumario.aux" 1761669847 2083 f0510ad8bbf579c2985b6226b2e3564c "pdflatex"
   "PreTextuais/Sumario.tex" 1761055204 116 e59dc964370530227a3be392710f0c64 ""
-  "Textuais/Desenvolvimento.aux" 1761661907 5630 757573af4356c0a9520ec3125da97345 "pdflatex"
-  "Textuais/Desenvolvimento.tex" 1761661906 7294 e55a7e03424e81b7fe1e587f6eab0288 ""
-  "Textuais/Introducao.aux" 1761661904 2226 0d0153b478b603555b4985a5ea980d7b "pdflatex"
-  "Textuais/Introducao.tex" 1761658482 373 966576001e48263b3335813447bb60a4 ""
-  "abntex2-model_UDESC_2024.aux" 1761661907 3328 11993e66b45040c4d775640e60566abf "pdflatex"
+  "Textuais/Desenvolvimento.aux" 1761669850 5630 757573af4356c0a9520ec3125da97345 "pdflatex"
+  "Textuais/Desenvolvimento.tex" 1761669841 7332 8f4297836fdf93913b8b27b12163cf9d ""
+  "Textuais/Introducao.aux" 1761669847 2226 0d0153b478b603555b4985a5ea980d7b "pdflatex"
+  "Textuais/Introducao.tex" 1761661918 373 966576001e48263b3335813447bb60a4 ""
+  "abntex2-model_UDESC_2024.aux" 1761669850 3328 11993e66b45040c4d775640e60566abf "pdflatex"
   "abntex2-model_UDESC_2024.bbl" 1761659834 230 b18dccbc2f147f675f2f5a3b2d41d0e8 "bibtex abntex2-model_UDESC_2024"
-  "abntex2-model_UDESC_2024.brf" 1761661907 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "abntex2-model_UDESC_2024.brf" 1761669850 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   "abntex2-model_UDESC_2024.ind" 1761616207 0 d41d8cd98f00b204e9800998ecf8427e "makeindex abntex2-model_UDESC_2024.idx"
   "abntex2-model_UDESC_2024.tex" 1761508826 7930 9b2f573c633f35f628eee5c207453397 ""
-  "abntex2-model_UDESC_2024.toc" 1761661907 1049 c3cc6caa9f430b042c884443f5677e8c "pdflatex"
+  "abntex2-model_UDESC_2024.toc" 1761669850 1049 c3cc6caa9f430b042c884443f5677e8c "pdflatex"
   "c:/Users/avini/Documents/Estudo/REF/TRABALHO/REF_Trabalhos/Trab01/relatorio/abntex2-model_UDESC_2024.tex" 1761508826 7930 9b2f573c633f35f628eee5c207453397 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1761006029 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1761007603 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -218,6 +218,7 @@
   "c:/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty" 1761004571 2444 9983e1d0683f102e3b190c64a49313aa ""
   "c:/texlive/2025/texmf-dist/tex/latex/base/fleqn.clo" 1761009164 4832 b9e68358aa4c47c980e091e661f12c63 ""
   "c:/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty" 1761009164 5525 1593ca62a2554dd7423fc8a4e5a82125 ""
+  "c:/texlive/2025/texmf-dist/tex/latex/base/omscmr.fd" 1761009164 2469 c75f72b1dc17277decdd842fa4a321a8 ""
   "c:/texlive/2025/texmf-dist/tex/latex/base/shortvrb.sty" 1761009164 4143 938f2553a07e40a2cbfded27d52abd3b ""
   "c:/texlive/2025/texmf-dist/tex/latex/bookmark/bkm-pdftex.def" 1761005560 8818 aa5157b46368efebf023abff55611467 ""
   "c:/texlive/2025/texmf-dist/tex/latex/bookmark/bookmark.sty" 1761005560 18245 97e6be180cf07bb6f7008cfdaaecfce5 ""
