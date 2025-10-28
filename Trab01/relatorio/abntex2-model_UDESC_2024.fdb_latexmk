@@ -1,24 +1,24 @@
 # Fdb version 4
-["bibtex abntex2-model_UDESC_2024"] 1761673266.67838 "abntex2-model_UDESC_2024.aux" "abntex2-model_UDESC_2024.bbl" "abntex2-model_UDESC_2024" 1761673272.01554 0
+["bibtex abntex2-model_UDESC_2024"] 1761673454.11363 "abntex2-model_UDESC_2024.aux" "abntex2-model_UDESC_2024.bbl" "abntex2-model_UDESC_2024" 1761673459.62352 0
   "./abntex2-alf_revNBR2023.bst" 1758643903 60082 1c999a6bd28f2c83247b075aaf0482a6 ""
-  "./abntex2-ref_UDESC_2020.bib" 1761672330 1395 9b936e00c2c6793ed828caa88cd7a969 ""
-  "PreTextuais/Capa.aux" 1761673268 1973 e6af26a5285ad6160587d900d19f7b12 "pdflatex"
-  "PreTextuais/Sumario.aux" 1761673268 2084 74d869a51657c9a51e04f86480a06933 "pdflatex"
-  "Textuais/Desenvolvimento.aux" 1761673270 6681 b9806ca62de627126d8537ff694b90db "pdflatex"
-  "Textuais/Introducao.aux" 1761673268 2477 b908c4c70a870908c0af4a7c1fb8bc19 "pdflatex"
-  "abntex2-model_UDESC_2024.aux" 1761673270 4352 5c2c784fdcd84158f4b061c27de4caaf "pdflatex"
+  "./abntex2-ref_UDESC_2020.bib" 1761673428 1514 424e44aeb43f25fbce6c7f93f3e04db6 ""
+  "PreTextuais/Capa.aux" 1761673456 1973 e6af26a5285ad6160587d900d19f7b12 "pdflatex"
+  "PreTextuais/Sumario.aux" 1761673456 2084 74d869a51657c9a51e04f86480a06933 "pdflatex"
+  "Textuais/Desenvolvimento.aux" 1761673458 6993 4d1b97734357bfba94c32c51cc3f1df9 "pdflatex"
+  "Textuais/Introducao.aux" 1761673456 2477 b908c4c70a870908c0af4a7c1fb8bc19 "pdflatex"
+  "abntex2-model_UDESC_2024.aux" 1761673458 4931 966705858f6cec943f8f0fbc0fcec4cf "pdflatex"
   "c:/texlive/2025/texmf-dist/bibtex/bib/abntex2/abntex2-options.bib" 1744488332 5396 4eb260dac60f150ae608d45252853090 ""
   (generated)
   "abntex2-model_UDESC_2024.bbl"
   "abntex2-model_UDESC_2024.blg"
   (rewritten before read)
-["makeindex abntex2-model_UDESC_2024.idx"] 1761671093.94541 "abntex2-model_UDESC_2024.idx" "abntex2-model_UDESC_2024.ind" "abntex2-model_UDESC_2024" 1761673272.01523 0
-  "abntex2-model_UDESC_2024.idx" 1761673268 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex abntex2-model_UDESC_2024.idx"] 1761673442.65898 "abntex2-model_UDESC_2024.idx" "abntex2-model_UDESC_2024.ind" "abntex2-model_UDESC_2024" 1761673459.62319 0
+  "abntex2-model_UDESC_2024.idx" 1761673456 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "abntex2-model_UDESC_2024.ilg"
   "abntex2-model_UDESC_2024.ind"
   (rewritten before read)
-["pdflatex"] 1761673267.12099 "c:/Users/andre/OneDrive/Imagens/Documentos Legit/. Faculdade/UDESC/8_Fase_UDESC/REF/REF_Trabalhos/Trab01/relatorio/abntex2-model_UDESC_2024.tex" "abntex2-model_UDESC_2024.pdf" "abntex2-model_UDESC_2024" 1761673272.01656 0
+["pdflatex"] 1761673454.53564 "c:/Users/andre/OneDrive/Imagens/Documentos Legit/. Faculdade/UDESC/8_Fase_UDESC/REF/REF_Trabalhos/Trab01/relatorio/abntex2-model_UDESC_2024.tex" "abntex2-model_UDESC_2024.pdf" "abntex2-model_UDESC_2024" 1761673459.62571 0
   "Imagens/Desenvolvimento/Diagrama.png" 1761645383 14134 0dc89e9ddea24b24e166244e226b452d ""
   "Imagens/Desenvolvimento/PSS-embraco.png" 1761572423 99015 5f9c4ab7aea3a38ec3dcfd8466210f02 ""
   "Imagens/Desenvolvimento/barras_COP.png" 1761645811 112897 f58016c4aada03dbdb25a59e16264440 ""
@@ -29,20 +29,20 @@
   "Imagens/Desenvolvimento/ciclo_EGZS70HLC_202W.png" 1761645807 430195 16af0f463f55a73936acd07acbe6903d ""
   "Imagens/Desenvolvimento/ciclo_FFU70HAK_221W.png" 1761645811 423099 faf6eb8a7232bb215d3da427aa3dd188 ""
   "PacotesBasicos.tex" 1758820730 14737 eca88280a5e57a472b2fd921938fdafe ""
-  "PreTextuais/Capa.aux" 1761673268 1973 e6af26a5285ad6160587d900d19f7b12 "pdflatex"
+  "PreTextuais/Capa.aux" 1761673456 1973 e6af26a5285ad6160587d900d19f7b12 "pdflatex"
   "PreTextuais/Capa.tex" 1758710937 871 93305c576a6d1b79c48653bdda066806 ""
-  "PreTextuais/Sumario.aux" 1761673268 2084 74d869a51657c9a51e04f86480a06933 "pdflatex"
+  "PreTextuais/Sumario.aux" 1761673456 2084 74d869a51657c9a51e04f86480a06933 "pdflatex"
   "PreTextuais/Sumario.tex" 1758643904 109 e59dc964370530227a3be392710f0c64 ""
-  "Textuais/Desenvolvimento.aux" 1761673270 6681 b9806ca62de627126d8537ff694b90db "pdflatex"
-  "Textuais/Desenvolvimento.tex" 1761673261 12902 556534987c0ce67bf257196a754f0ed9 ""
-  "Textuais/Introducao.aux" 1761673268 2477 b908c4c70a870908c0af4a7c1fb8bc19 "pdflatex"
+  "Textuais/Desenvolvimento.aux" 1761673458 6993 4d1b97734357bfba94c32c51cc3f1df9 "pdflatex"
+  "Textuais/Desenvolvimento.tex" 1761673428 13492 f2ad8dbf3275237c1fea51b230530cdf ""
+  "Textuais/Introducao.aux" 1761673456 2477 b908c4c70a870908c0af4a7c1fb8bc19 "pdflatex"
   "Textuais/Introducao.tex" 1761670541 2739 d633449494c3a6f0db8bd4ffb55eb879 ""
-  "abntex2-model_UDESC_2024.aux" 1761673270 4352 5c2c784fdcd84158f4b061c27de4caaf "pdflatex"
-  "abntex2-model_UDESC_2024.bbl" 1761673267 230 b18dccbc2f147f675f2f5a3b2d41d0e8 "bibtex abntex2-model_UDESC_2024"
-  "abntex2-model_UDESC_2024.brf" 1761673270 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "abntex2-model_UDESC_2024.ind" 1761671094 0 d41d8cd98f00b204e9800998ecf8427e "makeindex abntex2-model_UDESC_2024.idx"
+  "abntex2-model_UDESC_2024.aux" 1761673458 4931 966705858f6cec943f8f0fbc0fcec4cf "pdflatex"
+  "abntex2-model_UDESC_2024.bbl" 1761673454 1014 318e60c51103e56668708cb47faca176 "bibtex abntex2-model_UDESC_2024"
+  "abntex2-model_UDESC_2024.brf" 1761673458 169 e892af7ba5e0297d1f2abace8cba7089 "pdflatex"
+  "abntex2-model_UDESC_2024.ind" 1761673443 0 d41d8cd98f00b204e9800998ecf8427e "makeindex abntex2-model_UDESC_2024.idx"
   "abntex2-model_UDESC_2024.tex" 1761669795 7935 07b48a5532699a9d4f564618a8d6e0cd ""
-  "abntex2-model_UDESC_2024.toc" 1761673270 1435 fafb5357777bdf8ba4844f98421b3f47 "pdflatex"
+  "abntex2-model_UDESC_2024.toc" 1761673458 1435 fafb5357777bdf8ba4844f98421b3f47 "pdflatex"
   "c:/Users/andre/OneDrive/Imagens/Documentos Legit/. Faculdade/UDESC/8_Fase_UDESC/REF/REF_Trabalhos/Trab01/relatorio/abntex2-model_UDESC_2024.tex" 1761669795 7935 07b48a5532699a9d4f564618a8d6e0cd ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1744488854 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1744489446 3524 cb3e574dea2d1052e39280babc910dc8 ""

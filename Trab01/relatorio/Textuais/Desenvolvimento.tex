@@ -2,7 +2,11 @@
 
 \section{Definição do Produto e Fluido Refrigerante}
 
+<<<<<<< HEAD
+Para o desenvolvimento do projeto, definiu-se como produto a ser refrigerado o pescado fresco, recebido na câmara frigorífica a 0°C e armazenado em temperatura de conservação de -25°C, condição típica para armazenamento comercial de longo prazo. As propriedades termofísicas do produto, incluindo calor específico, densidade e calor latente de congelamento, bem como as temperaturas de operação, encontram-se especificadas em \cite{calor_especifico_II} e \cite{costa1982refrigeracao}.
+=======
 Para o desenvolvimento do projeto, definiu-se como produto a ser refrigerado o pescado fresco, recebido na câmara frigorífica a \textit{0°C} e armazenado em temperatura de conservação de \textit{-25°C}, condição típica para armazenamento comercial de longo prazo. As propriedades termofísicas do produto, incluindo calor específico, densidade e calor latente de congelamento, bem como as temperaturas de operação, encontram-se especificadas na Tabela~\ref{massa peixe}.
+>>>>>>> db301b87a24ad5679c464d8001d8a762679095af
 
 A seleção do fluido refrigerante considerou critérios técnicos, econômicos e ambientais. O refrigerante R-134a (1,1,1,2-tetrafluoretano) foi escolhido por apresentar características adequadas à faixa de temperatura requerida, baixo custo relativo, ampla disponibilidade no mercado e extensa utilização em aplicações de refrigeração comercial. Adicionalmente, o R-134a possui potencial de destruição da camada de ozônio (ODP) nulo, embora apresente potencial de aquecimento global (GWP) moderado de 1430, sendo considerado um fluido de transição aceitável para esta aplicação.
 
@@ -127,7 +131,7 @@ Com os dados preliminares obtidos, foi desenvolvida uma rotina em Python para ca
 
 \newpage
 
-O programa utiliza um método iterativo para determinar a  mínima temperatura operacional possível, com o objetivo de reduzir custos ao evitar o superdimensionamento do compressor, utilizando como base os parâmetros descritos a seguir:
+O programa utiliza um método iterativo para determinar a  mínima temperatura operacional possível, com o objetivo de reduzir custos ao evitar o superdimensionamento do compressor, utilizando como base os parâmetros descritos em \cite{paper_referencia}.
 
 \begin{equation}
     \dot{Q_L} = \dot{m}(h_1-h_4)
