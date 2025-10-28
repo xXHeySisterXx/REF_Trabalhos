@@ -31,7 +31,7 @@ $c$ {[}J/kgK{]}     &  1.71 \\ \hline
 $\Delta T$ {[}K{]}     &  25 \\ \hline
 $\Delta t$ {[}s{]}     &  $2.88 \cdot10^{4}$ \\ \hline
 \end{tabular}
-\caption{Valores utilizados}
+\caption{Valores utilizados.}
 \label{tab:tabela dados}
 \end{table}
 
@@ -133,13 +133,15 @@ Depois de uma rodada de anállises, dois compressores destacaram-se, o desempenh
     \label{fig:ciclo comp 2}
 \end{figure}
 
-É possivél notar uma grande diferença entre o ciclo real e o ótimo, causada pelas perdar do sistema real. A rotina desenvolvida também calcula outros parâmetros de desempenho do sistema, tais como fluxo mássico, potência, COP e ${Q_L}$.
+É possivél notar uma grande diferença entre o ciclo real e o ótimo, causada pelas perdar do sistema real, que aparecem em forma de calor. A rotina desenvolvida também calcula outros parâmetros de desempenho do sistema, tais como fluxo mássico, potência, COP e ${Q_L}$.
+
+\newpage
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\linewidth]{Imagens/Desenvolvimento/barras_m.png}
     \caption{Compração do $\dot{m}$.}
-    \label{fig:barras m}
+    \label{fig:barras fluxo massa}
 \end{figure}
 
 \begin{figure}[h]
@@ -148,6 +150,8 @@ Depois de uma rodada de anállises, dois compressores destacaram-se, o desempenh
     \caption{Compração da potência.}
     \label{fig:barras W}
 \end{figure}
+
+\newpage
 
 \begin{figure}[h]
     \centering
@@ -163,3 +167,13 @@ Depois de uma rodada de anállises, dois compressores destacaram-se, o desempenh
     \label{fig:barras Ql}
 \end{figure}
 
+
+
+Os resultados obtidos e mostrados nas Figuras \ref{fig:barras fluxo massa} a \ref{fig:barras Ql} demonstram a fidelidade do modelo computacional calculado com a base teórica, com  cada propriedade apresentando um comportamento esperado em cada situação.
+
+    \begin{itemize}
+        \item $\dot{m}$ : O ciclo ideal apresentou o menor valor para o fluxo mássico, enquanto os ciclos reais e ótimos aparecem com valores ligeiramente maiores, isso acontece pela necessidade de uma maior retirada de calor no sistema.
+        \item COP : A máxima eficiência possível é determinada pelo ciclo de Carnot de refrigeração. A discrepância entre esse valor teórico e o desempenho no sistema real indica o quanto ele se afasta do ideal.
+    \end{itemize}
+
+% ver custo dos compressores e ver qual é melhor
