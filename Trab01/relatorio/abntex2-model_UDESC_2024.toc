@@ -18,4 +18,4 @@
 \contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Conclusão}}{12}{chapter.3}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{13}{section*.16}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{13}{section*.17}%
