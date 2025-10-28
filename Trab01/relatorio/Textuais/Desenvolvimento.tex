@@ -2,80 +2,88 @@
 
 \section{Definição do Produto e Fluido Refrigerante}
 
-Para o desenvolvimento do projeto, definiu-se como produto a ser refrigerado o pescado fresco, recebido na câmara frigorífica a 0°C e armazenado em temperatura de conservação de -25°C, condição típica para armazenamento comercial de longo prazo. As propriedades termofísicas do produto, incluindo calor específico, densidade e calor latente de congelamento, bem como as temperaturas de operação, encontram-se especificadas na Tabela~\ref{massa peixe}.
+Para o desenvolvimento do projeto, definiu-se como produto a ser refrigerado o pescado fresco, recebido na câmara frigorífica a \textit{0°C} e armazenado em temperatura de conservação de \textit{-25°C}, condição típica para armazenamento comercial de longo prazo. As propriedades termofísicas do produto, incluindo calor específico, densidade e calor latente de congelamento, bem como as temperaturas de operação, encontram-se especificadas na Tabela~\ref{massa peixe}.
 
 A seleção do fluido refrigerante considerou critérios técnicos, econômicos e ambientais. O refrigerante R-134a (1,1,1,2-tetrafluoretano) foi escolhido por apresentar características adequadas à faixa de temperatura requerida, baixo custo relativo, ampla disponibilidade no mercado e extensa utilização em aplicações de refrigeração comercial. Adicionalmente, o R-134a possui potencial de destruição da camada de ozônio (ODP) nulo, embora apresente potencial de aquecimento global (GWP) moderado de 1430, sendo considerado um fluido de transição aceitável para esta aplicação.
 
 As propriedades termodinâmicas do R-134a, incluindo entalpia, entropia, temperatura e pressão em diferentes estados do ciclo, foram determinadas através da biblioteca CoolProp, uma base de dados de código aberto amplamente validada. A integração com rotinas computacionais desenvolvidas em Python permitiu o cálculo automatizado dos ciclos de refrigeração e a análise paramétrica do sistema.
 
-\section{Estimativa da taxa de calor necessário de resfriamento}
+\section{Estimativa da Carga Térmica de Refrigeração}
 
-Para a escolha do compressor a ser utilizado, primeiramente foi estimado a taxa de calor a ser retirada do sistema, a partir da Equação \ref{Q resfriamento}. Como temos o volume, o tempo de pulldown e o material a ser refigerado, podemos calcular a carga térmica mínima necessária.
+A seleção adequada do compressor requer inicialmente a determinação da carga térmica do sistema, que corresponde à taxa de calor a ser removida do produto durante o processo de resfriamento. Para este projeto, considerou-se uma câmara frigorífica com capacidade volumétrica de 200 litros, operando com fator de ocupação de 70\%, o que resulta em uma massa de pescado de aproximadamente 136 kg, conforme a Equação~\ref{massa peixe}.
 
 \begin{equation}
-    m_{peixe} = \rho V_{refrigerador}
+    m_{\text{peixe}} = \rho \cdot V_{\text{útil}}
     \label{massa peixe}
 \end{equation}
 
+O tempo de \textit{pull-down}, isto é, o período necessário para reduzir a temperatura do produto desde a condição inicial (0°C) até a temperatura de armazenamento (-25°C), foi especificado em 8 horas. Este parâmetro é crítico para o dimensionamento, pois define a potência mínima de refrigeração necessária. A carga térmica sensível foi calculada pela Equação~\ref{Q resfriamento}, considerando apenas a remoção de calor sensível do pescado, sem contemplar a fase de congelamento.
+
 \begin{equation}
-    \dot{Q} = m c \Delta T / \Delta t
+    \dot{Q}_{\text{produto}} = \frac{m \cdot c \cdot \Delta T}{\Delta t}
     \label{Q resfriamento}
 \end{equation}
 
-
 \begin{table}[ht]
 \centering
-\begin{tabular}{|c|c|}
+\begin{tabular}{|l|c|c|}
 \hline
-$\rho$ {[}kg/m³{]} & 972 \\ \hline
-$V_{refrigerador}$ {[}m³{]}     & 0.14 \\ \hline
-$c$ {[}J/kgK{]}     &  1.71 \\ \hline
-$\Delta T$ {[}K{]}     &  25 \\ \hline
-$\Delta t$ {[}s{]}     &  $2.88 \cdot10^{4}$ \\ \hline
+\textbf{Parâmetro} & \textbf{Símbolo} & \textbf{Valor} \\ \hline
+Densidade do pescado & $\rho$ & 972 kg/m³ \\ \hline
+Volume útil da câmara & $V_{\text{útil}}$ & 0,14 m³ \\ \hline
+Calor específico do pescado & $c$ & 1,71 kJ/(kg·K) \\ \hline
+Variação de temperatura & $\Delta T$ & 25 K \\ \hline
+Tempo de \textit{pull-down} & $\Delta t$ & $2,88 \times 10^{4}$ s (8 h) \\ \hline
 \end{tabular}
-\caption{Valores utilizados.}
+\caption{Parâmetros utilizados no cálculo da carga térmica do produto.}
 \label{tab:tabela dados}
 \end{table}
 
-Obtemos:
+Substituindo os valores da Tabela~\ref{tab:tabela dados} na Equação~\ref{Q resfriamento}, obtém-se a carga térmica mínima requerida:
+
 \begin{equation}
-    \dot{Q} = 202.6 W
+    \dot{Q}_{\text{produto}} = 202,6~\text{W}
     \label{carga}
 \end{equation}
 
-Com a carga térmica definida, é necessário selecionar um compressor adequado para a operação. Para isso, será utilizado o seletor de produtos disponível no site do fabricante Embraco \textcopyright. Para a aplicação em questão, que envolve baixas temperaturas, recomenda-se a utilização de compressores do tipo LBP. Uma vez selecionados os compressores que atendiam aos requisitos, os dados de operação individuais foram obtidos no site do fabricante.
+É importante ressaltar que este valor representa apenas a carga térmica do produto. Em um projeto completo, deveriam ser consideradas cargas térmicas adicionais, como infiltração de ar, ganho de calor pelas paredes, iluminação e respiração do produto, que podem aumentar significativamente a carga total do sistema.
 
-\begin{figure}
+\subsection{Seleção de Compressores Candidatos}
+
+Com a carga térmica de referência estabelecida, procedeu-se à seleção de compressores candidatos através da ferramenta \textit{Product Selector} disponibilizada pelo fabricante Embraco. Para aplicações em baixas temperaturas de evaporação, como a especificada neste projeto (-25°C), são recomendados compressores da linha LBP (\textit{Low Back Pressure}), projetados especificamente para trabalhar com elevadas razões de compressão.
+
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\linewidth]{Imagens/Desenvolvimento/PSS-embraco.png}
-    \caption{Seletor de produtos.}
+    \caption{Interface do seletor de produtos Embraco utilizado para pré-seleção dos compressores.}
     \label{fig:seletor de produtos}
 \end{figure}
 
-\newpage
+Os catálogos técnicos dos compressores pré-selecionados fornecem dados de desempenho obtidos em condições padronizadas de teste, incluindo temperaturas de evaporação e condensação, capacidade de refrigeração, consumo de potência elétrica e corrente nominal. Estes dados permitem uma análise comparativa detalhada do desempenho termodinâmico e econômico de cada modelo.
 
-O documento contém as temperaturas de condensação e evaporação empregadas nos testes de desempenho, além de parâmetros como capacidade de refrigeração, consumo de energia, corrente elétrica, entre outros. Dessa maneina, foram selecionas os compressores descrtitos na Tabela \ref{tab:compressores escolhidos}.
-
+Foram selecionados quatro modelos de compressores herméticos que atendem aos requisitos de capacidade de refrigeração, apresentados na Tabela~\ref{tab:compressores escolhidos}.
 
 \begin{table}[ht]
 \centering
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|l|c|c|}
 \hline
-Modelo    & Potencia {[}W{]} & Custo {[}R\$\} \\ \hline
-EGAS80HLR & 240              & 650            \\ \hline
-EGZS60HLP & 180              & 1340           \\ \hline
-EGZS70HLC & 202              & 1130           \\ \hline
-FFU70HAK  & 221              & 600            \\ \hline
+\textbf{Modelo} & \textbf{Potência Nominal [W]} & \textbf{Custo Estimado [R\$]} \\ \hline
+EGAS80HLR & 240 & 650 \\ \hline
+EGZS60HLP & 180 & 1340 \\ \hline
+EGZS70HLC & 202 & 1130 \\ \hline
+FFU70HAK & 221 & 600 \\ \hline
 \end{tabular}
-\caption{Compressores escolhidos.}
+\caption{Compressores pré-selecionados para análise comparativa.}
 \label{tab:compressores escolhidos}
 \end{table}
+
+\newpage
 
 \section{Ciclo de Refrigeração Padrão:}
 
 Com os dados preliminares obtidos, foi desenvolvida uma rotina em Python para calcular as propriedades do sistema, de acordo com o ciclo descrito na Figura \ref{fig:ciclo padrão}. 
 
-\begin{figure}
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.6\linewidth]{Imagens/Desenvolvimento/Diagrama.png}
     \caption{Ciclo padrão.}
