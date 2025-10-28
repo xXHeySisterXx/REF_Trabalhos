@@ -6,7 +6,7 @@ A level-1 auxiliary file: PreTextuais/Sumario.aux
 A level-1 auxiliary file: Textuais/Introducao.aux
 A level-1 auxiliary file: Textuais/Desenvolvimento.aux
 I couldn't open auxiliary file Textuais/Conclusão.aux
----line 31 of file abntex2-model_UDESC_2024.aux
+---line 38 of file abntex2-model_UDESC_2024.aux
  : \@input{Textuais/Conclusão.aux
  :                                }
 I'm skipping whatever remains of this command

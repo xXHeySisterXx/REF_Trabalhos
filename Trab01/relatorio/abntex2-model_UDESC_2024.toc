@@ -13,9 +13,16 @@
 \contentsline {section}{\numberline {2.4}Ciclo de Refrigeração Real}{6}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Validação do Modelo com Dados de Catálogo}{7}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Modelagem Termodinâmica do Ciclo}{7}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Análise dos Resultados}{9}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.3}Análise dos Resultados}{10}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.5}Análise de Geração de Entropia e Potência Perdida}{12}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Condições Operacionais Analisadas}{12}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Propriedades Termodinâmicas do Refrigerante}{12}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Cálculo da Geração de Entropia}{13}{subsection.2.5.3}%
+\contentsline {subsubsection}{\numberline {2.5.3.1}Evaporador}{13}{subsubsection.2.5.3.1}%
+\contentsline {subsubsection}{\numberline {2.5.3.2}Condensador}{13}{subsubsection.2.5.3.2}%
+\contentsline {subsection}{\numberline {2.5.4}Síntese dos Resultados}{14}{subsection.2.5.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Conclusão}}{12}{chapter.3}%
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Conclusão}}{15}{chapter.3}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{13}{section*.17}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{16}{section*.18}%

@@ -2,7 +2,7 @@
 
 \section{Definição do Produto e Fluido Refrigerante}
 
-Para o desenvolvimento do projeto, definiu-se como produto a ser refrigerado o pescado fresco, recebido na câmara frigorífica a \textit{0°C} e armazenado em temperatura de conservação de \textit{-25°C}, condição típica para armazenamento comercial de longo prazo. As propriedades termofísicas do produto, incluindo calor específico, densidade e calor latente de congelamento, bem como as temperaturas de operação, encontram-se especificadas em \cite{calor_especifico_II} e \cite{costa1982refrigeracao}.
+Para o desenvolvimento do projeto, definiu-se como produto a ser refrigerado o pescado fresco, recebido na câmara de refrigeração a \textit{0°C} e armazenado em temperatura de conservação de \textit{-25°C}, condição típica para armazenamento comercial de longo prazo. As propriedades termofísicas do produto, incluindo calor específico, densidade e calor latente de congelamento, bem como as temperaturas de operação, encontram-se especificadas em \cite{calor_especifico_II} e \cite{costa1982refrigeracao}.
 
 A seleção do fluido refrigerante considerou critérios técnicos, econômicos e ambientais. O refrigerante R-134a (1,1,1,2-tetrafluoretano) foi escolhido por apresentar características adequadas à faixa de temperatura requerida, baixo custo relativo, ampla disponibilidade no mercado e extensa utilização em aplicações de refrigeração comercial. Adicionalmente, o R-134a possui potencial de destruição da camada de ozônio (ODP) nulo, embora apresente potencial de aquecimento global (GWP) moderado de 1430, sendo considerado um fluido de transição aceitável para esta aplicação.
 
@@ -10,7 +10,7 @@ As propriedades termodinâmicas do R-134a, incluindo entalpia, entropia, tempera
 
 \section{Estimativa da Carga Térmica de Refrigeração}
 
-A seleção adequada do compressor requer inicialmente a determinação da carga térmica do sistema, que corresponde à taxa de calor a ser removida do produto durante o processo de resfriamento. Para este projeto, considerou-se uma câmara frigorífica com capacidade volumétrica de 200 litros, operando com fator de ocupação de 70\%, o que resulta em uma massa de pescado de aproximadamente 136 kg, conforme a Equação~\ref{massa peixe}.
+A seleção adequada do compressor requer inicialmente a determinação da carga térmica do sistema, que corresponde à taxa de calor a ser removida do produto durante o processo de resfriamento. Para este projeto, considerou-se uma câmara de refrigeração com capacidade volumétrica de 200 litros, operando com fator de ocupação de 70\%, o que resulta em uma massa de pescado de aproximadamente 136 kg, conforme a Equação~\ref{massa peixe}.
 
 \begin{equation}
     m_{\text{peixe}} = \rho \cdot V_{\text{útil}}
@@ -132,7 +132,7 @@ Inicialmente, o programa foi validado utilizando as condições de teste padroni
 
 \subsection{Modelagem Termodinâmica do Ciclo}
 
-A modelagem do ciclo real baseia-se na metodologia apresentada por \cite{paper_referencia}, que permite estimar a vazão mássica do refrigerante e a capacidade frigorífica efetiva do compressor a partir de suas características operacionais. A potência de compressão real é calculada pelo balanço de energia no compressor, considerando a variação de entalpia entre a sucção e descarga:
+A modelagem do ciclo real baseia-se na metodologia apresentada por \cite{paper_referencia}, que permite estimar a vazão mássica do refrigerante e a capacidade de refrigeração efetiva do compressor a partir de suas características operacionais. A potência de compressão real é calculada pelo balanço de energia no compressor, considerando a variação de entalpia entre a sucção e descarga:
 
 \begin{equation}
     \dot{W}_c = \dot{m}(h_3 - h_4)
@@ -187,8 +187,9 @@ Apenas os compressores \ref{fig:ciclo comp 1} e \ref{fig:ciclo comp 2} convergir
 
 Foi desenvolvida uma rotina de otimização utilizando a ferramenta \textit{Minimize} do pacote \textit{Scipy}, que foi utilizado para variar as temperaturas do condensador e do compressor a fim de minimizar o gasto energético, identificando a maior eficiência. Infelizmente os resultados não foram como esperado, resultando em temperatura muito similares com o ciclo de Carnot, porém com eficiência muito baixas, os resultados obtidos estão com a legenda "ótimo".
 
+Nota-se que o compressor FFU70HAK não possui nenhum conjunto de temperaturas presente no banco de dados que satisfaça a condição da temperatura no início do condensador ser maior que no final, invalidando o ciclo.
 
-A análise comparativa entre os diferentes ciclos revela diferenças significativas nos parâmetros de desempenho. A rotina computacional desenvolvida calcula sistematicamente a vazão mássica de refrigerante ($\dot{m}$), potência de compressão ($\dot{W}_c$), coeficiente de performance (COP) e capacidade frigorífica ($\dot{Q}_L$) para os ciclos real e otimizado com dados de catálogo e otimizado, conforme apresentado nas Figuras~\ref{fig:barras fluxo massa} a~\ref{fig:barras Ql}.
+A análise comparativa entre os diferentes ciclos revela diferenças significativas nos parâmetros de desempenho. A rotina computacional desenvolvida calcula sistematicamente a vazão mássica de refrigerante ($\dot{m}$), potência de compressão ($\dot{W}_c$), coeficiente de performance (COP) e capacidade de refrigeração ($\dot{Q}_L$) para os ciclos real e otimizado com dados de catálogo e otimizado, conforme apresentado nas Figuras~\ref{fig:barras fluxo massa} a~\ref{fig:barras Ql}.
 
 \begin{figure}[ht]
     \centering
@@ -214,7 +215,7 @@ A análise comparativa entre os diferentes ciclos revela diferenças significati
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\linewidth]{Imagens/Desenvolvimento/barras_QL.png}
-    \caption{Comparação da capacidade frigorífica entre os ciclos estudados.}
+    \caption{Comparação da capacidade de refrigeração entre os ciclos estudados.}
     \label{fig:barras Ql}
 \end{figure}
 
@@ -222,13 +223,13 @@ A análise comparativa entre os diferentes ciclos revela diferenças significati
 
 Os resultados apresentados nas Figuras~\ref{fig:barras fluxo massa} a~\ref{fig:barras Ql} demonstram comportamento coerente com a teoria termodinâmica de ciclos de refrigeração, permitindo identificar o impacto das irreversibilidades nos parâmetros de desempenho:
 
-\textbf{Vazão mássica ($\dot{m}$):} O ciclo ideal de Carnot apresenta a menor vazão mássica necessária, uma vez que opera com a máxima eficiência termodinâmica possível. Os ciclos real e otimizado requerem vazões superiores para fornecer a mesma capacidade frigorífica, compensando as perdas por irreversibilidades, como expansão isentálpica, superaquecimento do vapor na descarga do compressor e diferenças finitas de temperatura nos trocadores de calor.
+\textbf{Vazão mássica ($\dot{m}$):} O ciclo ideal de Carnot apresenta a menor vazão mássica necessária, uma vez que opera com a máxima eficiência termodinâmica possível. Os ciclos real e otimizado requerem vazões superiores para fornecer a mesma capacidade de refrigeração, compensando as perdas por irreversibilidades, como expansão isentálpica, superaquecimento do vapor na descarga do compressor e diferenças finitas de temperatura nos trocadores de calor.
 
 \textbf{Coeficiente de Performance (COP):} O ciclo de Carnot estabelece o limite superior teórico de eficiência, servindo como referencial para avaliar o desempenho dos ciclos reais. A diferença entre o COP de Carnot e o COP real quantifica o efeito combinado de todas as irreversibilidades presentes no sistema.
 
-\textbf{Potência de compressão ($\dot{W}_c$):} O ciclo ideal requer a menor potência de compressão devido à sua máxima eficiência. O ciclo real demanda potência significativamente superior devido às perdas já mencionadas, enquanto o ciclo otimizado busca um compromisso entre capacidade frigorífica e consumo energético através da seleção apropriada das condições operacionais.
+\textbf{Potência de compressão ($\dot{W}_c$):} O ciclo ideal requer a menor potência de compressão devido à sua máxima eficiência. O ciclo real demanda potência significativamente superior devido às perdas já mencionadas, enquanto o ciclo otimizado busca um compromisso entre capacidade de refrigeração e consumo energético através da seleção apropriada das condições operacionais.
 
-\textbf{Capacidade frigorífica ($\dot{Q}_L$):} Observa-se que os diferentes ciclos fornecem capacidades frigoríficas distintas devido às variações na eficiência volumétrica do compressor e no efeito refrigerante específico, influenciados pelas condições de evaporação e condensação adotadas.
+\textbf{Capacidade de refrigeração ($\dot{Q}_L$):} Observa-se que os diferentes ciclos fornecem capacidades de refrigeração distintas devido às variações na eficiência volumétrica do compressor e no efeito refrigerante específico, influenciados pelas condições de evaporação e condensação adotadas.
 
 A Tabela~\ref{tab:eficiencias termo} apresenta as eficiências termodinâmicas calculadas para dois dos compressores analisados, tanto nas condições reais de catálogo quanto nas condições otimizadas. A eficiência $\eta_{II}$ representa a razão entre o COP real e otimizado em relação ao COP de Carnot, indicando o quão próximo o sistema opera do limite termodinâmico ideal.
 
@@ -245,3 +246,119 @@ FFU70HAK & 58,5 & 19,5 \\ \hline
 \end{table}
 
 Observa-se que as eficiências termodinâmicas situam-se na faixa de 19,5\% a 58,5\%, valores típicos para sistemas de refrigeração operando com elevadas razões de compressão. A redução da eficiência no ciclo otimizado em relação ao ciclo real deve-se a interpolação do banco de dados do fabricante, talvez representando melhor um ciclo real.
+
+\section{Análise de Geração de Entropia e Potência Perdida}
+
+A análise de irreversibilidades através da geração de entropia permite quantificar as perdas termodinâmicas em cada componente do sistema de refrigeração e identificar oportunidades de melhoria no desempenho energético. Esta seção apresenta os cálculos de geração de entropia e potência perdida para o evaporador e condensador, considerando as condições operacionais do ciclo otimizado.
+
+\subsection{Condições Operacionais Analisadas}
+
+A análise foi realizada para as seguintes condições de operação:
+
+\begin{itemize}
+    \item Temperatura de evaporação: $T_e = -30$°C (243 K)
+    \item Temperatura de condensação: $T_c = 40$°C (313 K)
+    \item Vazão mássica de refrigerante: $\dot{m} = 0{,}000792$ kg/s
+    \item Capacidade frigorífica: $\dot{Q}_L = 186$ W
+    \item Potência de compressão: $\dot{W}_c = 160$ W
+    \item Calor rejeitado no condensador: $\dot{Q}_H = \dot{Q}_L + \dot{W}_c = 346$ W
+\end{itemize}
+
+As temperaturas do produto refrigerado e do ambiente externo foram consideradas como $T_1 = -25$°C com diferença de temperatura de $\Delta T_1 = -5$°C no evaporador, e $T_3 = 35$°C com $\Delta T_3 = +5$°C no condensador, resultando nas temperaturas de evaporação e condensação especificadas.
+
+\subsection{Propriedades Termodinâmicas do Refrigerante}
+
+As entropias específicas do R-134a nos estados principais do ciclo foram determinadas através da biblioteca CoolProp:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Estado} & \textbf{Descrição} & \textbf{Entropia [J/(kg·K)]} \\ \hline
+1 & Entrada do compressor (vapor saturado) & 1757,72 \\ \hline
+2 & Saída do compressor (vapor superaquecido) & 1757,72 \\ \hline
+3 & Saída do condensador (líquido saturado) & 1213,24 \\ \hline
+4 & Saída da válvula de expansão & 1213,24 \\ \hline
+\end{tabular}
+\caption{Entropias específicas do R-134a nos estados do ciclo de refrigeração.}
+\label{tab:entropias}
+\end{table}
+
+Observa-se que $s_2 = s_1$, confirmando a hipótese de compressão isentrópica, e $s_4 = s_3$, indicando o processo de expansão isentálpica através do dispositivo de expansão.
+
+\subsection{Cálculo da Geração de Entropia}
+
+\subsubsection{Evaporador}
+
+A taxa de geração de entropia no evaporador foi calculada através do balanço de entropia, considerando a transferência de calor com o ambiente refrigerado a $-30$°C:
+
+\begin{equation}
+    \dot{S}_{\text{ger,evap}} = \dot{m}(s_1 - s_4) + \frac{\dot{Q}_L}{T_{\text{ext,evap}}}
+\end{equation}
+
+Substituindo os valores:
+
+\begin{equation}
+    \dot{S}_{\text{ger,evap}} = 0{,}000792 \times (1757{,}72 - 1213{,}24) + \frac{186}{243}
+\end{equation}
+
+\begin{equation}
+    \dot{S}_{\text{ger,evap}} = 0{,}431 + 0{,}765 = 1{,}196~\text{W/K}
+\end{equation}
+
+A potência perdida associada à irreversibilidade no evaporador é:
+
+\begin{equation}
+    \dot{W}_{\text{perdida,evap}} = T_e \cdot \dot{m} \cdot \dot{S}_{\text{ger,evap}} = 243 \times 0{,}000792 \times 1{,}196 = 0{,}230~\text{W}
+\end{equation}
+
+\subsubsection{Condensador}
+
+Para o condensador, a geração de entropia considera a rejeição de calor para o ambiente externo a $40$°C:
+
+\begin{equation}
+    \dot{S}_{\text{ger,cond}} = \dot{m}(s_3 - s_2) + \frac{\dot{Q}_H}{T_{\text{ext,cond}}}
+\end{equation}
+
+Substituindo os valores:
+
+\begin{equation}
+    \dot{S}_{\text{ger,cond}} = 0{,}000792 \times (1213{,}24 - 1757{,}72) + \frac{346}{313}
+\end{equation}
+
+\begin{equation}
+    \dot{S}_{\text{ger,cond}} = -0{,}431 + 1{,}105 = 0{,}674~\text{W/K}
+\end{equation}
+
+A potência perdida no condensador é:
+
+\begin{equation}
+    \dot{W}_{\text{perdida,cond}} = T_c \cdot \dot{m} \cdot \dot{S}_{\text{ger,cond}} = 313 \times 0{,}000792 \times 0{,}674 = 0{,}167~\text{W}
+\end{equation}
+
+\subsection{Síntese dos Resultados}
+
+A Tabela~\ref{tab:geracao entropia} resume os resultados da análise de irreversibilidades:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Componente} & \textbf{Geração de Entropia [W/K]} & \textbf{Potência Perdida [W]} \\ \hline
+Evaporador & 1,196 & 0,230 \\ \hline
+Condensador & 0,674 & 0,167 \\ \hline
+\textbf{Total} & \textbf{1,870} & \textbf{0,397} \\ \hline
+\end{tabular}
+\caption{Geração de entropia e potência perdida nos componentes do sistema.}
+\label{tab:geracao entropia}
+\end{table}
+
+O evaporador apresenta maior taxa de geração de entropia (1,196 W/K) em comparação ao condensador (0,674 W/K), representando 64\% das irreversibilidades totais nos trocadores de calor. Isso indica que o evaporador constitui o principal ponto de perda termodinâmica do sistema, sugerindo que melhorias na transferência de calor ou redução da diferença de temperatura neste componente teriam maior impacto na eficiência global.
+
+A potência perdida total de 0,397~W, embora relativamente pequena em relação à potência de compressão (160~W), representa trabalho adicional dissipado devido às irreversibilidades. O coeficiente de performance baseado nas temperaturas de evaporação e condensação é:
+
+\begin{equation}
+    \text{COP} = \frac{T_e}{T_c - T_e} = \frac{243}{313 - 243} = 3{,}47
+\end{equation}
+
+Este valor serve como referência para o desempenho termodinâmico esperado do sistema operando nas condições especificadas.
