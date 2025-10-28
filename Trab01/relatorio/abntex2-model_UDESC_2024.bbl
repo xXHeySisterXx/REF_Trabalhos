@@ -5,4 +5,18 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v<VERSION> }
 
+\bibitem[COSTA 1982]{costa1982refrigeracao}
+\abntrefinfo{COSTA}{COSTA}{1982}
+{COSTA, Émio Cruz~da. \textbf{Refrigeração}. 1. ed. São Paulo: Editora Blücher, 1982. Ebook.
+ISBN 9788521217527.}
+
+\bibitem[COSTA e KALIKOSKI s.d.]{calor_especifico_II}
+\abntrefinfo{COSTA e KALIKOSKI}{COSTA; KALIKOSKI}{s.d.}
+{COSTA, Émio Cruz~da; KALIKOSKI, Rudá. \textbf{Propriedades dos alimentos perecíveis}. s.d.}
+
+\bibitem[SANTOS, RONZONI e HERMES 2019]{paper_referencia}
+\abntrefinfo{SANTOS, RONZONI e HERMES}{SANTOS; RONZONI; HERMES}{2019}
+{SANTOS, Guilherme~Z.; RONZONI, Adriano~F.; HERMES, Christian~J.L. Performance characterization of small variable-capacity reciprocating compressors using a minimal dataset.
+\textbf{International Journal of Refrigeration}, v.~107, p. 191--201, 2019.}
+
 \end{thebibliography}
