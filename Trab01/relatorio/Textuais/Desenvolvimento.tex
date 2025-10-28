@@ -79,6 +79,41 @@ FFU70HAK & 221 & 600 \\ \hline
 
 \newpage
 
+\section{Ciclo de Refrigeração Ideal}
+
+Como referencial teórico para análise de desempenho, foi inicialmente considerado um ciclo de refrigeração ideal baseado no ciclo de Carnot reverso. Este ciclo representa o limite termodinâmico superior de eficiência para qualquer sistema de refrigeração operando entre duas fontes térmicas a temperaturas especificadas. O ciclo ideal de Carnot para refrigeração é composto por quatro processos reversíveis: compressão isentrópica do vapor saturado, condensação isotérmica à temperatura da fonte quente, expansão isentrópica do líquido saturado e evaporação isotérmica à temperatura da fonte fria, conforme ilustrado na Figura~\ref{fig: ciclo ideal}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Imagens/Desenvolvimento/carnot.png}
+    \caption{Diagrama temperatura-entropia do ciclo ideal de Carnot para refrigeração.}
+    \label{fig: ciclo ideal}
+\end{figure}
+
+Para o cálculo do coeficiente de performance (COP) de Carnot, consideraram-se as temperaturas de armazenamento do produto ($T_L = -25$°C = 248 K) e ambiente externo ($T_H = 35$°C = 308 K) como as temperaturas das fontes fria e quente, respectivamente. Esta simplificação representa o cenário termodinâmico mais favorável possível, desconsiderando irreversibilidades inerentes aos processos reais, como perdas por atrito, transferência de calor com diferença finita de temperatura e quedas de pressão.
+
+O COP de Carnot é definido pela relação entre o efeito refrigerante ($\dot{Q}_L$) e o trabalho de compressão ($\dot{W}_c$), podendo ser expresso exclusivamente em função das temperaturas absolutas das fontes térmicas:
+
+\begin{equation}
+    \text{COP}_{\text{Carnot}} = \frac{T_L}{T_H - T_L} = \frac{\dot{Q}_L}{\dot{W}_c}
+    \label{eq:cop carnot}
+\end{equation}
+
+Substituindo os valores de temperatura na Equação~\ref{eq:cop carnot}, obtém-se:
+
+\begin{equation}
+    \text{COP}_{\text{Carnot}} = \frac{248}{308 - 248} = 4,13
+\end{equation}
+
+A partir do COP de Carnot e da carga térmica determinada anteriormente (Equação~\ref{carga}), pode-se estimar a potência mínima teórica de compressão necessária:
+
+\begin{equation}
+    \dot{W}_{c,\text{ideal}} = \frac{\dot{Q}_L}{\text{COP}_{\text{Carnot}}} = \frac{202,6}{4,13} = 49,1~\text{W}
+    \label{eq:potencia ideal}
+\end{equation}
+
+Este valor representa um limite termodinâmico inferior para a potência de compressão. Na prática, devido às irreversibilidades do ciclo real, à necessidade de diferenças de temperatura finitas nos trocadores de calor e às perdas mecânicas e elétricas do compressor, a potência real requerida será significativamente superior, tipicamente de 2 a 4 vezes maior que o valor ideal calculado.
+
 \section{Ciclo de Refrigeração Padrão:}
 
 Com os dados preliminares obtidos, foi desenvolvida uma rotina em Python para calcular as propriedades do sistema, de acordo com o ciclo descrito na Figura \ref{fig:ciclo padrão}. 

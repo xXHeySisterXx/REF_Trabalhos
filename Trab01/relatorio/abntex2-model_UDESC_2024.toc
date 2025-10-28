@@ -11,7 +11,8 @@
 \contentsline {section}{\numberline {3.1}Definição do Produto e Fluido Refrigerante}{4}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Estimativa da Carga Térmica de Refrigeração}{4}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Seleção de Compressores Candidatos}{5}{subsection.3.2.1}%
-\contentsline {section}{\numberline {3.3}Ciclo de Refrigeração Padrão:}{6}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Ciclo de Refrigeração Ideal}{6}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Ciclo de Refrigeração Padrão:}{7}{section.3.4}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{11}{section*.14}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{12}{section*.15}%
