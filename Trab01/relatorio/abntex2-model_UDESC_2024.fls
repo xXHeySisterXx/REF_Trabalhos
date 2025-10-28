@@ -471,12 +471,12 @@ INPUT ./Textuais/Desenvolvimento.tex
 INPUT ./Textuais/Desenvolvimento.tex
 INPUT Textuais/Desenvolvimento.tex
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm
-INPUT ./Imagens/Desenvolvimento/PSS-embraco.png
-INPUT ./Imagens/Desenvolvimento/PSS-embraco.png
-INPUT ./Imagens/Desenvolvimento/PSS-embraco.png
-INPUT ./Imagens/Desenvolvimento/PSS-embraco.png
-INPUT ./Imagens/Desenvolvimento/PSS-embraco.png
 INPUT c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+INPUT ./Imagens/Desenvolvimento/PSS-embraco.png
+INPUT ./Imagens/Desenvolvimento/PSS-embraco.png
+INPUT ./Imagens/Desenvolvimento/PSS-embraco.png
+INPUT ./Imagens/Desenvolvimento/PSS-embraco.png
+INPUT ./Imagens/Desenvolvimento/PSS-embraco.png
 INPUT c:/texlive/2025/texmf-dist/tex/latex/base/omscmr.fd
 INPUT c:/texlive/2025/texmf-dist/tex/latex/base/omscmr.fd
 INPUT c:/texlive/2025/texmf-dist/tex/latex/base/omscmr.fd

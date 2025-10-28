@@ -1,14 +1,16 @@
 \chapter{Desenvolvimento}
 
-\section{Escolha do produto e refrigerante}
+\section{Definição do Produto e Fluido Refrigerante}
 
-    Para o início do projeto, decidiu-se que o produto a ser resfriado seria o peixe, transportado e armazenado em temperatura comercial. As propriedades do produto, bem como as temperaturas de operação estão de acordo com \ref{massa peixe}. 
+Para o desenvolvimento do projeto, definiu-se como produto a ser refrigerado o pescado fresco, recebido na câmara frigorífica a 0°C e armazenado em temperatura de conservação de -25°C, condição típica para armazenamento comercial de longo prazo. As propriedades termofísicas do produto, incluindo calor específico, densidade e calor latente de congelamento, bem como as temperaturas de operação, encontram-se especificadas na Tabela~\ref{massa peixe}.
 
-    Com o produto definido, partiu-se para a definição do fluido refrigerante, em virtude do seu baixo custo e disponibilidade, o fluido refrigerante $R-134A$ se mostrou o mais apto para a realização da operação proposta.
+A seleção do fluido refrigerante considerou critérios técnicos, econômicos e ambientais. O refrigerante R-134a (1,1,1,2-tetrafluoretano) foi escolhido por apresentar características adequadas à faixa de temperatura requerida, baixo custo relativo, ampla disponibilidade no mercado e extensa utilização em aplicações de refrigeração comercial. Adicionalmente, o R-134a possui potencial de destruição da camada de ozônio (ODP) nulo, embora apresente potencial de aquecimento global (GWP) moderado de 1430, sendo considerado um fluido de transição aceitável para esta aplicação.
+
+As propriedades termodinâmicas do R-134a, incluindo entalpia, entropia, temperatura e pressão em diferentes estados do ciclo, foram determinadas através da biblioteca CoolProp, uma base de dados de código aberto amplamente validada. A integração com rotinas computacionais desenvolvidas em Python permitiu o cálculo automatizado dos ciclos de refrigeração e a análise paramétrica do sistema.
 
 \section{Estimativa da taxa de calor necessário de resfriamento}
 
-    Para a escolha do compressor a ser utilizado, primeiramente foi estimado a taxa de calor a ser retirada do sistema, a partir da Equação \ref{Q resfriamento}. Como temos o volume, o tempo de pulldown e o material a ser refigerado, podemos calcular a carga térmica mínima necessária.
+Para a escolha do compressor a ser utilizado, primeiramente foi estimado a taxa de calor a ser retirada do sistema, a partir da Equação \ref{Q resfriamento}. Como temos o volume, o tempo de pulldown e o material a ser refigerado, podemos calcular a carga térmica mínima necessária.
 
 \begin{equation}
     m_{peixe} = \rho V_{refrigerador}
@@ -21,7 +23,7 @@
 \end{equation}
 
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \begin{tabular}{|c|c|}
 \hline
@@ -55,7 +57,7 @@ Com a carga térmica definida, é necessário selecionar um compressor adequado 
 O documento contém as temperaturas de condensação e evaporação empregadas nos testes de desempenho, além de parâmetros como capacidade de refrigeração, consumo de energia, corrente elétrica, entre outros. Dessa maneina, foram selecionas os compressores descrtitos na Tabela \ref{tab:compressores escolhidos}.
 
 
-\begin{table}[h]
+\begin{table}[ht]
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
@@ -119,14 +121,14 @@ Simultaneamente, são calculadas as propriedades do fluido refrigerante em cada 
 
 Depois de uma rodada de anállises, dois compressores destacaram-se, o desempenho de ambos nos ciclos pode ser visto nas figuras \ref{fig:ciclo comp 1} e \ref{fig:ciclo comp 2}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\linewidth]{Imagens/Desenvolvimento/ciclo_EGZS70HLC_202W.png}
     \caption{Ciclo para o EGZS70HLC.}
     \label{fig:ciclo comp 1}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\linewidth]{Imagens/Desenvolvimento/ciclo_FFU70HAK_221W.png}
     \caption{Ciclo para o FFU70HAK.}
@@ -137,14 +139,14 @@ Depois de uma rodada de anállises, dois compressores destacaram-se, o desempenh
 
 \newpage
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\linewidth]{Imagens/Desenvolvimento/barras_m.png}
     \caption{Compração do $\dot{m}$.}
     \label{fig:barras fluxo massa}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\linewidth]{Imagens/Desenvolvimento/barras_W.png}
     \caption{Compração da potência.}
@@ -153,14 +155,14 @@ Depois de uma rodada de anállises, dois compressores destacaram-se, o desempenh
 
 \newpage
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\linewidth]{Imagens/Desenvolvimento/barras_COP.png}
     \caption{Compração do COP.}
     \label{fig:barras COP}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\linewidth]{Imagens/Desenvolvimento/barras_QL.png}
     \caption{Compração do $Q_L$.}
