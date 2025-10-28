@@ -44,7 +44,7 @@ def funcao_objetivo(T_vars, QL_desejado, df_compressor):
         return 1e10  # Penalidade alta para pontos inválidos
 
 
-def otimizar_ciclo(QL_desejado, compressor, T1_inicial= - 25 + 273 , T3_inicial= 35 + 273):
+def otimizar_ciclo(QL_desejado, compressor, T1_inicial, T3_inicial):
     """
     Encontra T1 e T3 ótimos que resultam no QL desejado
     """
@@ -56,8 +56,8 @@ def otimizar_ciclo(QL_desejado, compressor, T1_inicial= - 25 + 273 , T3_inicial=
     
     # Limites (em Kelvin)
     bounds = [
-        (-50 + 273, -26 + 273),  # T1: -40°C a 10°C
-        (36+273, 60+273)   # T3: 20°C a 60°C
+        (T1_inicial-50, T1_inicial-0.5),  # T1: -40°C a 10°C
+        (T3_inicial+0.5, T3_inicial+50)   # T3: 20°C a 60°C
     ]
     
     # Otimização

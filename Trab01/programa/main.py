@@ -51,16 +51,17 @@ compressor_lista = ["EGZS70HLC_202W", "FFU70HAK_221W"]
 liq_refrigerante = "R134a"
 
 valores_barras=[]
-
+T_amb = 35 +273
+T_int = -25+273
 
 for compressor in compressor_lista:
 
-    df_ciclo_padrao = ciclo_padrao(T_amb = 35 + 273, T_int = -25 + 273, QL=QL, liq_refrigerante=liq_refrigerante)
+    df_ciclo_padrao = ciclo_padrao(T_amb = T_amb, T_int = T_int, QL=QL, liq_refrigerante=liq_refrigerante)
 
-    serie_ciclo_real = funcao_padrao_real(QL, -25 + 273, compressor)
+    serie_ciclo_real = funcao_padrao_real(QL, T_int, compressor)
     df_ciclo_real = pontos_ciclo(serie_ciclo_real, liq_refrigerante)
 
-    serie_otima = otimizar_ciclo(QL_desejado=QL, compressor= compressor)
+    serie_otima = otimizar_ciclo(QL, compressor,  T_int, T_amb)
     df_ciclo_otimo = pontos_ciclo_otimo(serie_otima, liq_refrigerante)
 
 
