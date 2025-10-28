@@ -49,10 +49,10 @@ QL = Q_congelado / (8*60*60) # W
 
 compressor_lista = ["EGZS70HLC_202W", "FFU70HAK_221W"]
 liq_refrigerante = "R134a"
-
-valores_barras=[]
 T_amb = 35 +273
 T_int = -25+273
+
+valores_barras=[]
 
 for compressor in compressor_lista:
 
