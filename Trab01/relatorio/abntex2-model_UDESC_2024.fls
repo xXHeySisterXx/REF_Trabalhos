@@ -410,6 +410,9 @@ INPUT Textuais/Introducao.aux
 INPUT ./Textuais/Desenvolvimento.aux
 INPUT ./Textuais/Desenvolvimento.aux
 INPUT Textuais/Desenvolvimento.aux
+INPUT ./Textuais/Conclusão.aux
+INPUT ./Textuais/Conclusão.aux
+INPUT Textuais/Conclusão.aux
 OUTPUT abntex2-model_UDESC_2024.aux
 OUTPUT abntex2-model_UDESC_2024.pdf
 INPUT c:/texlive/2025/texmf-dist/tex/latex/microtype/mt-cmr.cfg
@@ -520,6 +523,12 @@ INPUT ./Imagens/Desenvolvimento/barras_QL.png
 INPUT ./Imagens/Desenvolvimento/barras_QL.png
 INPUT ./Imagens/Desenvolvimento/barras_QL.png
 INPUT ./Imagens/Desenvolvimento/barras_QL.png
+INPUT ./Textuais/Conclusão.tex
+INPUT ./Textuais/Conclusão.tex
+OUTPUT Textuais/Conclusão.aux
+INPUT ./Textuais/Conclusão.tex
+INPUT ./Textuais/Conclusão.tex
+INPUT Textuais/Conclusão.tex
 INPUT ./abntex2-model_UDESC_2024.bbl
 INPUT ./abntex2-model_UDESC_2024.bbl
 INPUT abntex2-model_UDESC_2024.bbl
@@ -543,6 +552,9 @@ INPUT Textuais/Introducao.aux
 INPUT ./Textuais/Desenvolvimento.aux
 INPUT ./Textuais/Desenvolvimento.aux
 INPUT Textuais/Desenvolvimento.aux
+INPUT ./Textuais/Conclusão.aux
+INPUT ./Textuais/Conclusão.aux
+INPUT Textuais/Conclusão.aux
 INPUT ./abntex2-model_UDESC_2024.brf
 INPUT ./abntex2-model_UDESC_2024.brf
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb
@@ -553,7 +565,6 @@ INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb

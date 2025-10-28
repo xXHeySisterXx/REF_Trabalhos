@@ -118,110 +118,134 @@ A partir do COP de Carnot e da carga térmica determinada anteriormente (Equaç�
 
 Este valor representa um limite termodinâmico inferior para a potência de compressão. Na prática, devido às irreversibilidades do ciclo real, à necessidade de diferenças de temperatura finitas nos trocadores de calor e às perdas mecânicas e elétricas do compressor, a potência real requerida será significativamente superior, tipicamente de 2 a 4 vezes maior que o valor ideal calculado.
 
-\section{Ciclo de Refrigeração Padrão:}
+\section{Ciclo de Refrigeração Real}
 
-Com os dados preliminares obtidos, foi desenvolvida uma rotina em Python para calcular as propriedades do sistema, de acordo com o ciclo descrito na Figura \ref{fig:ciclo padrão}. 
+A partir dos parâmetros estabelecidos na análise preliminar, desenvolveu-se uma rotina computacional em Python para simular o ciclo de refrigeração por compressão de vapor considerando as não idealidades do processo real. O ciclo implementado segue a configuração apresentada na Figura~\ref{fig:ciclo padrão}, onde o fluido refrigerante R-134a entra no compressor como vapor saturado (estado 2), é comprimido isentropicamente até vapor superaquecido (estado 3), condensa isobaricamente até líquido saturado (estado 4) e sofre expansão isentálpica através de um dispositivo de expansão até a pressão de evaporação (estado 1).
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.6\linewidth]{Imagens/Desenvolvimento/Diagrama.png}
-    \caption{Ciclo padrão.}
+    \caption{Diagrama pressão-entalpia do ciclo real de refrigeração por compressão de vapor.}
     \label{fig:ciclo padrão}
 \end{figure}
 
-\newpage
 
-O programa utiliza um método iterativo para determinar a  mínima temperatura operacional possível, com o objetivo de reduzir custos ao evitar o superdimensionamento do compressor, utilizando como base os parâmetros descritos em \cite{paper_referencia}.
+\subsection{Validação do Modelo com Dados de Catálogo}
 
-\begin{equation}
-    \dot{Q_L} = \dot{m}(h_1-h_4)
-    \label{QL}
-\end{equation}
+Inicialmente, o programa foi validado utilizando as condições de teste padronizadas fornecidas nos catálogos técnicos dos compressores selecionados. Os fabricantes tipicamente apresentam dados de desempenho para combinações específicas de temperaturas de evaporação e condensação, permitindo a verificação da consistência do modelo desenvolvido. Esta etapa foi fundamental para assegurar a confiabilidade dos resultados e identificar quais compressores apresentam capacidade adequada para atender aos requisitos do projeto.
 
-\begin{equation}
-    \dot{Q_H} = \dot{m}(h_2-h_3)
-    \label{QH}
-\end{equation}
+\subsection{Modelagem Termodinâmica do Ciclo}
 
-    Onde $\dot{Q_L}$ e $\dot{Q_H}$, são  a taxa com que sai e que entra calor no sistema, respectivamente. O trabalho do compressor pode ser calculado apartir da equação \ref{W compressor}, utilizando as propriedades do fluido antes e depois da compresão.
+A modelagem do ciclo real baseia-se na metodologia apresentada por \cite{paper_referencia}, que permite estimar a vazão mássica do refrigerante e a capacidade frigorífica efetiva do compressor a partir de suas características operacionais. A potência de compressão real é calculada pelo balanço de energia no compressor, considerando a variação de entalpia entre a sucção e descarga:
 
 \begin{equation}
-    \dot{W_{comp}} = \dot{m}(h_2-h_1)
+    \dot{W}_c = \dot{m}(h_3 - h_4)
     \label{W compressor}
 \end{equation}
 
-\begin{equation}
-    \Delta h_{1-2} \simeq  c_p (T_2-T_1)
-    \label{simplificacao entalpia}
-\end{equation}
+\noindent onde $\dot{m}$ é a vazão mássica de refrigerante, $h_3$ é a entalpia específica do vapor saturado na entrada do compressor e $h_4$ é a entalpia específica do vapor superaquecido na saída do compressor, calculada assumindo compressão isentrópica ($s_3 = s_4$) e conhecendo-se a pressão de condensação.
 
-    E a eficiência do sistema é dada como:
+A capacidade de refrigeração do sistema é determinada pelo calor absorvido no evaporador:
 
 \begin{equation}
-    COP = \frac{T_H}{T_H - T_L}
-    \label{COP carnot}
+    \dot{Q}_L = \dot{m}(h_2 - h_1)
+    \label{capacidade evaporador}
 \end{equation}
 
-\newpage    
+O coeficiente de performance do ciclo real é então calculado pela razão entre o efeito refrigerante e o trabalho de compressão:
 
-Simultaneamente, são calculadas as propriedades do fluido refrigerante em cada estado do ciclo de refrigeração. Para efeito de comparação com o ciclo real, também é realizado o cálculo do ciclo ideal de Carnot, a fim de se obter a eficiência máxima possível e as temperaturas mínimas requeridas pelo sistema.
+\begin{equation}
+    \text{COP}_{\text{real}} = \frac{\dot{Q}_L}{\dot{W}_c} = \frac{h_1 - h_4}{h_2 - h_1}
+    \label{cop real}
+\end{equation}
 
-Depois de uma rodada de anállises, dois compressores destacaram-se, o desempenho de ambos nos ciclos pode ser visto nas figuras \ref{fig:ciclo comp 1} e \ref{fig:ciclo comp 2}.
+As propriedades termodinâmicas do R-134a em cada estado do ciclo (pressão, temperatura, entalpia e entropia) foram calculadas utilizando a biblioteca CoolProp, que implementa equações de estado de alta precisão. As Figuras \ref{fig:ciclo comp 1} e \ref{fig:ciclo comp 2} demonstram os resultados obtidos.
+
+Para efeito de comparação e quantificação das perdas associadas às irreversibilidades do ciclo real, calculou-se paralelamente o COP do ciclo ideal de Carnot operando entre as mesmas temperaturas das fontes térmicas. A eficiência termodinâmica ou eficiência de segunda lei ($\eta_{II}$) do ciclo real pode então ser expressa como:
+
+\begin{equation}
+    \eta_{II} = \frac{\text{COP}_{\text{real}}}{\text{COP}_{\text{Carnot}}}
+    \label{eficiencia segunda lei}
+\end{equation}
+
+
+Esta análise permite identificar o potencial de melhoria do sistema e quantificar o impacto das irreversibilidades no desempenho global do ciclo de refrigeração.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.9\linewidth]{Imagens/Desenvolvimento/ciclo_EGZS70HLC_202W.png}
+    \includegraphics[width=\linewidth]{Imagens/Desenvolvimento/ciclo_EGZS70HLC_202W.png}
     \caption{Ciclo para o EGZS70HLC.}
     \label{fig:ciclo comp 1}
 \end{figure}
+Apenas os compressores \ref{fig:ciclo comp 1} e \ref{fig:ciclo comp 2} convergiram a resultados aceitáveis, gerando dúvidas no método utilizado.
+
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.9\linewidth]{Imagens/Desenvolvimento/ciclo_FFU70HAK_221W.png}
+    \includegraphics[width=\linewidth]{Imagens/Desenvolvimento/ciclo_FFU70HAK_221W.png}
     \caption{Ciclo para o FFU70HAK.}
     \label{fig:ciclo comp 2}
 \end{figure}
 
-É possivél notar uma grande diferença entre o ciclo real e o ótimo, causada pelas perdar do sistema real, que aparecem em forma de calor. A rotina desenvolvida também calcula outros parâmetros de desempenho do sistema, tais como fluxo mássico, potência, COP e ${Q_L}$.
 
-\newpage
+
+Foi desenvolvida uma rotina de otimização utilizando a ferramenta \textit{Minimize} do pacote \textit{Scipy}, que foi utilizado para variar as temperaturas do condensador e do compressor a fim de minimizar o gasto energético, identificando a maior eficiência. Infelizmente os resultados não foram como esperado, resultando em temperatura muito similares com o ciclo de Carnot, porém com eficiência muito baixas, os resultados obtidos estão com a legenda "ótimo".
+
+
+A análise comparativa entre os diferentes ciclos revela diferenças significativas nos parâmetros de desempenho. A rotina computacional desenvolvida calcula sistematicamente a vazão mássica de refrigerante ($\dot{m}$), potência de compressão ($\dot{W}_c$), coeficiente de performance (COP) e capacidade frigorífica ($\dot{Q}_L$) para os ciclos real e otimizado com dados de catálogo e otimizado, conforme apresentado nas Figuras~\ref{fig:barras fluxo massa} a~\ref{fig:barras Ql}.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\linewidth]{Imagens/Desenvolvimento/barras_m.png}
-    \caption{Compração do $\dot{m}$.}
+    \caption{Comparação da vazão mássica de refrigerante entre os ciclos ideal, real e otimizado para os compressores selecionados.}
     \label{fig:barras fluxo massa}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\linewidth]{Imagens/Desenvolvimento/barras_W.png}
-    \caption{Compração da potência.}
+    \caption{Comparação da potência de compressão entre os ciclos analisados.}
     \label{fig:barras W}
 \end{figure}
-
-\newpage
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\linewidth]{Imagens/Desenvolvimento/barras_COP.png}
-    \caption{Compração do COP.}
+    \caption{Comparação do coeficiente de performance (COP) entre os diferentes ciclos.}
     \label{fig:barras COP}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\linewidth]{Imagens/Desenvolvimento/barras_QL.png}
-    \caption{Compração do $Q_L$.}
+    \caption{Comparação da capacidade frigorífica entre os ciclos estudados.}
     \label{fig:barras Ql}
 \end{figure}
 
+\subsection{Análise dos Resultados}
 
+Os resultados apresentados nas Figuras~\ref{fig:barras fluxo massa} a~\ref{fig:barras Ql} demonstram comportamento coerente com a teoria termodinâmica de ciclos de refrigeração, permitindo identificar o impacto das irreversibilidades nos parâmetros de desempenho:
 
-Os resultados obtidos e mostrados nas Figuras \ref{fig:barras fluxo massa} a \ref{fig:barras Ql} demonstram a fidelidade do modelo computacional calculado com a base teórica, com  cada propriedade apresentando um comportamento esperado em cada situação.
+\textbf{Vazão mássica ($\dot{m}$):} O ciclo ideal de Carnot apresenta a menor vazão mássica necessária, uma vez que opera com a máxima eficiência termodinâmica possível. Os ciclos real e otimizado requerem vazões superiores para fornecer a mesma capacidade frigorífica, compensando as perdas por irreversibilidades, como expansão isentálpica, superaquecimento do vapor na descarga do compressor e diferenças finitas de temperatura nos trocadores de calor.
 
-    \begin{itemize}
-        \item $\dot{m}$ : O ciclo ideal apresentou o menor valor para o fluxo mássico, enquanto os ciclos reais e ótimos aparecem com valores ligeiramente maiores, isso acontece pela necessidade de uma maior retirada de calor no sistema.
-        \item COP : A máxima eficiência possível é determinada pelo ciclo de Carnot de refrigeração. A discrepância entre esse valor teórico e o desempenho no sistema real indica o quanto ele se afasta do ideal.
-    \end{itemize}
+\textbf{Coeficiente de Performance (COP):} O ciclo de Carnot estabelece o limite superior teórico de eficiência, servindo como referencial para avaliar o desempenho dos ciclos reais. A diferença entre o COP de Carnot e o COP real quantifica o efeito combinado de todas as irreversibilidades presentes no sistema.
 
+\textbf{Potência de compressão ($\dot{W}_c$):} O ciclo ideal requer a menor potência de compressão devido à sua máxima eficiência. O ciclo real demanda potência significativamente superior devido às perdas já mencionadas, enquanto o ciclo otimizado busca um compromisso entre capacidade frigorífica e consumo energético através da seleção apropriada das condições operacionais.
+
+\textbf{Capacidade frigorífica ($\dot{Q}_L$):} Observa-se que os diferentes ciclos fornecem capacidades frigoríficas distintas devido às variações na eficiência volumétrica do compressor e no efeito refrigerante específico, influenciados pelas condições de evaporação e condensação adotadas.
+
+A Tabela~\ref{tab:eficiencias termo} apresenta as eficiências termodinâmicas calculadas para dois dos compressores analisados, tanto nas condições reais de catálogo quanto nas condições otimizadas. A eficiência $\eta_{II}$ representa a razão entre o COP real e otimizado em relação ao COP de Carnot, indicando o quão próximo o sistema opera do limite termodinâmico ideal.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Modelo} & \textbf{$\eta_{II}$ Real [\%]} & \textbf{$\eta_{II}$ Otimizado [\%]} \\ \hline
+EGZS70HLC & 46,3 & 29,2 \\ \hline
+FFU70HAK & 58,5 & 19,5 \\ \hline
+\end{tabular}
+\caption{Eficiências termodinâmicasdos compressores nas condições real e otimizada.}
+\label{tab:eficiencias termo}
+\end{table}
+
+Observa-se que as eficiências termodinâmicas situam-se na faixa de 19,5\% a 58,5\%, valores típicos para sistemas de refrigeração operando com elevadas razões de compressão. A redução da eficiência no ciclo otimizado em relação ao ciclo real deve-se a interpolação do banco de dados do fabricante, talvez representando melhor um ciclo real.
