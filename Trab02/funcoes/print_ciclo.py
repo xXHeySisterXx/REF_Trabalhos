@@ -3,11 +3,11 @@ import numpy as np
 import CoolProp.CoolProp as CP
 import matplotlib.pyplot as plt
 
-from domo import domo_refrigerante
+from funcoes.domo import*
 
 
 
-def plot_ciclo (df_ciclo_ideal=None, df_ciclo_real=None, df_ciclo_otimo=None,  liq_ref="R134a", compressor='1'):
+def plot_ciclo (liq_ref, df_ciclo_ideal=None, df_ciclo_real=None, df_ciclo_otimo=None, descricao=None):
     df_domo = domo_refrigerante(liq_ref)
 
     
@@ -83,15 +83,15 @@ def plot_ciclo (df_ciclo_ideal=None, df_ciclo_real=None, df_ciclo_otimo=None,  l
     PH.legend()
     TS.legend()
 
-    fig.suptitle(f'Ciclo para {compressor}', fontsize=16)
+    fig.suptitle(f'{descricao}', fontsize=16)
     plt.tight_layout()
-    # plt.show()
-    PH.figure.savefig(
-        f'Trab01\\programa\\Graficos\\ciclo_{compressor}',
-        dpi=300,
-        bbox_inches='tight',
-        transparent=True,
-        facecolor='white',
-)
+    plt.show()
+#     PH.figure.savefig(
+#         f'Trab01\\programa\\Graficos\\ciclo_{descricao}',
+#         dpi=300,
+#         bbox_inches='tight',
+#         transparent=True,
+#         facecolor='white',
+# )
     return
 
