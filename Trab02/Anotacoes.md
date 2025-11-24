@@ -18,7 +18,10 @@ de 5 °C nos trocadores na estação que mais demanda do sistema.
 
 - [x] Ciclo Carnot, para ambos os cenários
 - [x] Portabilidade curvas termo
-- [ ] Selecionar compressores
 - [x] Cálculo das temperaturas ambientes (temperaturas dos trocados com 5°C de diferença)
+- [ ] Selecionar compressores
+- [ ] Gráfico para plotar curvas compressores [massa e potência]
+- [ ] Cálculo trocadores
+  - [ ] Descobrir UA para a situação?
   - Temperaturas extremas ambiente: __35°C e 9°C__
 - [ ] Selecionar 4 Curiosidades do Cairo
