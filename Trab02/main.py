@@ -23,3 +23,9 @@ print("\nCondições Ideais Inverno:\n", carnot_inverno)
 
 plot_ciclo(df_ciclo_ideal = carnot_verao["df_ciclo"],  liq_ref=liq_ref, descricao= "Ciclo para o extremo Verão")
 plot_ciclo(df_ciclo_ideal = carnot_inverno["df_ciclo"],  liq_ref=liq_ref, descricao="Ciclo para o extremo Inverno")
+
+
+
+
+
+
