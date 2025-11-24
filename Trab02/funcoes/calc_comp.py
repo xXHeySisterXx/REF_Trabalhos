@@ -24,11 +24,14 @@ def ajuste_curva_massa(T1, P1, P2, df_compressor):
     fig, ax = plt.subplots(figsize=(4, 8))
 
 
-    ax.plot(df_compressor['T_evap_K'], df_compressor['fluxo_massa'], 
+    ax.scatter(df_compressor['T_evap_K'], df_compressor['fluxo_massa'], 
             color='r', marker='.')
     ax.plot(df_compressor['T_evap_K'], funcao_massa(df_compressor['T_evap_K'], *params_massa), 
             '-b')
     
+    ax.set_xlabel("Temperatura de evaporação")
+    ax.set_ylabel("Fluxo de massa")
+
     plt.tight_layout()
     plt.show()
 
@@ -46,21 +49,26 @@ def ajuste_curva_potencia(m, T1, P1, P2, df_compressor, liq_ref):
         w = m* ( a0*T1* ((P2/P1)**a1 - 1) + a2)
         return w
 
-    params_potencia, _ = curve_fit(funcao_potencia, df_compressor['T_evaporador'], df_compressor['capacidade'])
+    params_potencia, _ = curve_fit(funcao_potencia, df_compressor['T_evap_K'], df_compressor['capacidade'])
     a0, a1, a2 = params_potencia
     w = funcao_potencia(T1, a0, a1, a2)
 
     H1 = CP.PropsSI('H', 'T', T1, 'Q', 1, liq_ref) # [J/kgK]
     H2 = H1 + w/m + a2*10**-3
 
-    # fig, (ax) = plt.subplots(figsize = (4,8))
+    fig, (ax) = plt.subplots(figsize = (4,8))
 
-    # ax.plot(df_compressor['T_evaporador'], df_compressor['capacidade'], color = 'r', marker = '.')
-    # ax.plot(df_compressor['T_evaporador'], funcao_potencia(df_compressor['T_evaporador'], *params_potencia), '-b')
 
-    # plt.legend()
-    # plt.tight_layout()
-    # plt.show()
+    ax.scatter(df_compressor['T_evap_K'], df_compressor['capacidade'], 
+            color='r', marker='.')
+    ax.plot(df_compressor['T_evap_K'], funcao_potencia(df_compressor['T_evap_K'], *params_potencia), 
+            '-b')
+
+    ax.set_xlabel("Temperatura de evaporação")
+    ax.set_ylabel("Potência")
+
+    plt.tight_layout()
+    plt.show()
 
 
     return w, H2

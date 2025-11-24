@@ -37,4 +37,4 @@ plot_ciclo(df_ciclo_ideal = carnot_inverno["df_ciclo"],  liq_ref=liq_ref, descri
 # lista_compressores=["NJ7240F_19462", "NJ9232E_12240", "NJ9232E_13949", "NJ9238E_15467"]
 # for compressor in lista_compressores:
 compressor = "NJ7240F_19462"
-#funcao_padrao_real(Capacidade_necessaria_W, compressor, liq_ref)
+funcao_padrao_real(Capacidade_necessaria_W, compressor, liq_ref)

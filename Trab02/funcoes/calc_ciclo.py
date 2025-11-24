@@ -13,7 +13,7 @@ def funcao_convergencia(df_compressor, T1, T3, liq_ref):
     P2=P3
 
     m = ajuste_curva_massa(T1, P1, P2, df_compressor)
-    w, H2 = ajuste_curva_potencia(m, T1, P1, P2, df_compressor)
+    w, H2 = ajuste_curva_potencia(m, T1, P1, P2, df_compressor,liq_ref)
 
     H3 = CP.PropsSI('H', 'T', T3, 'Q', 0, liq_ref) # [J/kgK]
     QH = m*(H2-H3)
