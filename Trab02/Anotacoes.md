@@ -22,6 +22,7 @@ de 5 °C nos trocadores na estação que mais demanda do sistema.
 - [x] Selecionar compressores, HBP, assumindo 15000 BTU por hora, Liq_ref = R22
 - [ ] Gráfico para plotar curvas compressores [massa e potência]
 - [ ] Cálculo trocadores
-  - [ ] Descobrir UA para a situação?
+  - [x] Descobrir UA para a situação
+  - [ ] Calcular calor saindo dos trocadores (QH)
   - Temperaturas extremas ambiente: __35°C e 9°C__
 - [ ] Selecionar 4 Curiosidades do Cairo
