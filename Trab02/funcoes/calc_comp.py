@@ -17,7 +17,7 @@ def ajuste_curva_massa(T1, P1, P2, df_compressor):
         m = (P1*N)/T1 * (b0 - b1 * (( (P2/P1)**b2) - 1 ))
         return m
     
-    params_massa, _ = curve_fit(funcao_massa, df_compressor['T_evap_K'], df_compressor['fluxo_massa']/(60*60))
+    params_massa, _ = curve_fit(funcao_massa, df_compressor['T_evap_K'], df_compressor['fluxo_massa'])
     b0, b1, b2 = params_massa
     m = funcao_massa(T1, b0, b1, b2)
 
