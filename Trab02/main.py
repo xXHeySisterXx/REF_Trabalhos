@@ -1,8 +1,10 @@
 from funcoes.ciclo_carnot import *
 from funcoes.print_ciclo import *
 
+from funcoes.calc_UA import*
+
 #* Conversões:
-BTU_to_W = 0.293
+BTU_to_W = 0.293 # ( BTU por Hora )
 C_to_K = 273
 
 
@@ -26,6 +28,9 @@ plot_ciclo(df_ciclo_ideal = carnot_inverno["df_ciclo"],  liq_ref=liq_ref, descri
 
 
 
-
+calc_UA(Q=Capacidade_necessaria,
+        T_amb_verao=T_ext_verao,
+        T_amb_inverno=T_ext_inverno,
+        diff_temp=5)
 
 
