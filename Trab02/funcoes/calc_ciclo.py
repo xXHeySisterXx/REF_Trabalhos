@@ -4,6 +4,7 @@ import numpy as np
 from funcoes.calc_comp import*
 
 BTU_to_W = 0.293
+kgh_to_kgs = 1/3600
 
 def funcao_convergencia(df_compressor, T1, T3, liq_ref):
     
@@ -28,6 +29,7 @@ def funcao_padrao_real(QL, compressor, liq_ref):
     df_compressor = pd.read_csv(f'Trab02\Compressores\{compressor}.csv', header=0, sep=';')
     Temps_condensador = sorted(df_compressor['T_cond_K'].unique())
     df_compressor["capacidade"] = df_compressor["capacidade"]*BTU_to_W
+    df_compressor["fluxo_massa"] = df_compressor["fluxo_massa"]*kgh_to_kgs
 
     
     QL_calc_valores = []

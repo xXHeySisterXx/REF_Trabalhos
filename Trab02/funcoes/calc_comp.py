@@ -45,7 +45,7 @@ def ajuste_curva_potencia(m, T1, P1, P2, df_compressor, liq_ref):
 
     """
 
-    def funcao_potencia(T1, a0, a1, a2, liq_ref):
+    def funcao_potencia(T1, a0, a1, a2):
         w = m* ( a0*T1* ((P2/P1)**a1 - 1) + a2)
         return w
 
