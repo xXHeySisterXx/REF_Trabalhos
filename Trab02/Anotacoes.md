@@ -19,7 +19,7 @@ de 5 °C nos trocadores na estação que mais demanda do sistema.
 - [x] Ciclo Carnot, para ambos os cenários
 - [x] Portabilidade curvas termo
 - [x] Cálculo das temperaturas ambientes (temperaturas dos trocados com 5°C de diferença)
-- [ ] Selecionar compressores
+- [x] Selecionar compressores, HBP, assumindo 15000 BTU por hora, Liq_ref = R22
 - [ ] Gráfico para plotar curvas compressores [massa e potência]
 - [ ] Cálculo trocadores
   - [ ] Descobrir UA para a situação?
