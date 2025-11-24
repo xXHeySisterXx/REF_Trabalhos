@@ -40,7 +40,7 @@ def ajuste_curva_potencia(m, T1, P1, P2, df_compressor):
 
     """
 
-    def funcao_potencia(T1, a0, a1, a2):
+    def funcao_potencia(T1, a0, a1, a2, liq_ref):
         w = m* ( a0*T1* ((P2/P1)**a1 - 1) + a2)
         return w
 
@@ -48,7 +48,7 @@ def ajuste_curva_potencia(m, T1, P1, P2, df_compressor):
     a0, a1, a2 = params_potencia
     w = funcao_potencia(T1, a0, a1, a2)
 
-    H1 = CP.PropsSI('H', 'T', T1, 'Q', 1, "R134a") # [J/kgK]
+    H1 = CP.PropsSI('H', 'T', T1, 'Q', 1, liq_ref) # [J/kgK]
     H2 = H1 + w/m + a2*10**-3
 
     # fig, (ax) = plt.subplots(figsize = (4,8))

@@ -1,7 +1,7 @@
 import CoolProp.CoolProp as CP
 import pandas as pd
 import numpy as np
-from calc_comp import*
+from funcoes.calc_comp import*
 
 
 
