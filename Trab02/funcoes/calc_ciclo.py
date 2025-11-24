@@ -32,6 +32,7 @@ def funcao_padrao_real(QL, compressor, liq_ref):
     
     QL_calc_valores = []
     diferenca_QL = []
+    QH_valores = []
     m_valores = []
     w_valores = []
     T1_valores = []
@@ -48,22 +49,22 @@ def funcao_padrao_real(QL, compressor, liq_ref):
         df_compressor = df_compressor[df_compressor['T_cond_K']==T3].copy()
             
         for T1 in df_compressor['T_evap_K']: #! Tevap é T4 e T1, Tcond é T3
-
-            
             QL_calc,m, w, H2, H3, S1, P1, P2 = funcao_convergencia(df_compressor, T1, T3, liq_ref)
 
             QL_calc_valores.append(QL_calc)
             diferenca_QL.append(QL_calc - QL)
 
             try:
-                T2 = CP.PropsSI('T', 'H', H2, 'S', S1, liq_ref)  # [Pa]
+                T2 = CP.PropsSI('T', 'H', H2, 'S', S1, liq_ref)
 
             except:
                 T2=np.nan
 
 
             COP = QL_calc / w
-
+            QH = QL_calc + w
+            
+            QH_valores.append(QH)
             m_valores.append(m)
             w_valores.append(w)
             T1_valores.append(T1)
@@ -86,6 +87,7 @@ def funcao_padrao_real(QL, compressor, liq_ref):
         'QL': np.array(QL),
         'QL_c': np.array(QL_calc_valores),
         'QL_d': np.array(diferenca_QL),
+        'QH': np.array(QH_valores),
         'COP': np.array(COP_valores),
         'H2': np.array(H2_valores),
         'H3': np.array(H3_valores),
