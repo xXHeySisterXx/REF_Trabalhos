@@ -5,11 +5,6 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 
-def dataframe_compressor(compressor):
-    df_compressor = pd.read_csv(f'Trab01\programa\dados_compressores\{compressor}.csv', header=0, sep=';')
-
-    return df_compressor
-
 def ajuste_curva_massa(T1, P1, P2, df_compressor):
     """
     T1 = Ts (sucção)
