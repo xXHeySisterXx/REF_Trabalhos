@@ -27,10 +27,9 @@ plot_ciclo(df_ciclo_ideal = carnot_verao["df_ciclo"],  liq_ref=liq_ref, descrica
 plot_ciclo(df_ciclo_ideal = carnot_inverno["df_ciclo"],  liq_ref=liq_ref, descricao="Ciclo para o extremo Inverno")
 
 
-
-calc_UA(Q=Capacidade_necessaria,
-        T_amb_verao=T_ext_verao,
-        T_amb_inverno=T_ext_inverno,
+#! Q que vai para o exterior, depende o ciclo
+UA_verao = calc_UA(Q=Q_ext_verao,
         diff_temp=5)
 
-
+UA_inverno = calc_UA(Q=Q_ext_inverno,
+        diff_temp=5)
