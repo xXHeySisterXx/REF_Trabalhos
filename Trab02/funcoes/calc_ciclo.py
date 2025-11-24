@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from funcoes.calc_comp import*
 
-
+BTU_to_W = 0.293
 
 def funcao_convergencia(df_compressor, T1, T3, liq_ref):
     
@@ -26,7 +26,8 @@ def funcao_convergencia(df_compressor, T1, T3, liq_ref):
 def funcao_padrao_real(QL, compressor, liq_ref):
 
     df_compressor = pd.read_csv(f'Trab02\Compressores\{compressor}.csv', header=0, sep=';')
-    Temps_condensador = sorted(df_compressor['T_condensador'].unique())
+    Temps_condensador = sorted(df_compressor['T_cond_K'].unique())
+    df_compressor["capacidade"] = df_compressor["capacidade"]*BTU_to_W
 
     
     QL_calc_valores = []
@@ -44,9 +45,9 @@ def funcao_padrao_real(QL, compressor, liq_ref):
     COP_valores = []
 
     for T3 in Temps_condensador:
-        df_compressor = df_compressor[df_compressor['T_condensador']==T3].copy()
+        df_compressor = df_compressor[df_compressor['T_cond_K']==T3].copy()
             
-        for T1 in df_compressor['T_evaporador']: #! Tevap é T4 e T1, Tcond é T3
+        for T1 in df_compressor['T_evap_K']: #! Tevap é T4 e T1, Tcond é T3
 
             
             QL_calc,m, w, H2, H3, S1, P1, P2 = funcao_convergencia(df_compressor, T1, T3, liq_ref)
