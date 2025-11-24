@@ -1,8 +1,10 @@
 from funcoes.ciclo_carnot import *
 from funcoes.print_ciclo import *
 
+from funcoes.calc_UA import*
+
 #* Conversões:
-BTU_to_W = 0.293
+BTU_to_W = 0.293 # ( BTU por Hora )
 C_to_K = 273
 
 
@@ -23,3 +25,11 @@ print("\nCondições Ideais Inverno:\n", carnot_inverno)
 
 plot_ciclo(df_ciclo_ideal = carnot_verao["df_ciclo"],  liq_ref=liq_ref, descricao= "Ciclo para o extremo Verão")
 plot_ciclo(df_ciclo_ideal = carnot_inverno["df_ciclo"],  liq_ref=liq_ref, descricao="Ciclo para o extremo Inverno")
+
+
+#! Q que vai para o exterior, depende o ciclo
+UA_verao = calc_UA(Q=Q_ext_verao,
+        diff_temp=5)
+
+UA_inverno = calc_UA(Q=Q_ext_inverno,
+        diff_temp=5)
