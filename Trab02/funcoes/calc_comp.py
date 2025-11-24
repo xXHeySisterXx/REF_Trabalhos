@@ -17,24 +17,26 @@ def ajuste_curva_massa(T1, P1, P2, df_compressor):
         m = (P1*N)/T1 * (b0 - b1 * (( (P2/P1)**b2) - 1 ))
         return m
     
-    params_massa, _ = curve_fit(funcao_massa, df_compressor['T_evaporador'], df_compressor['fluxo_massa']/(60*60))
+    params_massa, _ = curve_fit(funcao_massa, df_compressor['T_evap_K'], df_compressor['fluxo_massa']/(60*60))
     b0, b1, b2 = params_massa
     m = funcao_massa(T1, b0, b1, b2)
 
-    # fig, (ax) = plt.subplots(figsize = (4,8))
+    fig, ax = plt.subplots(figsize=(4, 8))
 
-    # ax.plot(df_compressor['T_evaporador'], df_compressor['fluxo_massa'], color = 'r', marker = '.')
-    # ax.plot(df_compressor['T_evaporador'], funcao_massa(df_compressor['T_evaporador'], *params_massa), '-b')
 
-    # plt.legend()
-    # plt.tight_layout()
-    # plt.show()
+    ax.plot(df_compressor['T_evap_K'], df_compressor['fluxo_massa'], 
+            color='r', marker='.')
+    ax.plot(df_compressor['T_evap_K'], funcao_massa(df_compressor['T_evap_K'], *params_massa), 
+            '-b')
+    
+    plt.tight_layout()
+    plt.show()
 
     return m
 
 
 
-def ajuste_curva_potencia(m, T1, P1, P2, df_compressor):
+def ajuste_curva_potencia(m, T1, P1, P2, df_compressor, liq_ref):
     """
     T1 = Ts (sucção)
 
