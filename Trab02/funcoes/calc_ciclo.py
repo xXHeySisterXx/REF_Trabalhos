@@ -8,19 +8,45 @@ kgh_to_kgs = 1/3600
 
 def funcao_convergencia(df_compressor, T1, T3, liq_ref):
     
-    S1 = CP.PropsSI('S', 'T', T1, 'Q', 1, liq_ref) # [J/kgK]
-    P1 = CP.PropsSI('P', 'T', T1, 'Q', 1, liq_ref) # [J/kgK]
-    P3 = CP.PropsSI('P', 'T', T3, 'Q', 0, liq_ref)  # [Pa]
-    P2=P3
-
-    m = ajuste_curva_massa(T1, P1, P2, df_compressor)
-    w, H2 = ajuste_curva_potencia(m, T1, P1, P2, df_compressor,liq_ref)
-
-    H3 = CP.PropsSI('H', 'T', T3, 'Q', 0, liq_ref) # [J/kgK]
-    QH = m*(H2-H3)
+    # Calcular P1 e P2 para TODOS os pontos
+    df_compressor['P1'] = df_compressor['T_evap_K'].apply(
+        lambda T: CP.PropsSI('P', 'T', T, 'Q', 1, liq_ref)
+    )
+    df_compressor['P2'] = df_compressor['T_cond_K'].apply(
+        lambda T: CP.PropsSI('P', 'T', T, 'Q', 0, liq_ref)
+    )
+    
+    # Ajustar curva de massa (retorna array)
+    m_array = ajuste_curva_massa(
+        df_compressor['T_evap_K'].values, 
+        df_compressor['P1'].values, 
+        df_compressor['P2'].values, 
+        df_compressor
+    )
+    
+    # Ajustar curva de potência (retorna valores para o ponto específico)
+    w, H2, _ = ajuste_curva_potencia(
+        m_array,
+        df_compressor['T_evap_K'].values, 
+        df_compressor['P1'].values, 
+        df_compressor['P2'].values, 
+        df_compressor,
+        liq_ref
+    )
+    
+    # Calcular para o ponto específico T1, T3
+    S1 = CP.PropsSI('S', 'T', T1, 'Q', 1, liq_ref)
+    P1_ponto = CP.PropsSI('P', 'T', T1, 'Q', 1, liq_ref)
+    P3_ponto = CP.PropsSI('P', 'T', T3, 'Q', 0, liq_ref)
+    H3 = CP.PropsSI('H', 'T', T3, 'Q', 0, liq_ref)
+    
+    # Usar m e w do ponto mais próximo ou interpolar
+    m = m_array[0]  # ou fazer interpolação
+    
+    QH = m * (H2 - H3)
     QL = QH - w
-
-    return QL, m, w, H2, H3, S1, P1, P3
+    
+    return QL, m, w, H2, H3, S1, P1_ponto, P3_ponto
 
 
 
