@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 
-def ajuste_curva_massa(T1_array, P1_array, P2_array, df_compressor):
+def ajuste_curva_massa(T1_array, P1_array, P2_array, df_compressor, T1, T3, liq_ref):
     """
     T1 = Ts (sucção)
 
@@ -13,11 +13,21 @@ def ajuste_curva_massa(T1_array, P1_array, P2_array, df_compressor):
     
     N = 60 # Hz
 
-    def funcao_massa(T1, b0, b1, b2):
+    def funcao_massa(T1_var, b0, b1, b2):
         # Aqui T1 é um array, e precisamos dos P1 e P2 correspondentes
-        m = (P1_array * N) / T1 * (b0 - b1 * (((P2_array / P1_array)**b2) - 1))
+        m = (P1_array * N) / T1_var * (b0 - b1 * (((P2_array / P1_array)**b2) - 1))
         return m
     
+    #! Fazer nova função de massa para só um ponto, com P1 e P2 daquele ponto
+
+    P1 = CP.PropsSI('P', 'T', T1, 'Q', 1, liq_ref)
+    P2 = CP.PropsSI('P', 'T', T3, 'Q', 0, liq_ref)
+    
+    def funcao_massa_ponto(T1, b0, b1, b2):
+        # Aqui T1 é um array, e precisamos dos P1 e P2 correspondentes
+        m = (P1 * N) / T1 * (b0 - b1 * (((P2 / P1)**b2) - 1))
+        return m
+
     params_massa, _ = curve_fit(
     funcao_massa, 
     df_compressor['T_evap_K'], 
@@ -26,7 +36,8 @@ def ajuste_curva_massa(T1_array, P1_array, P2_array, df_compressor):
     )
 
     b0, b1, b2 = params_massa
-    m = funcao_massa(T1_array, b0, b1, b2)
+    m_array = funcao_massa_ponto(T1_array, b0, b1, b2)
+    m = funcao_massa_ponto(T1, b0, b1, b2)
 
     fig, ax = plt.subplots(figsize=(4, 8))
 
@@ -47,20 +58,30 @@ def ajuste_curva_massa(T1_array, P1_array, P2_array, df_compressor):
     plt.tight_layout()
     plt.show()
 
-    return m
+    return m_array, m
 
 
 
-def ajuste_curva_potencia(m_array, T1_array, P1_array, P2_array, df_compressor, liq_ref):
+def ajuste_curva_potencia(m_array, m, T1_array, P1_array, P2_array, df_compressor, T1, T3, liq_ref):
     """
     T1_array = Temperaturas de sucção (array)
     m_array = Fluxos de massa correspondentes (array)
     P1_array, P2_array = Pressões correspondentes (arrays)
     """
     
-    def funcao_potencia(T1, a0, a1, a2):
+    m_exp = df_compressor['fluxo_massa'].values
+
+    def funcao_potencia(T1_var, a0, a1, a2):
         # Todos são arrays agora
-        w = m_array * (a0*T1* ((P2_array/P1_array)**a1 - 1) + a2)
+        w = m_exp * (a0*T1_var* ((P2_array/P1_array)**a1 - 1) + a2)
+        return w
+    
+    P1 = CP.PropsSI('P', 'T', T1, 'Q', 1, liq_ref)
+    P2 = CP.PropsSI('P', 'T', T3, 'Q', 0, liq_ref)
+    
+    def funcao_potencia_ponto(T1, a0, a1, a2):
+        # Todos são arrays agora
+        w = m * (a0*T1* ((P2/P1)**a1 - 1) + a2)
         return w
     
     params_potencia, _ = curve_fit(
@@ -73,9 +94,9 @@ def ajuste_curva_potencia(m_array, T1_array, P1_array, P2_array, df_compressor, 
     a0, a1, a2 = params_potencia
     
     # Para calcular w e H2 em um ponto específico
-    w_ponto = m_array[0] * (a0*T1_array[0]* ((P2_array[0]/P1_array[0])**a1 - 1) + a2)
-    H1_ponto = CP.PropsSI('H', 'T', T1_array[0], 'Q', 1, liq_ref)
-    H2_ponto = H1_ponto + w_ponto/m_array[0] + a2*10**-3
+    w_ponto = funcao_potencia_ponto(T1, a0, a1, a2)
+    H1_ponto = CP.PropsSI('H', 'T', T1, 'Q', 1, liq_ref)
+    H2_ponto = H1_ponto + w_ponto/m + a2*10**-3
     
     # Plot
     fig, ax = plt.subplots(figsize=(4, 8))
