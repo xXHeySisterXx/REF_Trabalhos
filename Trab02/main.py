@@ -32,50 +32,65 @@ resultados_inverno=[]
 
 #* Condições ideais:
 
-carnot_verao = carnot_temps_verao(TH=T_ext_verao, TL=T_interior, QL=Capacidade_necessaria_W, liq_ref=liq_ref)
-print("\nCondições Ideais Verão:\n", carnot_verao)
+carnot_verao = carnot_temps_verao(TH=T_ext_verao+5, TL=T_interior-5, QL=Capacidade_necessaria_W, liq_ref=liq_ref)
+# print("\nCondições Ideais Verão:\n", carnot_verao)
 # plot_ciclo(df_ciclo_ideal = carnot_verao["df_ciclo"],  liq_ref=liq_ref, descricao= "Ciclo para o extremo Verão")
 
-# carnot_inverno = carnot_temps_inverno(TH=T_interior, TL=T_ext_inverno, QH=Capacidade_necessaria_W, liq_ref=liq_ref) #todo verificar modificações dict, QH e m
+carnot_inverno = carnot_temps_inverno(TH=T_interior-5, TL=T_ext_inverno+5, QH=Capacidade_necessaria_W, liq_ref=liq_ref) #todo verificar modificações dict, QH e m
 # print("\nCondições Ideais Inverno:\n", carnot_inverno)
 # plot_ciclo(df_ciclo_ideal = carnot_inverno["df_ciclo"],  liq_ref=liq_ref, descricao="Ciclo para o extremo Inverno")
 
 
+carnot_verao['UA_externo'] = calc_UA(Q=carnot_verao['QH'], diff_temp=5) # W/K
+carnot_verao['UA_interno'] = calc_UA(Q=carnot_verao['QL'], diff_temp=5)
+
+carnot_inverno['UA_externo'] = calc_UA(Q=carnot_inverno['QH'], diff_temp=5)
+carnot_inverno['UA_interno'] = calc_UA(Q=carnot_inverno['QL'], diff_temp=5)
+
+
+
 carnot_verao.pop('df_ciclo')
 resultados_verao.append(carnot_verao)
+
+carnot_inverno.pop('df_ciclo')
+resultados_inverno.append(carnot_inverno)
 
 # #* Cálculo ciclos:
 # # for compressor in lista_compressores:
 compressor = "NJ7240F_19462BTU"
 
 real_dict_verao = funcao_padrao_real(Capacidade_necessaria_W, compressor, liq_ref, T_ext_verao+5, T_interior-5)
-print("\nCondições Reais Verão:\n", real_dict_verao)
-plot_ciclo(df_ciclo_real = real_dict_verao['df_ciclo'],  liq_ref=liq_ref, descricao="Ciclo real para o extremo Verão")
+# print("\nCondições Reais Verão:\n", real_dict_verao)
+# plot_ciclo(df_ciclo_real = real_dict_verao['df_ciclo'],  liq_ref=liq_ref, descricao="Ciclo real para o extremo Verão")
 
 
-# real_dict_inverno = funcao_padrao_real(Capacidade_necessaria_W, compressor, liq_ref, T_interior+5, T_ext_inverno-5)
+real_dict_inverno = funcao_padrao_real(Capacidade_necessaria_W, compressor, liq_ref, T_interior+5, T_ext_inverno-5)
 # print("\nCondições Ideais Verão:\n", real_dict_inverno)
 # plot_ciclo(df_ciclo_ideal = real_dict_inverno["df_ciclo"],  liq_ref=liq_ref, descricao="Ciclo real para o extremo Inverno")
 
 
 #* Cálculo UA:
-# real_dict_verao['UA_externo_verao'] = calc_UA(Q=real_dict_verao['QH'], diff_temp=5) # W/K
-# real_dict_verao['UA_interno_verao'] = calc_UA(Q=real_dict_verao['QL'], diff_temp=5)
+real_dict_verao['UA_externo'] = calc_UA(Q=real_dict_verao['QH'], diff_temp=5) # W/K
+real_dict_verao['UA_interno'] = calc_UA(Q=real_dict_verao['QL'], diff_temp=5)
 
-# UA_externo_inverno = calc_UA(Q=real_dict_inverno['QH'], diff_temp=5)
-# UA_interno_inverno = calc_UA(Q=real_dict_inverno['QL'], diff_temp=5)
+real_dict_inverno['UA_externo'] = calc_UA(Q=real_dict_inverno['QH'], diff_temp=5)
+real_dict_inverno['UA_interno'] = calc_UA(Q=real_dict_inverno['QL'], diff_temp=5)
 
 real_dict_verao.pop('df_ciclo')
 resultados_verao.append(real_dict_verao)
 
-# real_dict_inverno.pop('df_ciclo')
-# resultados_inverno.append(real_dict_verao)
+real_dict_inverno.pop('df_ciclo')
+resultados_inverno.append(real_dict_inverno)
+
+
 # return
 
 #* União dataframes
 
-compilado_compressores = pd.DataFrame(resultados_verao)
-print(compilado_compressores.head(10))
+compilado_compressores_verao = pd.DataFrame(resultados_verao)
+compilado_compressores_inverno = pd.DataFrame(resultados_inverno)
+
+print(compilado_compressores_inverno)
 
 #* Plot barras:
-plotar_comparacao_compressores(compilado_compressores, pasta_saida='Trab02/graficos_compressores')
+plotar_comparacao_compressores(compilado_compressores_verao, pasta_saida='Trab02/Graficos_compressores')

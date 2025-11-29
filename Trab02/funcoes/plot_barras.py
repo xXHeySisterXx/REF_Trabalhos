@@ -51,7 +51,15 @@ def plotar_comparacao_compressores(df, pasta_saida='graficos_compressores'):
         'w': {
             'titulo': 'Trabalho do Compressor',
             'ylabel': 'W [W]'
-        }
+        },
+        'UA_externo': {
+            'titulo': 'Coeficiente Global de Troca de Calor (UA)',
+            'ylabel': 'UA [W/K]'
+        },
+        'UA_interno': {
+            'titulo': 'Coeficiente Global de Troca de Calor (UA)',
+            'ylabel': 'UA [W/K]'
+        },
     }
     
     figsize = (10, 6)
