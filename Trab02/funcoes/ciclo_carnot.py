@@ -41,6 +41,7 @@ def carnot_temps_verao(TH, TL, QL, liq_ref):
         }, index=[1, 2, 3, 4] )
 
     carnot_dict={
+        "compressor": "Ideal",
         "COP": COP,
         "QL": QL,
         "QH": QH,
@@ -87,11 +88,12 @@ def carnot_temps_inverno(TH, TL, QH, liq_ref):
     m = QL/(H1-H4)
 
     carnot_dict={
+        "compressor": "Ideal",
         "COP": COP,
         "QL": QL,
         "QH": QH,
         "m": m,
-        "w": QL/COP,
+        "w": QH/COP,
         "df_ciclo": df_ciclo
     }
 

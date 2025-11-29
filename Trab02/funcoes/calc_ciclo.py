@@ -93,6 +93,7 @@ def funcao_padrao_real(QL, compressor, liq_ref, T3, T1):
         }, index=[1, 2, 3, 4] )
 
     real_dict={
+        "compressor": compressor,
         "COP": COP,
         "QL": QL,
         "QH": QH,

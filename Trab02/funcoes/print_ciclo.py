@@ -85,13 +85,13 @@ def plot_ciclo (liq_ref, df_ciclo_ideal=None, df_ciclo_real=None, df_ciclo_otimo
 
     fig.suptitle(f'{descricao}', fontsize=16)
     plt.tight_layout()
-    plt.show()
-#     PH.figure.savefig(
-#         f'Trab01\\programa\\Graficos\\ciclo_{descricao}',
-#         dpi=300,
-#         bbox_inches='tight',
-#         transparent=True,
-#         facecolor='white',
-# )
+    # plt.show()
+    PH.figure.savefig(
+        f'Trab02/Graficos_ciclo/ciclo_{descricao}',
+        dpi=300,
+        bbox_inches='tight',
+        transparent=True,
+        facecolor='white',
+    )
     return
 
