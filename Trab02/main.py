@@ -2,8 +2,10 @@ from funcoes.ciclo_carnot import *
 from funcoes.print_ciclo import *
 from funcoes.calc_ciclo import*
 
+from funcoes.calc_UA import*
+
 #* Conversões:
-BTU_to_W = 0.293
+BTU_to_W = 0.293 # ( BTU por Hora )
 C_to_K = 273
 
 
@@ -40,3 +42,13 @@ compressor = "NJ7240F_19462"
 real_dict = funcao_padrao_real(Capacidade_necessaria_W, compressor, liq_ref, T_ext_verao+5, T_interior-5)
 print("\nCondições Ideais Verão:\n", real_dict)
 plot_ciclo(df_ciclo_real = real_dict['df_ciclo'],  liq_ref=liq_ref, descricao="Ciclo para o extremo Verão")
+plot_ciclo(df_ciclo_ideal = carnot_verao["df_ciclo"],  liq_ref=liq_ref, descricao= "Ciclo para o extremo Verão")
+plot_ciclo(df_ciclo_ideal = carnot_inverno["df_ciclo"],  liq_ref=liq_ref, descricao="Ciclo para o extremo Inverno")
+
+
+#! Q que vai para o exterior, depende o ciclo
+UA_verao = calc_UA(Q=Q_ext_verao,
+        diff_temp=5)
+
+UA_inverno = calc_UA(Q=Q_ext_inverno,
+        diff_temp=5)
