@@ -138,13 +138,7 @@ def dataframe_compressor(compressor):
     return df_compressor
 
 def ajuste_curva_massa(T1, P1, P2, df_compressor):
-    """
-    T1 = Ts (sucção)
 
-    """
-
-
-    
     N = 60 # Hz
 
     def funcao_massa(T1, b0, b1, b2):
