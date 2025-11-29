@@ -24,17 +24,19 @@ NJ9232E_12240
 
 
 #* Condições ideais:
-# carnot_verao = carnot_temps_verao(TH=T_ext_verao, TL=T_interior, QL=Capacidade_necessaria_W, liq_ref=liq_ref)
-# carnot_inverno = carnot_temps_inverno(TH=T_interior, TL=T_ext_inverno, QH=Capacidade_necessaria_W, liq_ref=liq_ref)
 
-# print("\nCondições Ideais Verão:\n", carnot_verao)
-# print("\nCondições Ideais Inverno:\n", carnot_inverno)
+carnot_verao = carnot_temps_verao(TH=T_ext_verao, TL=T_interior, QL=Capacidade_necessaria_W, liq_ref=liq_ref)
+print("\nCondições Ideais Verão:\n", carnot_verao)
+plot_ciclo(df_ciclo_ideal = carnot_verao["df_ciclo"],  liq_ref=liq_ref, descricao= "Ciclo para o extremo Verão")
 
-# plot_ciclo(df_ciclo_ideal = carnot_verao["df_ciclo"],  liq_ref=liq_ref, descricao= "Ciclo para o extremo Verão")
-# plot_ciclo(df_ciclo_ideal = carnot_inverno["df_ciclo"],  liq_ref=liq_ref, descricao="Ciclo para o extremo Inverno")
+carnot_inverno = carnot_temps_inverno(TH=T_interior, TL=T_ext_inverno, QH=Capacidade_necessaria_W, liq_ref=liq_ref) #todo verificar modificações dict, QH e m
+print("\nCondições Ideais Inverno:\n", carnot_inverno)
+plot_ciclo(df_ciclo_ideal = carnot_inverno["df_ciclo"],  liq_ref=liq_ref, descricao="Ciclo para o extremo Inverno")
 
 #* Tratamento compressores:
 # lista_compressores=["NJ7240F_19462", "NJ9232E_12240", "NJ9232E_13949", "NJ9238E_15467"]
 # for compressor in lista_compressores:
 compressor = "NJ7240F_19462"
-funcao_padrao_real(Capacidade_necessaria_W, compressor, liq_ref, T_ext_verao+5, T_interior-5)
+real_dict = funcao_padrao_real(Capacidade_necessaria_W, compressor, liq_ref, T_ext_verao+5, T_interior-5)
+print("\nCondições Ideais Verão:\n", real_dict)
+plot_ciclo(df_ciclo_real = real_dict['df_ciclo'],  liq_ref=liq_ref, descricao="Ciclo para o extremo Verão")

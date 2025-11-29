@@ -27,6 +27,11 @@ def carnot_temps_verao(TH, TL, QL, liq_ref):
     P3=CP.PropsSI("P", "T", TH, "Q", 0, liq_ref)
     P4=CP.PropsSI("P", "T", TL, "S", S3, liq_ref)
 
+    QH = H2-H3
+
+    m = QL/(H1-H4)
+
+
     df_ciclo = pd.DataFrame({
         'Entrada': ['Compressor', 'Condensador', 'Capilar', 'Evaporador'],
         'T': [T1, T2, T3, T4],
@@ -35,13 +40,16 @@ def carnot_temps_verao(TH, TL, QL, liq_ref):
         'S': [S1, S2, S3, S4],
         }, index=[1, 2, 3, 4] )
 
-    carnot_temps_dict={
+    carnot_dict={
         "COP": COP,
+        "QL": QL,
+        "QH": QH,
+        "m": m,
         "w": QL/COP,
         "df_ciclo": df_ciclo
     }
 
-    return carnot_temps_dict
+    return carnot_dict
 
 def carnot_temps_inverno(TH, TL, QH, liq_ref):
 
@@ -75,10 +83,16 @@ def carnot_temps_inverno(TH, TL, QH, liq_ref):
         'S': [S1, S2, S3, S4],
         }, index=[1, 2, 3, 4] )
 
-    carnot_temps_dict={
+    QH = H2-H3
+    m = QL/(H1-H4)
+
+    carnot_dict={
         "COP": COP,
+        "QL": QL,
+        "QH": QH,
+        "m": m,
         "w": QL/COP,
         "df_ciclo": df_ciclo
     }
 
-    return carnot_temps_dict
+    return carnot_dict
