@@ -84,8 +84,9 @@ def carnot_temps_inverno(TH, TL, QH, liq_ref):
         'S': [S1, S2, S3, S4],
         }, index=[1, 2, 3, 4] )
 
-    QH = H2-H3
     m = QL/(H1-H4)
+    
+    QH =m*(H2-H3)
 
     carnot_dict={
         "compressor": "Ideal",

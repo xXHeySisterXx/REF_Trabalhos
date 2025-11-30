@@ -36,7 +36,7 @@ carnot_verao = carnot_temps_verao(TH=T_ext_verao+5, TL=T_interior-5, QL=Capacida
 # print("\nCondições Ideais Verão:\n", carnot_verao)
 # plot_ciclo(df_ciclo_ideal = carnot_verao["df_ciclo"],  liq_ref=liq_ref, descricao= "Ciclo para o extremo Verão")
 
-carnot_inverno = carnot_temps_inverno(TH=T_interior-5, TL=T_ext_inverno+5, QH=Capacidade_necessaria_W, liq_ref=liq_ref) #todo verificar modificações dict, QH e m
+carnot_inverno = carnot_temps_inverno(TH=T_interior+5, TL=T_ext_inverno-5, QH=Capacidade_necessaria_W, liq_ref=liq_ref) #todo verificar modificações dict, QH e m
 # print("\nCondições Ideais Inverno:\n", carnot_inverno)
 # plot_ciclo(df_ciclo_ideal = carnot_inverno["df_ciclo"],  liq_ref=liq_ref, descricao="Ciclo para o extremo Inverno")
 
