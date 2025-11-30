@@ -18,6 +18,8 @@ T_ext_verao = 35 + C_to_K # Temperatura externa no verao
 T_ext_inverno = 9 + C_to_K # Temperatura externa no inverno
 T_interior = 18 + C_to_K
 
+
+
 """
 Lista compressores:
 NJ7240F_19462
@@ -56,7 +58,7 @@ resultados_verao.append(carnot_verao)
 carnot_inverno.pop('df_ciclo')
 resultados_inverno.append(carnot_inverno)
 
-
+#! COP bomba de calor é diferente
 # #* Cálculo ciclos:
 for compressor in lista_compressores:
     # compressor = "NJ7240F_19462BTU"
@@ -93,8 +95,8 @@ for compressor in lista_compressores:
 compilado_compressores_verao = pd.DataFrame(resultados_verao)
 compilado_compressores_inverno = pd.DataFrame(resultados_inverno)
 
-print(compilado_compressores_verao)
-print(compilado_compressores_inverno)
+print("verao\n", compilado_compressores_verao)
+print("inverno:\n",compilado_compressores_inverno)
 
 #* Plot barras:
 plotar_comparacao_compressores(compilado_compressores_verao, pasta_saida='Trab02/Graficos_compressores_verao')
