@@ -27,10 +27,10 @@ def carnot_temps_verao(TH, TL, QL, liq_ref):
     P3=CP.PropsSI("P", "T", TH, "Q", 0, liq_ref)
     P4=CP.PropsSI("P", "T", TL, "S", S3, liq_ref)
 
-    QH = H2-H3
 
     m = QL/(H1-H4)
 
+    QH = m*(H2-H3)
 
     df_ciclo = pd.DataFrame({
         'Entrada': ['Compressor', 'Condensador', 'Capilar', 'Evaporador'],
