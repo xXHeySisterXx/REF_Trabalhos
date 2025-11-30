@@ -58,17 +58,16 @@ resultados_verao.append(carnot_verao)
 carnot_inverno.pop('df_ciclo')
 resultados_inverno.append(carnot_inverno)
 
-#! COP bomba de calor é diferente
 # #* Cálculo ciclos:
 for compressor in lista_compressores:
     # compressor = "NJ7240F_19462BTU"
     print(60*"=========",f"\n{compressor}")
-    real_dict_verao = funcao_padrao_real(Capacidade_necessaria_W, compressor, liq_ref, T_ext_verao+5, T_interior-5)
+    real_dict_verao = funcao_padrao_real(Capacidade_necessaria_W, compressor, liq_ref, T_ext_verao+5, T_interior-5, "verao")
     # print("\nCondições Reais Verão:\n", real_dict_verao)
     plot_ciclo(df_ciclo_real = real_dict_verao['df_ciclo'],  liq_ref=liq_ref, descricao=f"Ciclo real para o extremo Verão {compressor}")
 
 
-    real_dict_inverno = funcao_padrao_real(Capacidade_necessaria_W, compressor, liq_ref, T_interior+5, T_ext_inverno-5)
+    real_dict_inverno = funcao_padrao_real(Capacidade_necessaria_W, compressor, liq_ref, T_interior+5, T_ext_inverno-5, "inverno")
     # print("\nCondições Ideais Verão:\n", real_dict_inverno)
     plot_ciclo(df_ciclo_real = real_dict_inverno["df_ciclo"],  liq_ref=liq_ref, descricao=f"Ciclo real para o extremo Inverno {compressor}")
 

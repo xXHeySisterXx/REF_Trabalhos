@@ -54,7 +54,7 @@ def carnot_temps_verao(TH, TL, QL, liq_ref):
 
 def carnot_temps_inverno(TH, TL, QH, liq_ref):
 
-    COP = TL/(TH-TL)
+    COP = TH/(TH-TL)
     QL= COP*QH/(COP+1)
 
 

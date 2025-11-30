@@ -86,12 +86,20 @@ def plotar_comparacao_compressores(df, pasta_saida='graficos_compressores'):
         plt.ylabel(info['ylabel'], fontsize=11)
         plt.xlabel('Compressor', fontsize=11)
         
-        # Adicionar valores nas barras
-        for bar in bars:
-            height = bar.get_height()
-            plt.text(bar.get_x() + bar.get_width()/2., height,
-                    f'{height:.2f}',
-                    ha='center', va='bottom', fontsize=9)
+        
+        match coluna:
+            case "m":
+                for bar in bars:
+                    height = bar.get_height()
+                    plt.text(bar.get_x() + bar.get_width()/2., height,
+                            f'{height:.4f}',
+                            ha='center', va='bottom', fontsize=9)
+            case _:
+                for bar in bars:
+                    height = bar.get_height()
+                    plt.text(bar.get_x() + bar.get_width()/2., height,
+                            f'{height:.2f}',
+                            ha='center', va='bottom', fontsize=9)
         
         # Rotacionar labels do eixo x se necessário
         plt.xticks(rotation=45, ha='right')
