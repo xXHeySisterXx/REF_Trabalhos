@@ -53,7 +53,7 @@ def funcao_convergencia(df_compressor, T1, T3, liq_ref):
 
 
 
-def funcao_padrao_real(QL, compressor, liq_ref, T3, T1, estacao):
+def funcao_padrao_real(compressor, liq_ref, T3, T1, estacao):
 
     df_compressor = pd.read_csv(f'Trab02\Compressores\{compressor}.csv', header=0, sep=';')
     df_compressor["capacidade"] = df_compressor["capacidade"]*BTU_to_W
@@ -102,10 +102,10 @@ def funcao_padrao_real(QL, compressor, liq_ref, T3, T1, estacao):
     real_dict={
         "compressor": compressor,
         "COP": COP,
-        "QL": QL,
+        "QL": QL_calc,
         "QH": QH,
         "m": m,
-        "w": QL/COP,
+        "w": QL_calc/COP,
         "df_ciclo": df_ciclo_real
     }
 

@@ -62,12 +62,12 @@ resultados_inverno.append(carnot_inverno)
 for compressor in lista_compressores:
     # compressor = "NJ7240F_19462BTU"
     print(20*"=========",f"\n{compressor}")
-    real_dict_verao = funcao_padrao_real(Capacidade_necessaria_W, compressor, liq_ref, T_ext_verao+5, T_interior-5, "verao")
+    real_dict_verao = funcao_padrao_real(compressor, liq_ref, T_ext_verao+5, T_interior-5, "verao")
     # print("\nCondições Reais Verão:\n", real_dict_verao)
     plot_ciclo(df_ciclo_real = real_dict_verao['df_ciclo'],  liq_ref=liq_ref, descricao=f"Ciclo real para o extremo Verão {compressor}")
 
-
-    real_dict_inverno = funcao_padrao_real(Capacidade_necessaria_W, compressor, liq_ref, T_interior+5, T_ext_inverno-5, "inverno")
+    #! Errado:
+    real_dict_inverno = funcao_padrao_real(compressor, liq_ref, T_interior+5, T_ext_inverno-5, "inverno")
     # print("\nCondições Ideais Verão:\n", real_dict_inverno)
     plot_ciclo(df_ciclo_real = real_dict_inverno["df_ciclo"],  liq_ref=liq_ref, descricao=f"Ciclo real para o extremo Inverno {compressor}")
 
@@ -77,8 +77,6 @@ for compressor in lista_compressores:
     real_dict_verao['UA_externo'] = calc_UA(Q=real_dict_verao['QH'], diff_temp=5) # W/K
     real_dict_verao['UA_interno'] = calc_UA(Q=real_dict_verao['QL'], diff_temp=5)
 
-    real_dict_inverno['UA_externo'] = calc_UA(Q=real_dict_inverno['QH'], diff_temp=5)
-    real_dict_inverno['UA_interno'] = calc_UA(Q=real_dict_inverno['QL'], diff_temp=5)
 
 
 
