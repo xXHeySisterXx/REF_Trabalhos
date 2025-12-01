@@ -67,9 +67,9 @@ for compressor in lista_compressores:
     plot_ciclo(df_ciclo_real = real_dict_verao['df_ciclo'],  liq_ref=liq_ref, descricao=f"Ciclo real para o extremo Verão {compressor}")
 
     #! Errado:
-    real_dict_inverno = funcao_padrao_real(compressor, liq_ref, T_interior+5, T_ext_inverno-5, "inverno")
-    # print("\nCondições Ideais Verão:\n", real_dict_inverno)
-    plot_ciclo(df_ciclo_real = real_dict_inverno["df_ciclo"],  liq_ref=liq_ref, descricao=f"Ciclo real para o extremo Inverno {compressor}")
+    # real_dict_inverno = funcao_padrao_real(compressor, liq_ref, T_interior+5, T_ext_inverno-5, "inverno")
+    # # print("\nCondições Ideais Verão:\n", real_dict_inverno)
+    # plot_ciclo(df_ciclo_real = real_dict_inverno["df_ciclo"],  liq_ref=liq_ref, descricao=f"Ciclo real para o extremo Inverno {compressor}")
 
     # ? plot_ciclo(df_ciclo_real = real_dict_inverno["df_ciclo"], df_ciclo_ideal = carnot_inverno["df_ciclo"],  liq_ref=liq_ref, descricao="Comparação ciclos Inverno")
 
@@ -83,8 +83,8 @@ for compressor in lista_compressores:
     real_dict_verao.pop('df_ciclo')
     resultados_verao.append(real_dict_verao)
 
-    real_dict_inverno.pop('df_ciclo')
-    resultados_inverno.append(real_dict_inverno)
+    # real_dict_inverno.pop('df_ciclo')
+    # resultados_inverno.append(real_dict_inverno)
 
 
 #* União dataframes
