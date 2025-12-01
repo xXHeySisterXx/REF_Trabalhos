@@ -61,7 +61,7 @@ resultados_inverno.append(carnot_inverno)
 # #* Cálculo ciclos:
 for compressor in lista_compressores:
     # compressor = "NJ7240F_19462BTU"
-    print(60*"=========",f"\n{compressor}")
+    print(20*"=========",f"\n{compressor}")
     real_dict_verao = funcao_padrao_real(Capacidade_necessaria_W, compressor, liq_ref, T_ext_verao+5, T_interior-5, "verao")
     # print("\nCondições Reais Verão:\n", real_dict_verao)
     plot_ciclo(df_ciclo_real = real_dict_verao['df_ciclo'],  liq_ref=liq_ref, descricao=f"Ciclo real para o extremo Verão {compressor}")
@@ -93,6 +93,10 @@ for compressor in lista_compressores:
 
 compilado_compressores_verao = pd.DataFrame(resultados_verao)
 compilado_compressores_inverno = pd.DataFrame(resultados_inverno)
+
+compilado_compressores_verao.to_csv("compilado_compressores_verao.csv")
+compilado_compressores_inverno.to_csv("compilado_compressores_inverno.csv")
+
 
 print("verao\n", compilado_compressores_verao)
 print("inverno:\n",compilado_compressores_inverno)

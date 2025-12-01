@@ -37,11 +37,11 @@ def plotar_comparacao_compressores(df, pasta_saida='graficos_compressores'):
             'ylabel': 'COP [-]'
         },
         'QL': {
-            'titulo': 'Capacidade de Refrigeração',
+            'titulo': 'Capacidade de Refrigeração (QL)',
             'ylabel': 'QL [W]'
         },
         'QH': {
-            'titulo': 'Capacidade de Aquecimento',
+            'titulo': 'Capacidade de Aquecimento (QH)',
             'ylabel': 'QH [W]'
         },
         'm': {
@@ -53,16 +53,16 @@ def plotar_comparacao_compressores(df, pasta_saida='graficos_compressores'):
             'ylabel': 'W [W]'
         },
         'UA_externo': {
-            'titulo': 'Coeficiente Global de Troca de Calor (UA)',
+            'titulo': 'Coeficiente UA Externo',
             'ylabel': 'UA [W/K]'
         },
         'UA_interno': {
-            'titulo': 'Coeficiente Global de Troca de Calor (UA)',
+            'titulo': 'Coeficiente UA Interno',
             'ylabel': 'UA [W/K]'
         },
     }
     
-    figsize = (10, 6)
+    figsize = (2.5, 5)
     
     # Plotar gráfico para cada coluna (exceto 'compressor')
     for coluna in df.columns:
@@ -113,7 +113,7 @@ def plotar_comparacao_compressores(df, pasta_saida='graficos_compressores'):
         # Salvar figura
         nome_arquivo = f'{coluna}_comparacao.png'
         caminho_completo = os.path.join(pasta_saida, nome_arquivo)
-        plt.savefig(caminho_completo, dpi=300, bbox_inches='tight')
+        plt.savefig(caminho_completo, dpi=400, bbox_inches='tight')
         plt.close()
         
         print(f'Gráfico salvo: {caminho_completo}')
