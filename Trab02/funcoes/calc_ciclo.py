@@ -61,11 +61,8 @@ def funcao_padrao_real(compressor, liq_ref, T3, T1, estacao):
 
     QL_calc,m, w, H2, H3, S1, P1, P2 = funcao_convergencia(df_compressor, T1, T3, liq_ref)
 
-    try:
-        T2 = CP.PropsSI('T', 'H', H2, 'P', P2, liq_ref)
 
-    except:
-        T2=np.nan
+    T2 = CP.PropsSI('T', 'H', H2, 'P', P2, liq_ref)
 
     QH = QL_calc + w
 
