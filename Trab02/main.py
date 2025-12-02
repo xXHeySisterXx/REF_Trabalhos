@@ -2,6 +2,7 @@ from funcoes.ciclo_carnot import *
 from funcoes.print_ciclo import *
 from funcoes.calc_ciclo import*
 from funcoes.plot_barras import*
+from funcoes.calculo_com_UA import*
 import pandas as pd
 
 from funcoes.calc_UA import*
@@ -68,7 +69,7 @@ for compressor in lista_compressores:
 
     #! Errado:
     # real_dict_inverno = funcao_padrao_real(compressor, liq_ref, T_interior+5, T_ext_inverno-5, "inverno")
-    # # print("\nCondições Ideais Verão:\n", real_dict_inverno)
+    # # print("\nCondições Ideais inverno:\n", real_dict_inverno)
     # plot_ciclo(df_ciclo_real = real_dict_inverno["df_ciclo"],  liq_ref=liq_ref, descricao=f"Ciclo real para o extremo Inverno {compressor}")
 
     # ? plot_ciclo(df_ciclo_real = real_dict_inverno["df_ciclo"], df_ciclo_ideal = carnot_inverno["df_ciclo"],  liq_ref=liq_ref, descricao="Comparação ciclos Inverno")
@@ -83,11 +84,20 @@ for compressor in lista_compressores:
     real_dict_verao.pop('df_ciclo')
     resultados_verao.append(real_dict_verao)
 
+    
+
     # real_dict_inverno.pop('df_ciclo')
     # resultados_inverno.append(real_dict_inverno)
 
 
 #* União dataframes
+
+real_dict_inverno = calc_inverno(liq_ref)
+print("\nCondições Ideais inverno:\n", real_dict_inverno)
+plot_ciclo(df_ciclo_real = real_dict_inverno["df_ciclo"],  liq_ref=liq_ref, descricao=f"Ciclo real para o extremo Inverno NJ9238E_15467BTU")
+
+real_dict_inverno.pop('df_ciclo')
+resultados_inverno.append(real_dict_inverno)
 
 compilado_compressores_verao = pd.DataFrame(resultados_verao)
 compilado_compressores_inverno = pd.DataFrame(resultados_inverno)
