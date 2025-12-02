@@ -144,7 +144,7 @@ def calc_inverno(liq_ref):
     w = 1667.3531
     QL_calc = Q_evap
     QH = Q_cond
-
+    
     # PropriedadeS noS eStadoS
     # EStado 1: Saída do evaporador / Entrada do compreSSor (vapor Saturado)
     T1 = T_evap + 273
@@ -160,13 +160,14 @@ def calc_inverno(liq_ref):
     H3 = CP.PropsSI('H', 'T', T3, 'Q', 0, liq_ref)
     S3 = CP.PropsSI('S', 'T', T3, 'Q', 0, liq_ref)
 
+    H2 = H1+w/m
+
     P2 = P3
-    H2 = CP.PropsSI('H', 'P', P2, 'S', S1, liq_ref)
-    T2 = CP.PropsSI('T', 'P', P2, 'S', S1, liq_ref)
-    S2 = S1
+    S2 = CP.PropsSI('S', 'P', P2, 'H', H2, liq_ref)
+    T2 = CP.PropsSI('T', 'P', P2, 'H', H2, liq_ref)
     
     # EStado 4: Saída do capilar / Entrada do evaporador (expanSão iSentálpica)
-    T4 = T_evap + 273
+    T4 = T1
     P4 = P1
     H4 = H3  # ExpanSão iSentálpica
     S4 = S3
@@ -192,3 +193,5 @@ def calc_inverno(liq_ref):
 
 
     return real_dict
+
+# calc_inverno("R22")
